@@ -1,0 +1,53 @@
+{
+    "attackers":
+    [
+        {
+            "numeral": "I",
+            "name": "Attacker #1",
+            "weight": 1,
+            "categories":
+            [
+                {
+                    "numeral": "A",
+                    "name": "Category #1",
+                    "weight": 2,
+                    "subcategories":
+                    [
+                        {
+                            "numeral": "1",
+                            "type": "Quality",
+                            "weight": 8,
+                            "criteria":
+                            [
+                                {
+                                    "numeral": "a",
+                                    "weight": 5,
+                                    "description": "Criteria #1"
+                                },
+                                {
+
+                                    "numeral": "b",
+                                    "weight": 5,
+                                    "description": "Criteria #2"
+                                }
+                            ]
+                        },
+                        {
+                            "numeral": "2",
+                            "type": "Feedback",
+                            "weight": 6,
+                            "criteria":
+                            [
+                                {
+                                    "numeral": "a",
+                                    "weight": 7,
+                                    "description": "Criteria #1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

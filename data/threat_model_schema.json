@@ -1,0 +1,143 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "OBPP Wallet Privacy Threat Model, 2nd Edition",
+    "description": "The threat model and assigned weights for criteria used to evaluate wallet clients",
+    "type": "object",
+    "properties":
+    {
+        "attackers":
+        {
+            "description": "A list of attackers in the threat model",
+            "type": "array",
+            "items":
+            {
+                "type": "object",
+                "required": ["numeral", "name","weight"],
+                "properties":
+                {
+                    "numeral":
+                    {
+                        "description": "Unique uppercase Roman numeral that identifies this attacker, such as 'I'",
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"
+                    },
+                    "name":
+                    {
+                        "description": "Unique name for this attacker, such as 'Blockchain Observer'",
+                        "type": "string"
+                    },
+                    "weight":
+                    {
+                        "description": "Weight assigned to attacker compared to other attackers.",
+                        "type": "integer",
+                        "minimum": 0
+                    },
+                    "categories":
+                    {
+                        "description": "Privacy feature categories, such as 'Receiving address management'",
+                        "type": "array",
+                        "items":
+                        {
+                            "type": "object",
+                            "required": ["numeral", "name","weight"],
+                            "properties":
+                            {
+                                "numeral":
+                                {
+                                    "description": "Unique uppercase letter or letters that identifies this category, such as 'A'",
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "pattern": "^[A-Z]+$"
+                                },
+                                "name":
+                                {
+                                    "description": "Unique name for this category, such as 'Receiving address management'",
+                                    "type": "string"
+                                },
+                                "weight":
+                                {
+                                    "description": "Weight assigned to this category compared to other categories under this particular attacker.",
+                                    "type": "integer",
+                                    "minimum": 0
+                                },
+                                "subcategories":
+                                {
+                                    "description": "A privacy feature subcategory: Quality, Usability or Feedback",
+                                    "type": "array",
+                                    "items":
+                                    {
+                                        "type": "object",
+                                        "required": ["numeral", "type","weight"],
+                                        "properties":
+                                        {
+                                            "numeral":
+                                            {
+                                                "description": "Unique number that identifies this subcategory, such as '1'",
+                                                "type": "string",
+                                                "pattern": "^[1-9][0-9]*$"
+                                            },
+                                            "type":
+                                            {
+                                                "description": "Quality, Usability, or Feedback",
+                                                "type": "string",
+                                                "pattern": "^(Quality|Usability|Feedback)$"
+                                            },
+                                            "weight":
+                                            {
+                                                "description": "Weight assigned to this subcategory compared to other subcategories under this particular category.",
+                                                "type": "integer",
+                                                "minimum": 0
+                                            },
+                                            "criteria":
+                                            {
+                                                "description": "A measurement of how well a wallet applies a particular countermeasure against an attack",
+                                                "type": "array",
+                                                "items":
+                                                {
+                                                    "type": "object",
+                                                    "required": ["numeral", "weight","description"],
+                                                    "properties":
+                                                    {
+                                                        "numeral":
+                                                        {
+                                                            "description": "Unique lowercase letter or letters that identifies this category, such as 'a'",
+                                                            "type": "string",
+                                                            "minLength": 1,
+                                                            "pattern": "^[a-z]+$"
+                                                        },
+                                                        "weight":
+                                                        {
+                                                            "description": "Weight assigned to this criterion compared to other criteria under this particular subcategory.",
+                                                            "type": "integer",
+                                                            "minimum": 0
+                                                        },
+                                                        "description":
+                                                        {
+                                                            "description": "Summary of the criterion",
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "minItems": 1,
+                                                "uniqueItems": true
+                                            }
+
+                                        }
+                                    },
+                                    "minItems": 1,
+                                    "uniqueItems": true
+                                }
+                            }
+                        },
+                        "minItems": 1,
+                        "uniqueItems": true
+                    }
+                }
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "required": ["attackers"]
+}
