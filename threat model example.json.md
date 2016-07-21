@@ -5,17 +5,17 @@ This is a silly example of a threat model for enemy attacks on a game character.
 
 Attackers | Attacks | Countermeasures | Criteria
 --- | --- | --- | ---
-Ninja | Punch | Block attacks | Evades attacks completely
-    |     |     | Crosses arms in front of body when attacked
-    |     |     | Assumes fetal position when attacked
-    |     | Counter-punch | Throws uppercut when punched at
-    |     |     | Throws right hook when punched at
-    |     | Teleport | Magically relocates five feet when attacked
-    |     |     | Evades attacks completely
+Ninja | Punch | Block attacks | NINJAGHOSTV1-CR1
+    |     |     | NINJAGHOSTV1-CR2
+    |     |     | NINJAGHOSTV1-CR3
+    |     | Counter-punch | NINJAGHOSTV1-CR4
+    |     |     | NINJAGHOSTV1-CR5
+    |     | Teleport | NINJAGHOSTV1-CR6
+    |     |     | NINJAGHOSTV1-CR1
     | Criticize |     |    
-Ghost | Make scary noises | Assume defensive posture | Wears earplugs
-    |     |     | Assumes fetal position when attacked
-    | Drop an anvil | Assume defensive posture | Crosses arms in front of body when attacked
+Ghost | Make scary noises | Assume defensive posture | NINJAGHOSTV1-CR7
+    |     |     | NINJAGHOSTV1-CR3
+    | Drop an anvil | Assume defensive posture | NINJAGHOSTV1-CR2
 
 ## Countermeasures list
 

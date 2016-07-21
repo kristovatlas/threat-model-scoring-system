@@ -5,7 +5,6 @@ Examples:
 
 Todos:
     * Unit tests
-    * Write the app...
 """
 
 import json
@@ -119,8 +118,8 @@ def _get_table_body_criteria_group_recurse(threat_model, criteria_group,
     if 'criteria' in criteria_group:
         for criterion in criteria_group['criteria']:
             criterion_text = criterion['id']
-            if 'description' in criterion:
-                criterion_text = criterion['description']
+            #if 'description' in criterion:
+            #    criterion_text = criterion['description']
             dprint("criterion_text=%s" % criterion_text)
             num_rows_printed += 1
             body += get_one_row(
