@@ -123,6 +123,11 @@
                         "description": "A human-readable description of this countermeasure.",
                         "type": "string",
                         "minLength": 1
+                    },
+                    "comment": {
+                        "description": "An optional, human-readable string explaining more about this countermeasure.",
+                        "type": "string",
+                        "minLength": 1
                     }
                 }
             }
@@ -143,6 +148,11 @@
                     },
                     "description": {
                         "description": "A human-readable description of this criterion.",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "comment": {
+                        "description": "An optional, human-readable string explaining more about this criterion.",
                         "type": "string",
                         "minLength": 1
                     }
