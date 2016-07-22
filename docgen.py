@@ -142,21 +142,29 @@ def _get_table_body_criteria_group_recurse(threat_model, criteria_group,
 def get_countermeasures_list(threat_model):
     """Returns GFM string representing the list of countermeasures."""
     counterm_section = ("## Countermeasures list\n\n"
-                        "ID | Description\n"
-                        "--- | ---\n")
+                        "ID | Description | Comment\n"
+                        "--- | --- | ---\n")
     for counterm in threat_model['countermeasures']:
-        counterm_section += ("%s | %s\n" %
-                             (counterm['id'], counterm['description']))
+        comment = ''
+        if 'comment' in counterm:
+            comment = counterm['comment']
+        counterm_section += ("%s | %s | %s\n" % (counterm['id'],
+                                                 counterm['description'],
+                                                 comment))
     return counterm_section
 
 def get_criteria_list(threat_model):
     """Returns GFM string representing the list of criteria."""
     criteria_section = ("## Criteria list\n\n"
-                        "ID | Description\n"
-                        "--- | ---\n")
+                        "ID | Description | Comment\n"
+                        "--- | --- | ---\n")
     for criterion in threat_model['criteria']:
-        criteria_section += ("%s | %s\n" %
-                             (criterion['id'], criterion['description']))
+        comment = ''
+        if 'comment' in criterion:
+            comment = criterion['comment']
+        criteria_section += ("%s | %s | %s\n" % (criterion['id'],
+                                                 criterion['description'],
+                                                 comment))
     return criteria_section
 
 def get_one_row(attacker_name=None, attack_name=None, countermeasure_text=None,
