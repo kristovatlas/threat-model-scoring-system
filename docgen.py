@@ -59,7 +59,7 @@ def _get_table_body(threat_model):
         attacker_name = attacker['name']
         dprint("attacker_name = %s" % attacker_name)
 
-        if 'attacks' not in attacker:
+        if _empty(attacker, 'attacks'):
             table_body += get_one_row(attacker_name)
             continue
 
@@ -68,7 +68,7 @@ def _get_table_body(threat_model):
 
             dprint("attack_name = %s" % attack_name)
 
-            if 'countermeasures' not in attack:
+            if _empty(attack, 'countermeasures'):
                 table_body += get_one_row(attacker_name, attack_name)
                 attacker_name = None #display name only one row per attacker
                 continue
@@ -80,7 +80,7 @@ def _get_table_body(threat_model):
 
                 dprint("countermeasure_text = %s" % countermeasure_text)
 
-                if 'criteria-groups' not in countermeasure:
+                if _empty(countermeasure, 'criteria-groups'):
                     table_body += get_one_row(
                         attacker_name, attack_name, countermeasure_text)
                     attacker_name = None #display name only one row per attacker
@@ -109,8 +109,9 @@ def _get_table_body_criteria_group_recurse(threat_model, criteria_group,
            (str(criteria_group), attacker_name, attack_name,
             countermeasure_text, num_rows_printed))
 
-    if ('criteria' not in criteria_group and
-            'criteria-groups' not in criteria_group and num_rows_printed == 0):
+    if (_empty(criteria_group, 'criteria') and
+            _empty(criteria_group, 'criteria-groups') and
+            num_rows_printed == 0):
         #no actual criteria to be found under this countermeasure, so just
         #print everything else.
         return get_one_row(attacker_name, attack_name, countermeasure_text)
@@ -225,6 +226,10 @@ def dprint(data):
     """Print debug data, if enabled."""
     if DEBUG_PRINT:
         print "DEBUG: %s" % str(data)
+
+def _empty(dict_parent, array_child_name):
+    return (array_child_name not in dict_parent or
+            len(dict_parent[array_child_name]) == 0)
 
 if __name__ == '__main__':
     _main()
