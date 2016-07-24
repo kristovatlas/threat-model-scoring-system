@@ -1,4 +1,5 @@
 {
+    "name": "Ninja-Ghost V1 Threat Model",
     "description": "Ninja-Ghost V1 Threat Model: A silly example of a threat model for enemy attacks on a game character.",
     "attackers": [
         {
