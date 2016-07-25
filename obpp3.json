@@ -1851,7 +1851,8 @@
         },
         {
             "id": "OBPPV3-CR04",
-            "description": "Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely"
+            "description": "Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely",
+            "comment": "This is separate from the scenario in which a user accidentally reuses a non-ECDH receiving address as a result of a failure of criterion OBPP-CR03"
         },
         {
             "id": "OBPPV3-CR05",
