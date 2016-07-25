@@ -2050,27 +2050,33 @@
         },
         {
             "id": "OBPPV3-CR54",
-            "description": "Number of clicks needed to permanently and completely erase the wallet from a device"
+            "description": "Number of clicks needed to permanently and completely erase the wallet from a device",
+            "comment": "Wallet data is considered erased if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges"
         },
         {
             "id": "OBPPV3-CR55",
-            "description": "Number of clicks needed to permanently and completely remove the wallet application from a device"
+            "description": "Number of clicks needed to permanently and completely remove the wallet application from a device",
+            "comment": "The wallet application is considered removed if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges"
         },
         {
             "id": "OBPPV3-CR56",
-            "description": "Wallet data can be remotely deleted by the user in the event the device containing the wallet is lost or stolen"
+            "description": "Wallet data can be remotely deleted by the user in the event the device containing the wallet is lost or stolen",
+            "comment": "Wallet data is considered deleted if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges"
         },
         {
             "id": "OBPPV3-CR57",
-            "description": "The wallet application is difficult to detect as being installed unless the user performs a series of actions unlikely to be duplicated by an unauthorized user"
+            "description": "The wallet application is difficult to detect as being installed unless the user performs a series of actions unlikely to be duplicated by an unauthorized user",
+            "comment": "The wallet client is considered difficult to detect if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges"
         },
         {
             "id": "OBPPV3-CR58",
-            "description": "The wallet application removal process eliminates all evidence that a wallet was previously installed"
+            "description": "The wallet application removal process eliminates all evidence that a wallet was previously installed",
+            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges"
         },
         {
             "id": "OBPPV3-CR59",
-            "description": "The wallet deletion process eliminates all evidence that a wallet was previously installed"
+            "description": "The wallet deletion process eliminates all evidence that a wallet was previously installed",
+            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges"
         },
         {
             "id": "OBPPV3-CR60",
