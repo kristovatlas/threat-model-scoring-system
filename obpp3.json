@@ -1868,7 +1868,8 @@
         },
         {
             "id": "OBPPV3-CR08",
-            "description": "Preemptively indicates a loss of privacy when user elects to reuse change addresses as receiving addresses, or prohibits this operation entirely"
+            "description": "Preemptively indicates a loss of privacy when user elects to reuse change addresses as receiving addresses, or prohibits this operation entirely",
+            "comment": "A wallet client may pass OBPPV3-CR07 but fail OBPPV3-CR08 by not warning a user when a change address is selected for reuse outside of the normal Receive workflow"
         },
         {
             "id": "OBPPV3-CR09",
