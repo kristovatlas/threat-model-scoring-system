@@ -1847,7 +1847,8 @@
         },
         {
             "id": "OBPPV3-CR03",
-            "description": "Non-ECDH receiving addresses are hidden from the default view once they have been used"
+            "description": "Non-ECDH receiving addresses are hidden from default Receive worflow screens once they have been used",
+            "comment": "If the wallet client hides used non-ECDH addresses from view by default but allows the user to expose them in default Receive workflow screens e.g. via an 'Unhide' button, it will fail this criterion"
         },
         {
             "id": "OBPPV3-CR04",
