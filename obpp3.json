@@ -1169,7 +1169,7 @@
                                         {
                                             "numeral": "c",
                                             "id": "OBPPV3-CR58",
-                                            "description": "The wallet application removal process eliminates all evidence that a wallet was previously installed",
+                                            "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
                                             "effectiveness": 0
                                         },
                                         {
@@ -2077,8 +2077,8 @@
         },
         {
             "id": "OBPPV3-CR58",
-            "description": "The wallet application removal process eliminates all evidence that a wallet was previously installed",
-            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges"
+            "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
+            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges. This does not include non-standard accounts, such as admin accounts unlocked via rooted methods on mobile devices"
         },
         {
             "id": "OBPPV3-CR59",
