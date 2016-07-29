@@ -546,6 +546,15 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "numeral": "2",
+                            "id": "OBPPV3-CM61",
+                            "description": "Perform multiple queries for blockchain data in a way that makes it difficult to correlate the queries with one another",
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                
+                            ]
                         }
                     ]
                 },
@@ -1834,6 +1843,10 @@
         {
             "id": "OBPPV3-CM60",
             "description": "Create wallets that are easily usable on operating systems with built-in Tor support"
+        },
+        {
+            "id": "OBPPV3-CM61",
+            "description": "Perform multiple queries for blockchain data in a way that makes it difficult to correlate the queries with one another"
         }
     ],
     "criteria": [
