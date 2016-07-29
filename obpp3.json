@@ -511,39 +511,6 @@
                                             "effectiveness": 1.0
                                         }
                                     ]
-                                },
-                                {
-                                    "criteria": [
-                                        {
-                                            "numeral": "b",
-                                            "id": "OBPPV3-CR26",
-                                            "description": "Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context",
-                                            "effectiveness": 0
-                                        },
-                                        {
-                                            "numeral": "c",
-                                            "id": "OBPPV3-CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
-                                            "effectiveness": 0
-                                        }
-                                    ]
-                                },
-                                {
-                                    "criteria": [
-                                        {
-                                            "numeral": "d",
-                                            "id": "OBPPV3-CR27",
-                                            "description": "Balance information is obtained via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
-                                            "effectiveness": 1.0,
-                                            "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
-                                        },
-                                        {
-                                            "numeral": "e",
-                                            "id": "OBPPV3-CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
-                                            "effectiveness": 0
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -553,7 +520,39 @@
                             "description": "Perform multiple queries for blockchain data in a way that makes it difficult to correlate the queries with one another",
                             "effectiveness": 0,
                             "criteria-groups": [
-                                
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3-CR26",
+                                            "description": "Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3-CR33",
+                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3-CR27",
+                                            "description": "Balance information is obtained via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+                                            "effectiveness": 1.0,
+                                            "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3-CR33",
+                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
                             ]
                         }
                     ]
