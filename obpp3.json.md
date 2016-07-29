@@ -109,8 +109,7 @@ Wallet provider | Link addresses to a user by observing their backup files | Use
 Meta attacks | Users may reuse non-ECDH addresses due to the fear of losing funds if avoiding reuse increases the risk that wallet backups will become unexpectedly invalid | Use eternal backups | OBPPV3-CR61
     |     |     | OBPPV3-CR62
     |     | Proactively inform users when backups require an update | OBPPV3-CR64
-    | Users may avoid mixing if mixing services can steal funds | Use mixing methods that do not allow for theft of funds | OBPPV3-CR19
-    |     |     | OBPPV3-CR49
+    | Users may avoid mixing if mixing services can steal funds | Use mixing methods that do not allow for theft of funds | OBPPV3-CR49
     | Users may reuse non-ECDH addresses due to the overhead involved with communicating unique deposit addresses to senders | Use deposit addresses derived from a constant seed using ECDH (e.g. stealth addresses) | OBPPV3-CR02
     |     |     | OBPPV3-CR14
     | Users may opt not to use privacy networks because of the difficulty of configuring their wallet client to transmit traffic through them | Create wallets that are easily usable on operating systems with built-in Tor support | OBPPV3-CR40

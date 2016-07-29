@@ -1505,12 +1505,6 @@
                                     "criteria": [
                                         {
                                             "numeral": "a",
-                                            "id": "OBPPV3-CR19",
-                                            "description": "Average number of other users whose funds are mixed with the client user's when sending through a mixing process",
-                                            "effectiveness": 0
-                                        },
-                                        {
-                                            "numeral": "b",
                                             "id": "OBPPV3-CR49",
                                             "description": "Mixing is secure against theft of funds",
                                             "effectiveness": 1
