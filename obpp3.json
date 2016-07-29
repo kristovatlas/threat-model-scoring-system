@@ -1311,7 +1311,27 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3-CR65",
-                                            "description": "The wallet functions without requiring the user to supply personally identifying information",
+                                            "description": "The wallet functions without requiring the user to supply Class I, Class II, or Class III personally identifying information (PII)",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3-CR72",
+                                            "description": "The wallet functions without requiring the user to supply Class I or Class II personally identifying information (PII) such as a SSN or verified email address",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3-CR73",
+                                            "description": "The wallet functions without requiring the user to supply Class I personally identifying information (PII) such as a SSN",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2108,7 +2128,8 @@
         },
         {
             "id": "OBPPV3-CR65",
-            "description": "The wallet functions without requiring the user to supply personally identifying information"
+            "description": "The wallet functions without requiring the user to supply Class I, Class II, or Class III personally identifying information (PII)",
+            "comments": "Class I: Highly sensitive, validated information: SSN, National Identification Number, Verified Full Name, Verified Mailing Address of Residence or Business, Passport number, vehicle registration number, driver's license number, biometric data, verified credit card number, verified SMS number with common free virtual SMS numbers blocked (any of first 5 tries blocked). Class II: For most users, directly tied to their personhood, but can be created ephemeral easily: verified email address, date of birth, birthplace, verified SMS number without common free virtual SMS numbers blocked. Class III: For most users, directly tied to their personhood, but can be lied about easily: unverified email address, unverified zip/postal code, unverified gender, unverified race"
         },
         {
             "id": "OBPPV3-CR66",
@@ -2133,6 +2154,14 @@
         {
             "id": "OBPPV3-CR71",
             "description": "A user can produce a compiled version of the application from the public source code that exactly matches the version distributed by the wallet provider"
+        },
+        {
+            "id": "OBPPV3-CR72",
+            "description": "The wallet functions without requiring the user to supply Class I or Class II personally identifying information (PII) such as a SSN or verified email address"
+        },
+        {
+            "id": "OBPPV3-CR73",
+            "description": "The wallet functions without requiring the user to supply Class I personally identifying information (PII) such as a SSN"
         }
     ],
     "criteria-categories": [
