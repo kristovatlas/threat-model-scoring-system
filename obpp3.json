@@ -507,7 +507,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3-CR25",
-                                            "description": "Balance information is obtained without making queries to other network participants",
+                                            "description": "Balance information is obtained from a local copy of the blockchain",
                                             "effectiveness": 1.0
                                         }
                                     ]
@@ -1938,7 +1938,7 @@
         },
         {
             "id": "OBPPV3-CR25",
-            "description": "Balance information is obtained without making queries to other network participants"
+            "description": "Balance information is obtained from a local copy of the blockchain"
         },
         {
             "id": "OBPPV3-CR26",
