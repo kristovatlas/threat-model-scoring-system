@@ -5,7 +5,7 @@ This document outlines the OBPP threat model for Bitcoin wallet clients protecti
 
 Attackers | Attacks | Countermeasures | Criteria
 --- | --- | --- | ---
-Blockchain observer | Link transactions to a single entity based on all of them containing inputs with a common address | Avoid reuse of non-ECDH addresses | OBPPV3-CR01
+Blockchain observer | Link transactions to a single entity based on all of them containing inputs with a common address | Avoid reuse of identifiable script elements | OBPPV3-CR01
     |     |     | OBPPV3-CR02
     |     |     | OBPPV3-CR03
     |     |     | OBPPV3-CR04
@@ -17,7 +17,7 @@ Blockchain observer | Link transactions to a single entity based on all of them 
     | Link outputs in a transaction to a single entity by detecting which output is a change output | Randomize the position of the change output(s) in the output list | OBPPV3-CR10
     |     | Select inputs such that the amount of change in the transaction is close to the size of the desired spend |    
     |     | Use multiple change outputs, and intentionally set the value of some outputs to values that resemble plausible spends |    
-    |     | Avoid reuse of non-ECDH addresses | OBPPV3-CR01
+    |     | Avoid reuse of identifiable script elements | OBPPV3-CR01
     |     |     | OBPPV3-CR02
     |     |     | OBPPV3-CR03
     |     |     | OBPPV3-CR04
@@ -120,7 +120,7 @@ Meta attacks | Users may reuse non-ECDH addresses due to the fear of losing fund
 
 ID | Description | Comment
 --- | --- | ---
-OBPPV3-CM01 | Avoid reuse of non-ECDH addresses | 
+OBPPV3-CM01 | Avoid reuse of identifiable script elements | This is a generalization of the idea of avoiding address reuse. Identifiable script elements include: public keys in OP_CHECKMULTISIG scripts, P2PKH addresses, P2SH addresses, etc.
 OBPPV3-CM02 | Randomize the position of the change output(s) in the output list | 
 OBPPV3-CM03 | Select inputs such that the amount of change in the transaction is close to the size of the desired spend | 
 OBPPV3-CM04 | Use multiple change outputs, and intentionally set the value of some outputs to values that resemble plausible spends | 

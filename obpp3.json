@@ -15,7 +15,7 @@
                         {
                             "numeral": "1",
                             "id": "OBPPV3-CM01",
-                            "description": "Avoid reuse of non-ECDH addresses",
+                            "description": "Avoid reuse of identifiable script elements",
                             "effectiveness": 0,
                             "criteria-groups": [
                                 {
@@ -120,7 +120,7 @@
                         {
                             "numeral": "4",
                             "id": "OBPPV3-CM01",
-                            "description": "Avoid reuse of non-ECDH addresses",
+                            "description": "Avoid reuse of identifiable script elements",
                             "effectiveness": 0,
                             "criteria-groups": [
                                 {
@@ -1599,7 +1599,8 @@
     "countermeasures": [
         {
             "id": "OBPPV3-CM01",
-            "description": "Avoid reuse of non-ECDH addresses"
+            "description": "Avoid reuse of identifiable script elements",
+            "comment": "This is a generalization of the idea of avoiding address reuse. Identifiable script elements include: public keys in OP_CHECKMULTISIG scripts, P2PKH addresses, P2SH addresses, etc."
         },
         {
             "id": "OBPPV3-CM02",
