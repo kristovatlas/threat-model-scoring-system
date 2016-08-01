@@ -184,75 +184,75 @@ OBPPV3/CM61 | Perform multiple queries for blockchain data in a way that makes i
 
 ## Criteria list
 
-ID | Description | Comment
---- | --- | ---
-OBPPV3/CR01 | Number of clicks required to deviate from the default receiving functionality and generate a new non-ECDH receiving address for an existing wallet | 
-OBPPV3/CR02 | Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page | 
-OBPPV3/CR03 | Non-ECDH receiving addresses are hidden from the default Receive worflow screens once they have been used | If the wallet client hides used non-ECDH addresses from view by default but allows the user to expose them in default Receive workflow screens e.g. via an 'Unhide' button, it will fail this criterion
-OBPPV3/CR04 | Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely | This is separate from the scenario in which a user accidentally reuses a non-ECDH receiving address as a result of a failure of criterion OBPP-CR03
-OBPPV3/CR05 | Number of clicks required to deviate from the default change functionality and receive change at a newly generated address | 
-OBPPV3/CR06 | Produces P2SH change addresses when one or more of the spend outputs in a transaction is P2SH | 
-OBPPV3/CR07 | Change addresses are hidden from the normal receiving workflow by default to discourage using them as receiving addresses | 
-OBPPV3/CR08 | Preemptively indicates a loss of privacy when user elects to reuse change addresses as receiving addresses, or prohibits this operation entirely | A wallet client may pass OBPPV3/CR07 but fail OBPPV3/CR08 by not warning a user when a change address is selected for reuse outside of the normal Receive workflow
-OBPPV3/CR09 | When an outgoing transaction must merge inputs, and when mixing is not being used, the transaction constructed in a way that plausibly resembles a mixing transaction | 
-OBPPV3/CR10 | Inputs and outputs are ordered in a deterministic manner based on criteria other than the status of outputs as spends or change (BIP 69) | 
-OBPPV3/CR11 | Order inputs and outputs via a methodology common to multiple wallets | 
-OBPPV3/CR12 | When an input is selected which is part of a set of unspent outputs containing identical scripts (multiple deposits to a single address), every output in the set is added to the transaction | 
-OBPPV3/CR13 | All transactions created by the wallet are compliant with BIP 62 | 
-OBPPV3/CR14 | Allows the user to send to ECDH addresses (BIP 63 or BIP 47) | 
-OBPPV3/CR15 | Outside of a mixing transaction, preemptively indicates a loss of privacy when merging inputs from different addresses in the same transaction | 
-OBPPV3/CR16 | Warns user when sending to a non-ECDH address that the user has sent to before | 
-OBPPV3/CR17 | Warns user when sending to a non-ECDH address that has received deposits from any source | 
-OBPPV3/CR18 | Number of clicks required by user for inputs/outputs to be mixed with one or more other users | 
-OBPPV3/CR19 | Average number of other users whose funds are mixed with the client user's when sending through a mixing process | 
-OBPPV3/CR20 | Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions | 
-OBPPV3/CR21 | Warns the user when a proposed mix is easy to reverse | 
-OBPPV3/CR22 | Number of clicks to opt out of creating recurring transactions, such as for donations to the wallet provider | 
-OBPPV3/CR23 | Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address | 
-OBPPV3/CR24 | Number of clicks required by user to to obtain balance information without leaking their machine identity over the network | 
-OBPPV3/CR25 | Balance information is obtained from a local copy of the blockchain | 
-OBPPV3/CR26 | Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context | 
-OBPPV3/CR27 | Balance information is obtained via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet | 
-OBPPV3/CR28 | If balance information is obtained via querying more than one address in a given query, a separate connection context is used for each unique query | 
-OBPPV3/CR29 | Provides a visual indication if the balance information is not being obtained through an anonymizing network, including IP address information | 
-OBPPV3/CR30 | Number of clicks required by user to route outgoing transactions through an anonymizing network | 
-OBPPV3/CR31 | Outgoing transactions are routed through a different entry point into the network than the source of balance information | 
-OBPPV3/CR32 | Client provides a visual indication if outgoing transactions are not being routed through an anonymizing network, including IP address information | 
-OBPPV3/CR33 | Avoids including addresses from multiple identity containers in the same balance query | 
-OBPPV3/CR34 | Avoids broadcasting outgoing transactions from different identity containers via the same connection context | 
-OBPPV3/CR35 | The backup process avoids leaking information about wallet addresses | One wallet client previously generated e-mail alerts whenever a new change address as a result of sending bitcoin.
-OBPPV3/CR36 | Wallet avoids leaking information about recipients via an external identity lookup | 
-OBPPV3/CR37 | The wallet avoids observably connecting to a known endpoint, such as a wallet provider's domain | 
-OBPPV3/CR38 | The wallet connects to the network using an unremarkable user agent | 
-OBPPV3/CR39 | The wallet connects to the network using a random user agent, from a set of unremarkable user agents, for each connection | 
-OBPPV3/CR40 | Included in the latest stable version of Tails Live CD | 
-OBPPV3/CR41 | Program and any dependencies are packaged into a single file which can be easily installed in Tails Live CD | 
-OBPPV3/CR42 | Installation in Tails Live CD is possible, but requires multiple complex steps | 
-OBPPV3/CR44 | Number of clicks to create a new identity container from the home screen of an existing identity container | 
-OBPPV3/CR45 | Number of clicks to assign an imported private key into an identity container | 
-OBPPV3/CR46 | Avoids creating transactions which contain inputs from different identity containers, except optionally if the user has intentionally overridden this behavior | 
-OBPPV3/CR47 | Visually indicates when inputs from different identity containers are merged before the transaction is broadcast, or prohibits this operation entirely | 
-OBPPV3/CR48 | Mixing is secure against correlation attacks by the facilitator | 
-OBPPV3/CR49 | Mixing is secure against theft of funds | 
-OBPPV3/CR50 | Number of clicks to configure the GUI to resemble a non-wallet application | 
-OBPPV3/CR51 | Does not display non-ECDH addresses or transaction hashes in any form prior to the user explicitly requesting to see them | 
-OBPPV3/CR52 | Number of clicks to set an encryption password/PIN for wallet public keys (apart from that needed to encrypt private keys) | 
-OBPPV3/CR53 | Number of clicks to set an encryption password/PIN for non-keypair wallet metadata (apart from that needed to encrypt private keys) | 
-OBPPV3/CR54 | Number of clicks needed to permanently and completely erase the wallet from a device | Wallet data is considered erased if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges
-OBPPV3/CR55 | Number of clicks needed to permanently and completely remove the wallet application from a device | The wallet application is considered removed if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges
-OBPPV3/CR56 | Wallet data can be remotely deleted by the user in the event the device containing the wallet is lost or stolen | Wallet data is considered deleted if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges
-OBPPV3/CR57 | The wallet application is difficult to detect as being installed unless the user performs a series of actions unlikely to be duplicated by an unauthorized user | The wallet client is considered difficult to detect if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges
-OBPPV3/CR58 | When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed | Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges. This does not include non-standard accounts, such as admin accounts unlocked via rooted methods on mobile devices
-OBPPV3/CR59 | The wallet deletion process eliminates all evidence that a wallet was previously installed | Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges
-OBPPV3/CR60 | Persistent wallet metadata is stored in a form not identifiable as belonging to a Bitcoin wallet | 
-OBPPV3/CR61 | Number of clicks to create the first wallet backup | 
-OBPPV3/CR62 | Number of clicks needed to update an existing backup due to the creation of a new receiving or change address | 
-OBPPV3/CR63 | Backups can occur offline, or are encrypted client-side with data that only the user controls e.g. password | 
-OBPPV3/CR64 | Indicates a reduction in wallet safety when backups are stale, or uses eternal backups | 
-OBPPV3/CR65 | The wallet functions without requiring the user to supply personally identifying information | 
-OBPPV3/CR66 | Number of clicks needed to disable sending telemetry data to the wallet provider (usage statistics, automatic crash reporting, etc.) | 
-OBPPV3/CR67 | Number of clicks needed to ensure telemetry data is sent to the wallet provider in a manner that does not reveal the IP address of the user | 
-OBPPV3/CR68 | Avoids transmitting telemetry data to the provider before the user has a chance to review the information being sent | 
-OBPPV3/CR69 | The wallet provider supplies simple instructions for building a usable binary from the source code | 
-OBPPV3/CR70 | Non-obfuscated source code for the wallet application is available for immediate inspection | 
-OBPPV3/CR71 | A user can produce a compiled version of the application from the public source code that exactly matches the version distributed by the wallet provider | 
+ID | Description
+--- | ---
+OBPPV3/CR01 | Number of clicks required to deviate from the default receiving functionality and generate a new non-ECDH receiving address for an existing wallet
+OBPPV3/CR02 | Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page
+OBPPV3/CR03 | Non-ECDH receiving addresses are hidden from the default Receive worflow screens once they have been used<br><br> _If the wallet client hides used non-ECDH addresses from view by default but allows the user to expose them in default Receive workflow screens e.g. via an 'Unhide' button, it will fail this criterion_
+OBPPV3/CR04 | Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely<br><br> _This is separate from the scenario in which a user accidentally reuses a non-ECDH receiving address as a result of a failure of criterion OBPP-CR03_
+OBPPV3/CR05 | Number of clicks required to deviate from the default change functionality and receive change at a newly generated address
+OBPPV3/CR06 | Produces P2SH change addresses when one or more of the spend outputs in a transaction is P2SH
+OBPPV3/CR07 | Change addresses are hidden from the normal receiving workflow by default to discourage using them as receiving addresses
+OBPPV3/CR08 | Preemptively indicates a loss of privacy when user elects to reuse change addresses as receiving addresses, or prohibits this operation entirely<br><br> _A wallet client may pass OBPPV3/CR07 but fail OBPPV3/CR08 by not warning a user when a change address is selected for reuse outside of the normal Receive workflow_
+OBPPV3/CR09 | When an outgoing transaction must merge inputs, and when mixing is not being used, the transaction constructed in a way that plausibly resembles a mixing transaction
+OBPPV3/CR10 | Inputs and outputs are ordered in a deterministic manner based on criteria other than the status of outputs as spends or change (BIP 69)
+OBPPV3/CR11 | Order inputs and outputs via a methodology common to multiple wallets
+OBPPV3/CR12 | When an input is selected which is part of a set of unspent outputs containing identical scripts (multiple deposits to a single address), every output in the set is added to the transaction
+OBPPV3/CR13 | All transactions created by the wallet are compliant with BIP 62
+OBPPV3/CR14 | Allows the user to send to ECDH addresses (BIP 63 or BIP 47)
+OBPPV3/CR15 | Outside of a mixing transaction, preemptively indicates a loss of privacy when merging inputs from different addresses in the same transaction
+OBPPV3/CR16 | Warns user when sending to a non-ECDH address that the user has sent to before
+OBPPV3/CR17 | Warns user when sending to a non-ECDH address that has received deposits from any source
+OBPPV3/CR18 | Number of clicks required by user for inputs/outputs to be mixed with one or more other users
+OBPPV3/CR19 | Average number of other users whose funds are mixed with the client user's when sending through a mixing process
+OBPPV3/CR20 | Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions
+OBPPV3/CR21 | Warns the user when a proposed mix is easy to reverse
+OBPPV3/CR22 | Number of clicks to opt out of creating recurring transactions, such as for donations to the wallet provider
+OBPPV3/CR23 | Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address
+OBPPV3/CR24 | Number of clicks required by user to to obtain balance information without leaking their machine identity over the network
+OBPPV3/CR25 | Balance information is obtained from a local copy of the blockchain
+OBPPV3/CR26 | Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context
+OBPPV3/CR27 | Balance information is obtained via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet
+OBPPV3/CR28 | If balance information is obtained via querying more than one address in a given query, a separate connection context is used for each unique query
+OBPPV3/CR29 | Provides a visual indication if the balance information is not being obtained through an anonymizing network, including IP address information
+OBPPV3/CR30 | Number of clicks required by user to route outgoing transactions through an anonymizing network
+OBPPV3/CR31 | Outgoing transactions are routed through a different entry point into the network than the source of balance information
+OBPPV3/CR32 | Client provides a visual indication if outgoing transactions are not being routed through an anonymizing network, including IP address information
+OBPPV3/CR33 | Avoids including addresses from multiple identity containers in the same balance query
+OBPPV3/CR34 | Avoids broadcasting outgoing transactions from different identity containers via the same connection context
+OBPPV3/CR35 | The backup process avoids leaking information about wallet addresses<br><br> _One wallet client previously generated e-mail alerts whenever a new change address as a result of sending bitcoin._
+OBPPV3/CR36 | Wallet avoids leaking information about recipients via an external identity lookup
+OBPPV3/CR37 | The wallet avoids observably connecting to a known endpoint, such as a wallet provider's domain
+OBPPV3/CR38 | The wallet connects to the network using an unremarkable user agent
+OBPPV3/CR39 | The wallet connects to the network using a random user agent, from a set of unremarkable user agents, for each connection
+OBPPV3/CR40 | Included in the latest stable version of Tails Live CD
+OBPPV3/CR41 | Program and any dependencies are packaged into a single file which can be easily installed in Tails Live CD
+OBPPV3/CR42 | Installation in Tails Live CD is possible, but requires multiple complex steps
+OBPPV3/CR44 | Number of clicks to create a new identity container from the home screen of an existing identity container
+OBPPV3/CR45 | Number of clicks to assign an imported private key into an identity container
+OBPPV3/CR46 | Avoids creating transactions which contain inputs from different identity containers, except optionally if the user has intentionally overridden this behavior
+OBPPV3/CR47 | Visually indicates when inputs from different identity containers are merged before the transaction is broadcast, or prohibits this operation entirely
+OBPPV3/CR48 | Mixing is secure against correlation attacks by the facilitator
+OBPPV3/CR49 | Mixing is secure against theft of funds
+OBPPV3/CR50 | Number of clicks to configure the GUI to resemble a non-wallet application
+OBPPV3/CR51 | Does not display non-ECDH addresses or transaction hashes in any form prior to the user explicitly requesting to see them
+OBPPV3/CR52 | Number of clicks to set an encryption password/PIN for wallet public keys (apart from that needed to encrypt private keys)
+OBPPV3/CR53 | Number of clicks to set an encryption password/PIN for non-keypair wallet metadata (apart from that needed to encrypt private keys)
+OBPPV3/CR54 | Number of clicks needed to permanently and completely erase the wallet from a device<br><br> _Wallet data is considered erased if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges_
+OBPPV3/CR55 | Number of clicks needed to permanently and completely remove the wallet application from a device<br><br> _The wallet application is considered removed if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges_
+OBPPV3/CR56 | Wallet data can be remotely deleted by the user in the event the device containing the wallet is lost or stolen<br><br> _Wallet data is considered deleted if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges_
+OBPPV3/CR57 | The wallet application is difficult to detect as being installed unless the user performs a series of actions unlikely to be duplicated by an unauthorized user<br><br> _The wallet client is considered difficult to detect if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges_
+OBPPV3/CR58 | When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed<br><br> _Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges. This does not include non-standard accounts, such as admin accounts unlocked via rooted methods on mobile devices_
+OBPPV3/CR59 | The wallet deletion process eliminates all evidence that a wallet was previously installed<br><br> _Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges_
+OBPPV3/CR60 | Persistent wallet metadata is stored in a form not identifiable as belonging to a Bitcoin wallet
+OBPPV3/CR61 | Number of clicks to create the first wallet backup
+OBPPV3/CR62 | Number of clicks needed to update an existing backup due to the creation of a new receiving or change address
+OBPPV3/CR63 | Backups can occur offline, or are encrypted client-side with data that only the user controls e.g. password
+OBPPV3/CR64 | Indicates a reduction in wallet safety when backups are stale, or uses eternal backups
+OBPPV3/CR65 | The wallet functions without requiring the user to supply personally identifying information
+OBPPV3/CR66 | Number of clicks needed to disable sending telemetry data to the wallet provider (usage statistics, automatic crash reporting, etc.)
+OBPPV3/CR67 | Number of clicks needed to ensure telemetry data is sent to the wallet provider in a manner that does not reveal the IP address of the user
+OBPPV3/CR68 | Avoids transmitting telemetry data to the provider before the user has a chance to review the information being sent
+OBPPV3/CR69 | The wallet provider supplies simple instructions for building a usable binary from the source code
+OBPPV3/CR70 | Non-obfuscated source code for the wallet application is available for immediate inspection
+OBPPV3/CR71 | A user can produce a compiled version of the application from the public source code that exactly matches the version distributed by the wallet provider
