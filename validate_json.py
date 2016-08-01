@@ -9,18 +9,39 @@ Todos:
             any attack
         * The same countermeasure id is listed multiple times under the same
             attack
+        * An attack is missing the 'countermeasures' field or the
+            'countermeasures' array under an attack is empty.
 """
 
+import sys
 import json
 import jsonschema
 
 DEFAULT_JSON_FILENAME = 'threat model example.json'
 DEFAULT_SCHEMA_FILENAME = 'threat model schema.json'
 
+DEBUG_PRINT = False
+
 def _main():
-    validate_json(get_json(DEFAULT_JSON_FILENAME),
+    filename = get_args()
+    if filename is None:
+        filename = DEFAULT_JSON_FILENAME
+
+    validate_json(get_json(filename),
                   get_json(DEFAULT_SCHEMA_FILENAME))
-    print("The specified JSON file matches the specified schema.")
+    print("'%s' matches the specified schema." % filename)
+
+def get_args():
+    """Reads command line arguments.
+
+    Returns: json_filename to validate as str or None.
+    """
+    if len(sys.argv) == 1:
+        return None
+    elif len(sys.argv) == 2:
+        return str(sys.argv[1])
+    else:
+        print_usage()
 
 def get_json(filename):
     """Get JSON object from file."""
@@ -40,6 +61,7 @@ def validate_json(json_object, schema_object):
     check_all_criteria_ids(json_object)
     check_all_countermeasure_descriptions(json_object)
     check_all_criteria_descriptions(json_object)
+    check_all_nonce_ids_unique(json_object)
 
 def check_all_countermeasure_ids(threat_model_json):
     """Verifies that all countermeasures listed under attacks are found.
@@ -208,6 +230,37 @@ def check_all_criteria_ids_unique(threat_model_json):
     """
     _check_id_unique_helper(threat_model_json, 'criteria')
 
+def check_all_nonce_ids_unique(json_obj, nonce_id_set=frozenset()):
+    """Verifies all nonce ids in the threat model are unique, recursively.
+
+    Args:
+        json_obj: An element within a deserialized JSON object.
+        nonce_id_set (Optional[`frozenset`[str]]): Unique nonce_ids seen so far.
+
+    Raises:
+        ValueError if the same nonce-id is seen twice
+
+    Returns:
+        `frozenset`[str] of nonce_ids seen so far
+    """
+    if isinstance(json_obj, dict):
+        if 'nonce-id' in json_obj:
+            nonce_id = json_obj['nonce-id']
+            dprint(nonce_id)
+            if nonce_id in nonce_id_set:
+                raise ValueError("The nonce-id '%s' was seen twice." % nonce_id)
+            else:
+                nonce_id_set = frozenset.union(nonce_id_set, [nonce_id])
+
+        for key in json_obj:
+            new_id_set = check_all_nonce_ids_unique(json_obj[key], nonce_id_set)
+            nonce_id_set = frozenset.union(nonce_id_set, new_id_set)
+    elif isinstance(json_obj, list):
+        for elt in json_obj:
+            new_id_set = check_all_nonce_ids_unique(elt, nonce_id_set)
+            nonce_id_set = frozenset.union(nonce_id_set, new_id_set)
+
+    return nonce_id_set
 
 def _check_id_unique_helper(threat_model_json, array_name):
     ids = []
@@ -219,6 +272,17 @@ def _check_id_unique_helper(threat_model_json, array_name):
 def _empty(dict_parent, array_child_name):
     return (array_child_name not in dict_parent or
             len(dict_parent[array_child_name]) == 0)
+
+def dprint(data):
+    """Print debug data, if enabled."""
+    if DEBUG_PRINT:
+        print "DEBUG: %s" % str(data)
+
+def print_usage():
+    """Prints syntax for usage and exits the program."""
+    print(("Usage:\n"
+           "\tpython validate_json.py [threat-model-file.json]"))
+    sys.exit()
 
 if __name__ == '__main__':
     _main()
