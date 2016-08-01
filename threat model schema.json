@@ -75,7 +75,6 @@
                                 "countermeasures": {
                                     "description": "A countermeasure that partially or wholly mitigates an attack",
                                     "type": "array",
-                                    "minItems": 1,
                                     "uniqueItems": true,
                                     "items": {
                                         "type": "object",
