@@ -1974,7 +1974,7 @@
         {
             "id": "OBPPV3/CR04",
             "description": "Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely",
-            "comment": "This is separate from the scenario in which a user accidentally reuses a non-ECDH receiving address as a result of a failure of criterion OBPP-CR03",
+            "comment": "This is separate from the scenario in which a user accidentally reuses a non-ECDH receiving address as a result of a failure of criterion OBPPV3/CR03",
             "nonce-id": "9fd904a3645f75b5578835ecee7a8191a8c70c55f4ae935f1b0be07a97190fda"
         },
         {

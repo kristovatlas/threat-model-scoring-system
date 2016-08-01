@@ -189,7 +189,7 @@ ID | Description
 OBPPV3/CR01 | Number of clicks required to deviate from the default receiving functionality and generate a new non-ECDH receiving address for an existing wallet
 OBPPV3/CR02 | Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page
 OBPPV3/CR03 | Non-ECDH receiving addresses are hidden from the default Receive worflow screens once they have been used<br><br> _If the wallet client hides used non-ECDH addresses from view by default but allows the user to expose them in default Receive workflow screens e.g. via an 'Unhide' button, it will fail this criterion_
-OBPPV3/CR04 | Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely<br><br> _This is separate from the scenario in which a user accidentally reuses a non-ECDH receiving address as a result of a failure of criterion OBPP-CR03_
+OBPPV3/CR04 | Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely<br><br> _This is separate from the scenario in which a user accidentally reuses a non-ECDH receiving address as a result of a failure of criterion OBPPV3/CR03_
 OBPPV3/CR05 | Number of clicks required to deviate from the default change functionality and receive change at a newly generated address
 OBPPV3/CR06 | Produces P2SH change addresses when one or more of the spend outputs in a transaction is P2SH
 OBPPV3/CR07 | Change addresses are hidden from the normal receiving workflow by default to discourage using them as receiving addresses
