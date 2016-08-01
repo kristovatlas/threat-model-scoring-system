@@ -43,6 +43,21 @@ class DefaultValuesTest(unittest.TestCase):
         self.assertEqual(validate_json.DEFAULT_SCHEMA_FILENAME,
                          'threat model schema.json')
 
+class NonceIDProblemsTest(unittest.TestCase):
+    """Tests problems related to the 'nonce-id' field."""
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    def test_duplicate_nonce_ids(self):
+        """Raises exception if duplicate nonce-ids anywhere."""
+        test_json = get_json('duplicate_nonce_ids.json')
+        schema = get_json(validate_json.DEFAULT_SCHEMA_FILENAME)
+        with self.assertRaises(ValueError):
+            validate_json.validate_json(test_json, schema)
+
 class IDProblemsTest(unittest.TestCase):
     """Tests problems related to the 'id' field."""
 
@@ -83,3 +98,4 @@ class NoProblemsTest(unittest.TestCase):
 SUITE1 = unittest.TestLoader().loadTestsFromTestCase(DefaultValuesTest)
 SUITE2 = unittest.TestLoader().loadTestsFromTestCase(IDProblemsTest)
 SUITE3 = unittest.TestLoader().loadTestsFromTestCase(NoProblemsTest)
+SUITE4 = unittest.TestLoader().loadTestsFromTestCase(NonceIDProblemsTest)
