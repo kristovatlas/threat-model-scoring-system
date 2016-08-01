@@ -94,7 +94,7 @@ Physical adversary | Conduct physical surveillance, especially against mobile us
     |     |     | OBPPV3-CR58
     |     |     | OBPPV3-CR59
     |     | If user loses physical control over the device, the wallet can be deleted via remote command | OBPPV3-CR56
-    |     | Persistent wallet data is stored in a fashion that is not identifiable as belonging to a Bitcoin wallet | OBPPV3-CM47
+    |     | Persistent wallet data is stored in a fashion that is not identifiable as belonging to a Bitcoin wallet | OBPPV3-CR60
     | Perform forensic analysis on a device, searching for sensitive information about a wallet | Encrypt all public keys in the wallet | OBPPV3-CR52
     |     | Encrypt all non-keypair wallet metadata | OBPPV3-CR53
 Wallet provider | Link addresses to a user by observing their backup files | Use strictly local wallet backups, or encrypt remote wallet backups | OBPPV3-CR63
@@ -188,7 +188,7 @@ ID | Description | Comment
 --- | --- | ---
 OBPPV3-CR01 | Number of clicks required to deviate from the default receiving functionality and generate a new non-ECDH receiving address for an existing wallet | 
 OBPPV3-CR02 | Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page | 
-OBPPV3-CR03 | Non-ECDH receiving addresses are hidden from default Receive worflow screens once they have been used | If the wallet client hides used non-ECDH addresses from view by default but allows the user to expose them in default Receive workflow screens e.g. via an 'Unhide' button, it will fail this criterion
+OBPPV3-CR03 | Non-ECDH receiving addresses are hidden from the default Receive worflow screens once they have been used | If the wallet client hides used non-ECDH addresses from view by default but allows the user to expose them in default Receive workflow screens e.g. via an 'Unhide' button, it will fail this criterion
 OBPPV3-CR04 | Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely | This is separate from the scenario in which a user accidentally reuses a non-ECDH receiving address as a result of a failure of criterion OBPP-CR03
 OBPPV3-CR05 | Number of clicks required to deviate from the default change functionality and receive change at a newly generated address | 
 OBPPV3-CR06 | Produces P2SH change addresses when one or more of the spend outputs in a transaction is P2SH | 
