@@ -3,10 +3,6 @@
 Todos:
     * Accept json filename as command-line arg
     * Add warnings for these conditions:
-        * A countermeasure is listed in the 'countermeasures' array that is not
-            listed under any attack
-        * A criteria is listed in the 'criteria' array that is not listed under
-            any attack
         * The same countermeasure id is listed multiple times under the same
             attack
         * An attack is missing the 'countermeasures' field or the
@@ -15,6 +11,7 @@ Todos:
 
 import sys
 import json
+import warnings
 import jsonschema
 
 DEFAULT_JSON_FILENAME = 'threat model example.json'
@@ -29,7 +26,7 @@ def _main():
 
     validate_json(get_json(filename),
                   get_json(DEFAULT_SCHEMA_FILENAME))
-    print("'%s' matches the specified schema." % filename)
+    print "'%s' matches the specified schema." % filename
 
 def get_args():
     """Reads command line arguments.
@@ -62,6 +59,8 @@ def validate_json(json_object, schema_object):
     check_all_countermeasure_descriptions(json_object)
     check_all_criteria_descriptions(json_object)
     check_all_nonce_ids_unique(json_object)
+    check_unassigned_countermeasure(json_object)
+    check_unassigned_criterion(json_object)
 
 def check_all_countermeasure_ids(threat_model_json):
     """Verifies that all countermeasures listed under attacks are found.
@@ -261,6 +260,95 @@ def check_all_nonce_ids_unique(json_obj, nonce_id_set=frozenset()):
             nonce_id_set = frozenset.union(nonce_id_set, new_id_set)
 
     return nonce_id_set
+
+def check_unassigned_countermeasure(threat_model):
+    """Issues warning when a countermeasure is not assigned to the threat model.
+
+    """
+    if _empty(threat_model, 'countermeasures'):
+        dprint("Countermeasures is empty")
+        return
+    for countermeasure in threat_model['countermeasures']:
+        assert 'id' in countermeasure
+        counterm_id = countermeasure['id']
+        dprint(counterm_id)
+        found = False
+        if _empty(threat_model, 'attackers'):
+            continue
+        for attacker in threat_model['attackers']:
+            if _empty(attacker, 'attacks'):
+                continue
+            for attack in attacker['attacks']:
+                if _empty(attack, 'countermeasures'):
+                    continue
+                for counterm in attack['countermeasures']:
+                    if counterm['id'] == counterm_id:
+                        found = True
+                        dprint("Found countermeasure %s in an attack" %
+                               counterm_id)
+                        break
+        if not found:
+            dprint(threat_model['name'])
+            warnings.warn(("The countermeasure '%s' could not be found under "
+                           "any attack in the threat model.") % counterm_id)
+
+def check_unassigned_criterion(threat_model):
+    """Issues warning when a criterion is not assigned to the threat model."""
+    if _empty(threat_model, 'criteria'):
+        dprint("Criteria array is empty")
+        return
+    for criterion in threat_model['criteria']:
+        assert 'id' in criterion
+        criterion_id = criterion['id']
+        dprint("Looking for criterion '%s'" % criterion_id)
+        found = False
+        if _empty(threat_model, 'attackers'):
+            continue
+        for attacker in threat_model['attackers']:
+            if _empty(attacker, 'attacks'):
+                continue
+            for attack in attacker['attacks']:
+                if _empty(attack, 'countermeasures'):
+                    continue
+                for countermeasure in attack['countermeasures']:
+                    if _is_criterion_in_countermeasure(countermeasure,
+                                                       criterion_id):
+                        found = True
+                        dprint("Found criterion '%s'" % criterion_id)
+                        break
+        if not found:
+            dprint(threat_model['name'])
+            warnings.warn(("The criterion '%s' could not be found under any "
+                           "countermeasure in the threat model.") %
+                          criterion_id)
+
+def _is_criterion_in_countermeasure(countermeasure, criterion_id):
+    """Returns whether criterion ID is found in specified countermeasure obj.
+
+    Returns: bool: whether criterion ID was found
+    """
+    if _empty(countermeasure, 'criteria-groups'):
+        return False
+    for criteria_group in countermeasure['criteria-groups']:
+        if _is_criterion_in_countermeasure_recurse(criteria_group,
+                                                   criterion_id):
+            return True
+    return False
+
+def _is_criterion_in_countermeasure_recurse(criteria_group, criterion_id):
+    """A criteria group may continue criteria or child  criteria groups."""
+    if 'criteria' in criteria_group:
+        for criterion in criteria_group['criteria']:
+            if 'id' in criterion and criterion['id'] == criterion_id:
+                return True
+
+    if 'criteria-groups' in criteria_group:
+        for criteria_group_inner in criteria_group:
+            if _is_criterion_in_countermeasure_recurse(criteria_group_inner,
+                                                       criterion_id):
+                return True
+
+    return False
 
 def _check_id_unique_helper(threat_model_json, array_name):
     ids = []
