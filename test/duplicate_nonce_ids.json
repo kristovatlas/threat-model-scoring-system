@@ -1,19 +1,19 @@
 {
-    "name": "Ninja-Ghost V1 Threat Model",
-    "description": "This is a silly example of a threat model for enemy attacks on a game character.",
+    "name": "Test threat model",
+    "description": "Throws exception due to duplicate nonce-id field",
     "attackers": [
         {
             "numeral": "I",
             "name": "Ninja",
             "weight": 2,
             "comment": "A Ninja is twice as dangerous as a ghost.",
-            "nonce-id": "90547a1e8264b831cc9006f9826cdaf1d84be322fff039139104374acd62dddb",
+            "nonce-id": "duplicate",
             "attacks": [
                 {
                     "numeral": "A",
                     "name": "Punch",
                     "weight": 1,
-                    "nonce-id": "f1bb5ec2a9806a820122d5355c8b5dd48da85b187b91da307ae8e36468213703",
+                    "nonce-id": "duplicate",
                     "countermeasures": [
                         {
                             "numeral": "1",
