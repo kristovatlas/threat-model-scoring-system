@@ -1352,7 +1352,27 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR65",
-                                            "description": "The wallet functions without requiring the user to supply personally identifying information",
+                                            "description": "The wallet functions without requiring the user to supply Class I, Class II, or Class III personally identifying information (PII)",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR72",
+                                            "description": "The wallet functions without requiring the user to supply Class I or Class II personally identifying information (PII) such as a SSN or verified email address",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR73",
+                                            "description": "The wallet functions without requiring the user to supply Class I personally identifying information (PII) such as a SSN",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2282,7 +2302,8 @@
         },
         {
             "id": "OBPPV3/CR65",
-            "description": "The wallet functions without requiring the user to supply personally identifying information",
+            "description": "The wallet functions without requiring the user to supply Class I, Class II, or Class III personally identifying information (PII)",
+            "comments": "Class I: Highly sensitive, validated information: SSN, National Identification Number, Verified Full Name, Verified Mailing Address of Residence or Business, Passport number, vehicle registration number, driver's license number, biometric data, verified credit card number, verified SMS number with common free virtual SMS numbers blocked (any of first 5 tries blocked). Class II: For most users, directly tied to their personhood, but can be created ephemeral easily: verified email address, date of birth, birthplace, verified SMS number without common free virtual SMS numbers blocked. Class III: For most users, directly tied to their personhood, but can be lied about easily: unverified email address, unverified zip/postal code, unverified gender, unverified race",
             "nonce-id": "529e5b9fb67740fc8de8ce5d2b681ea15a1fbaac057c00214541a33cd81f37dc"
         },
         {
@@ -2314,6 +2335,16 @@
             "id": "OBPPV3/CR71",
             "description": "A user can produce a compiled version of the application from the public source code that exactly matches the version distributed by the wallet provider",
             "nonce-id": "7c4c9f038599edcac718ab458c88621c89c0e2a83eb2798f37d2db6f016d80a1"
+        },
+        {
+            "id": "OBPPV3/CR72",
+            "description": "The wallet functions without requiring the user to supply Class I or Class II personally identifying information (PII) such as a SSN or verified email address",
+            "nonce-id": "8aafa3e65acac3e678d9a9d3380dd05b18508d87a5cdbe75b612a8ac86a34bd8"
+        },
+        {
+            "id": "OBPPV3/CR73",
+            "description": "The wallet functions without requiring the user to supply Class I personally identifying information (PII) such as a SSN",
+            "nonce-id": "76e2eaa0b805ce9b3446e35f64ba4e59b0547468370529006948cc970469649d"
         }
     ],
     "criteria-categories": [
