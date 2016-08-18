@@ -1523,12 +1523,6 @@
                                     "criteria": [
                                         {
                                             "numeral": "a",
-                                            "id": "OBPPV3/CR61",
-                                            "description": "Number of clicks to create the first wallet backup",
-                                            "effectiveness": 0
-                                        },
-                                        {
-                                            "numeral": "b",
                                             "id": "OBPPV3/CR62",
                                             "description": "Number of clicks needed to update an existing backup due to the creation of a new receiving or change address",
                                             "effectiveness": 0
@@ -2279,11 +2273,6 @@
             "id": "OBPPV3/CR60",
             "description": "Persistent wallet metadata is stored in a form not identifiable as belonging to a Bitcoin wallet",
             "nonce-id": "d8d82a51f925703305d00cef69fc624bb92b12d9c134c1df04ec597a6f803c7c"
-        },
-        {
-            "id": "OBPPV3/CR61",
-            "description": "Number of clicks to create the first wallet backup",
-            "nonce-id": "7469be3f34f05b2c68134f15c34a652770bc7bf6f87c55efb13e8947fec6b7ec"
         },
         {
             "id": "OBPPV3/CR62",
