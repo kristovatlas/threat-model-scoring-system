@@ -1007,12 +1007,6 @@
                                             "id": "OBPPV3/CR44",
                                             "description": "Number of clicks to create a new identity container from the home screen of an existing identity container",
                                             "effectiveness": 0
-                                        },
-                                        {
-                                            "numeral": "b",
-                                            "id": "OBPPV3/CR45",
-                                            "description": "Number of clicks to assign an imported private key into an identity container",
-                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -2193,11 +2187,6 @@
             "id": "OBPPV3/CR44",
             "description": "Number of clicks to create a new identity container from the home screen of an existing identity container",
             "nonce-id": "bf25cd7e62ecc64aa5fd964c579a9a3c9a2617b7cf1aa3ee9ed6eafbca5cdc6c"
-        },
-        {
-            "id": "OBPPV3/CR45",
-            "description": "Number of clicks to assign an imported private key into an identity container",
-            "nonce-id": "b531b43871c89961b2a73c50364bab7660053a5cbdc1b75fca10a792d1736287"
         },
         {
             "id": "OBPPV3/CR46",
