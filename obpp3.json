@@ -1224,7 +1224,7 @@
                                         {
                                             "numeral": "f",
                                             "id": "OBPPV3/CR58",
-                                            "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
+                                            "description": "A user cannot determine outside of the app whether the wallet client was previously installed on the device after the uninstallation process has been completed",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2277,8 +2277,8 @@
         },
         {
             "id": "OBPPV3/CR58",
-            "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
-            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges. This does not include non-standard accounts, such as admin accounts unlocked via rooted methods on mobile devices",
+            "description": "A user cannot determine outside of the app whether the wallet client was previously installed on the device after the uninstallation process has been completed",
+            "comment": "Detection is considered eliminated if prior installation cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default system privileges. This does not include non-standard accounts, such as admin accounts unlocked via rooted methods on mobile devices. This does include accessing the Operating System's app store or package manager to review which apps have been previously downloaded",
             "nonce-id": "01cbe777a3abea219a15924080a4110a99c7c49057c9f5c274ea99dfc9b9dfef"
         },
         {
