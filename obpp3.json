@@ -1212,7 +1212,7 @@
                                         {
                                             "numeral": "d",
                                             "id": "OBPPV3/CR55",
-                                            "description": "Number of clicks needed to permanently and completely remove the wallet application from a device",
+                                            "description": "Number of clicks to remove the wallet client from a device",
                                             "effectiveness": 0
                                         },
                                         {
@@ -2253,8 +2253,8 @@
         },
         {
             "id": "OBPPV3/CR55",
-            "description": "Number of clicks needed to permanently and completely remove the wallet application from a device",
-            "comment": "The wallet application is considered removed if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges",
+            "description": "Number of clicks to remove the wallet client from a device",
+            "comment": "The wallet application is considered removed if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default system privileges",
             "nonce-id": "b5f8660f835d1738b73d8c65e14a0164a00e731bb0176688ab80a998efc4670e"
         },
         {
