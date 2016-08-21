@@ -1194,7 +1194,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR54",
-                                            "description": "Number of clicks needed to permanently and completely erase the wallet from a device",
+                                            "description": "Number of clicks to delete wallet data within the wallet client",
                                             "effectiveness": 0
                                         },
                                         {
@@ -2241,7 +2241,7 @@
         },
         {
             "id": "OBPPV3/CR54",
-            "description": "Number of clicks needed to permanently and completely erase the wallet from a device",
+            "description": "Number of clicks to delete wallet data within the wallet client",
             "comment": "Wallet data is considered erased if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges",
             "nonce-id": "e157bce4222167924c532205b40a7992a3ac1f1f9de36a4f9980e5281c033ad3"
         },
