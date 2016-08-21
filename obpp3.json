@@ -93,7 +93,29 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM62",
                             "description": "The order of transaction outputs does not reveal information regarding output ownership",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR10",
+                                            "description": "Inputs and outputs are ordered in a deterministic manner based on criteria other than the status of outputs as spends or change (BIP 69)",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR74",
+                                            "description": "The order of transaction outputs is randomized using client-generated data",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "numeral": "2",
@@ -109,37 +131,19 @@
                         },
                         {
                             "numeral": "4",
-                            "id": "OBPPV3/CM02",
-                            "description": "Randomize the position of the change output(s) in the output list",
-                            "effectiveness": 0,
-                            "criteria-groups": [
-                                {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "OBPPV3/CR10",
-                                            "description": "Inputs and outputs are ordered in a deterministic manner based on criteria other than the status of outputs as spends or change (BIP 69)",
-                                            "effectiveness": 0
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "numeral": "5",
                             "id": "OBPPV3/CM03",
                             "description": "Select inputs such that the amount of change in the transaction is close to the size of the desired spend",
                             "effectiveness": 0
                         },
                         {
-                            "numeral": "6",
+                            "numeral": "5",
                             "id": "OBPPV3/CM04",
                             "description": "Use multiple change outputs, and intentionally set the value of some outputs to values that resemble plausible spends",
                             "effectiveness": 0,
                             "criteria-groups": []
                         },
                         {
-                            "numeral": "7",
+                            "numeral": "6",
                             "id": "OBPPV3/CM01",
                             "description": "Avoid reuse of identifiable script elements",
                             "effectiveness": 0,
@@ -211,7 +215,7 @@
                             ]
                         },
                         {
-                            "numeral": "8",
+                            "numeral": "7",
                             "id": "OBPPV3/CM05",
                             "description": "Use standardized ordering of inputs and outputs",
                             "effectiveness": 0,
@@ -229,7 +233,7 @@
                             ]
                         },
                         {
-                            "numeral": "9",
+                            "numeral": "8",
                             "id": "OBPPV3/CM06",
                             "description": "Avoid routinely creating outputs that are identifiable by their size or script",
                             "effectiveness": 0,
@@ -247,7 +251,7 @@
                             ]
                         },
                         {
-                            "numeral": "10",
+                            "numeral": "9",
                             "id": "OBPPV3/CM07",
                             "description": "Only create transactions which are compliant with BIP-62",
                             "effectiveness": 0,
@@ -265,13 +269,13 @@
                             ]
                         },
                         {
-                            "numeral": "11",
+                            "numeral": "10",
                             "id": "OBPPV3/CM08",
                             "description": "Calculate fees using a method which is not recognizably unique to a particular client",
                             "effectiveness": 0
                         },
                         {
-                            "numeral": "12",
+                            "numeral": "11",
                             "id": "OBPPV3/CM09",
                             "description": "Create the transaction in such a way that provides multiple possible matching sets between inputs and the user's change output(s)",
                             "effectiveness": 0
@@ -1692,11 +1696,6 @@
             "nonce-id": "f85a652a3e2f2572a49db4bc5f7f5e83a5a3b325d33f467c658eac6942560ff6"
         },
         {
-            "id": "OBPPV3/CM02",
-            "description": "Randomize the position of the change output(s) in the output list",
-            "nonce-id": "f072eb54309e98671b4397728fe97f3d176c724fdee1f5f2bd74deb5080abd5e"
-        },
-        {
             "id": "OBPPV3/CM03",
             "description": "Select inputs such that the amount of change in the transaction is close to the size of the desired spend",
             "nonce-id": "4dfe4a43712091382a3b08745942d1d9c123db3a782cb0f0953db1a3f9a0f608"
@@ -2378,6 +2377,11 @@
             "id": "OBPPV3/CR73",
             "description": "The wallet functions without requiring the user to supply Class I personally identifying information (PII) such as a SSN",
             "nonce-id": "76e2eaa0b805ce9b3446e35f64ba4e59b0547468370529006948cc970469649d"
+        },
+        {
+            "id": "OBPPV3/CR74",
+            "description": "The order of transaction outputs is randomized using client-generated data",
+            "nonce-id": "f072eb54309e98671b4397728fe97f3d176c724fdee1f5f2bd74deb5080abd5e"
         }
     ],
     "criteria-categories": [
