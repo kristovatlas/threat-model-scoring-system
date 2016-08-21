@@ -1972,6 +1972,21 @@
             "id": "OBPPV3/CM61",
             "description": "Perform multiple queries for blockchain data in a way that makes it difficult to correlate the queries with one another",
             "nonce-id": "493b8e64e550c9f3fac6517206b47d8c121f53f766376979800a8a71bede85a2"
+        },
+        {
+            "id": "OBPPV3/CM62",
+            "description": "The order of transaction outputs does not reveal information regarding output ownership",
+            "nonce-id": "20b5df3b8b436ee3571c5c96c15a02e50b7b3b61a339e589990c43121a295acc"
+        },
+        {
+            "id": "OBPPV3/CM63",
+            "description": "The values of transaction outputs do not reveal information regarding output ownership",
+            "nonce-id": "7a4f47ebc5b1882c35458c2b7171aec9c248c260cefbb6bbb1d997700ea4decc"
+        },
+        {
+            "id": "OBPPV3/CM64",
+            "description": "The composition of transaction output scripts does not does not reveal information regarding output ownership",
+            "nonce-id": "4df487da38a897450d7f2207d24899d46ac7a4ed26fdec49a9159dd8b69f9e0d"
         }
     ],
     "criteria": [
