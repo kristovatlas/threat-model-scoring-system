@@ -91,6 +91,24 @@
                     "countermeasures": [
                         {
                             "numeral": "1",
+                            "id": "OBPPV3/CM62",
+                            "description": "The order of transaction outputs does not reveal information regarding output ownership",
+                            "effectiveness": 0
+                        },
+                        {
+                            "numeral": "2",
+                            "id": "OBPPV3/CM63",
+                            "description": "The values of transaction outputs do not reveal information regarding output ownership",
+                            "effectiveness": 0
+                        },
+                        {
+                            "numeral": "3",
+                            "id": "OBPPV3/CM64",
+                            "description": "The composition of transaction output scripts does not does not reveal information regarding output ownership",
+                            "effectiveness": 0
+                        },
+                        {
+                            "numeral": "4",
                             "id": "OBPPV3/CM02",
                             "description": "Randomize the position of the change output(s) in the output list",
                             "effectiveness": 0,
@@ -108,20 +126,20 @@
                             ]
                         },
                         {
-                            "numeral": "2",
+                            "numeral": "5",
                             "id": "OBPPV3/CM03",
                             "description": "Select inputs such that the amount of change in the transaction is close to the size of the desired spend",
                             "effectiveness": 0
                         },
                         {
-                            "numeral": "3",
+                            "numeral": "6",
                             "id": "OBPPV3/CM04",
                             "description": "Use multiple change outputs, and intentionally set the value of some outputs to values that resemble plausible spends",
                             "effectiveness": 0,
                             "criteria-groups": []
                         },
                         {
-                            "numeral": "4",
+                            "numeral": "7",
                             "id": "OBPPV3/CM01",
                             "description": "Avoid reuse of identifiable script elements",
                             "effectiveness": 0,
@@ -193,7 +211,7 @@
                             ]
                         },
                         {
-                            "numeral": "5",
+                            "numeral": "8",
                             "id": "OBPPV3/CM05",
                             "description": "Use standardized ordering of inputs and outputs",
                             "effectiveness": 0,
@@ -211,7 +229,7 @@
                             ]
                         },
                         {
-                            "numeral": "6",
+                            "numeral": "9",
                             "id": "OBPPV3/CM06",
                             "description": "Avoid routinely creating outputs that are identifiable by their size or script",
                             "effectiveness": 0,
@@ -229,7 +247,7 @@
                             ]
                         },
                         {
-                            "numeral": "7",
+                            "numeral": "10",
                             "id": "OBPPV3/CM07",
                             "description": "Only create transactions which are compliant with BIP-62",
                             "effectiveness": 0,
@@ -247,13 +265,13 @@
                             ]
                         },
                         {
-                            "numeral": "8",
+                            "numeral": "11",
                             "id": "OBPPV3/CM08",
                             "description": "Calculate fees using a method which is not recognizably unique to a particular client",
                             "effectiveness": 0
                         },
                         {
-                            "numeral": "9",
+                            "numeral": "12",
                             "id": "OBPPV3/CM09",
                             "description": "Create the transaction in such a way that provides multiple possible matching sets between inputs and the user's change output(s)",
                             "effectiveness": 0
