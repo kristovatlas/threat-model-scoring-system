@@ -1217,6 +1217,12 @@
                                         },
                                         {
                                             "numeral": "e",
+                                            "id": "OBPPV3/CR75",
+                                            "description": "A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "f",
                                             "id": "OBPPV3/CR58",
                                             "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
                                             "effectiveness": 0
@@ -2356,6 +2362,11 @@
             "id": "OBPPV3/CR74",
             "description": "A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed",
             "nonce-id": "4fd2628fed355d0b8a85ebcc5ec41b5322ee9fcfd78a423f48084ef0534a1e40"
+        },
+        {
+            "id": "OBPPV3/CR75",
+            "description": "A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself",
+            "nonce-id": "d9bd6b76c72182980400549bf84beb44ccd3695f5f365c0cc1d0b4e3f6d7fcba"
         }
     ],
     "criteria-categories": [
