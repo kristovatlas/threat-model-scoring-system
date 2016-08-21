@@ -1218,7 +1218,7 @@
                                         {
                                             "numeral": "e",
                                             "id": "OBPPV3/CR59",
-                                            "description": "The wallet deletion process eliminates all evidence that a wallet was previously installed",
+                                            "description": "A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2277,8 +2277,8 @@
         },
         {
             "id": "OBPPV3/CR59",
-            "description": "The wallet deletion process eliminates all evidence that a wallet was previously installed",
-            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges",
+            "description": "A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed",
+            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account on the same system with default system privileges",
             "nonce-id": "cae67a1a0304b1a9f30d194953f0470146d82a5a26a194bc915ed2e6d322b69b"
         },
         {
