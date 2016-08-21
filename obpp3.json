@@ -1202,23 +1202,23 @@
                                             "id": "OBPPV3/CR74",
                                             "description": "A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed",
                                             "effectiveness": 0
-                                        }
+                                        },
                                         {
                                             "numeral": "c",
+                                            "id": "OBPPV3/CR59",
+                                            "description": "A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "d",
                                             "id": "OBPPV3/CR55",
                                             "description": "Number of clicks needed to permanently and completely remove the wallet application from a device",
                                             "effectiveness": 0
                                         },
                                         {
-                                            "numeral": "d",
+                                            "numeral": "e",
                                             "id": "OBPPV3/CR58",
                                             "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
-                                            "effectiveness": 0
-                                        },
-                                        {
-                                            "numeral": "e",
-                                            "id": "OBPPV3/CR59",
-                                            "description": "A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed",
                                             "effectiveness": 0
                                         }
                                     ]
