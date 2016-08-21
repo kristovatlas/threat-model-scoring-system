@@ -1226,6 +1226,12 @@
                                             "id": "OBPPV3/CR58",
                                             "description": "A user cannot determine outside of the app whether the wallet client was previously installed on the device after the uninstallation process has been completed",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "g",
+                                            "id": "OBPPV3/CR76",
+                                            "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -2367,6 +2373,12 @@
             "id": "OBPPV3/CR75",
             "description": "A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself",
             "nonce-id": "d9bd6b76c72182980400549bf84beb44ccd3695f5f365c0cc1d0b4e3f6d7fcba"
+        },
+        {
+            "id": "OBPPV3/CR76",
+            "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
+            "comment": "An application can achieve this, for example, by initializing application metadata with random data that is indistinguishable from encrypted data",
+            "nonce-id": "397e84381c824a9dfb5b24bcc56d123201c2fc7a084a1f6f21d72c27b1accb63"
         }
     ],
     "criteria-categories": [
