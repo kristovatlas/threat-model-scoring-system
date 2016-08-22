@@ -700,7 +700,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR31",
-                                            "description": "Outgoing transactions are routed through a different entry point into the network than the source of balance information",
+                                            "description": "Outgoing transactions are routed through a different entry point into the network than the source of blockchain data",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2132,7 +2132,7 @@
         },
         {
             "id": "OBPPV3/CR31",
-            "description": "Outgoing transactions are routed through a different entry point into the network than the source of balance information",
+            "description": "Outgoing transactions are routed through a different entry point into the network than the source of blockchain data",
             "nonce-id": "3062c4004edebbcd23f7e2688889994d119f1dd4df2c2f95755bd2f1446573bc"
         },
         {
