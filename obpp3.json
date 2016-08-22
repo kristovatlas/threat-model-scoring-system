@@ -535,7 +535,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR26",
-                                            "description": "Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context",
+                                            "description": "Connection contexts are not reused when querying for blockchain data that corresponds to more than one address in a user's wallet",
                                             "effectiveness": 0
                                         },
                                         {
@@ -2105,8 +2105,9 @@
         },
         {
             "id": "OBPPV3/CR26",
-            "description": "Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context",
-            "nonce-id": "bba9be9cd221ff2b40afa74dcc424d420fb30120f2c0a0f007bdd07c66f1c054"
+            "description": "Connection contexts are not reused when querying for blockchain data that corresponds to more than one address in a user's wallet",
+            "nonce-id": "bba9be9cd221ff2b40afa74dcc424d420fb30120f2c0a0f007bdd07c66f1c054",
+            "comment": "A 'connection context' is a persistent network connection to a network peer, such as a Tor identity in Tor Browser used to access a blockchain explorer API, or a TCP connection to another node in the Bitcoin P2P network with a specific origin IP address. The degree to which a new connection context has been created is the degree to which a network observer would find it difficult to correlate new network interactions with prior ones"
         },
         {
             "id": "OBPPV3/CR27",
