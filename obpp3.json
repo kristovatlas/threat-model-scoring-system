@@ -977,7 +977,33 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM36",
                             "description": "Broadcast outgoing transactions in a manner that is not easily correlated to the wallet provider",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "id": "OBPPV3/CR80",
+                                            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR81",
+                                            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API selected at random from a list of nodes/APIs once per transaction",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR82",
+                                            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API that is used by more than one wallet provider for pushing transactions to the network",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR83",
+                                            "description": "Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
@@ -2345,6 +2371,26 @@
             "id": "OBPPV3/CR73",
             "description": "The wallet functions without requiring the user to supply Class I personally identifying information (PII) such as a SSN",
             "nonce-id": "76e2eaa0b805ce9b3446e35f64ba4e59b0547468370529006948cc970469649d"
+        },
+        {
+            "id": "OBPPV3/CR80",
+            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
+            "nonce-id": "f68b9e6f7d9334cc62a7bcc1e47135ddf11b3b645c513c214e460b48a8e3c058"
+        },
+        {
+            "id": "OBPPV3/CR81",
+            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API selected at random from a list of nodes/APIs once per transaction",
+            "nonce-id": "dce6718cfb42ef5c9aa87f37aaa8cd745d385bfbe877fc502764078498e91cc1"
+        },
+        {
+            "id": "OBPPV3/CR82",
+            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API that is used by more than one wallet provider for pushing transactions to the network",
+            "nonce-id": "946905171e9948ad52b09660a36a9c2f96e43347182332ca95e594fa392d7bd0"
+        },
+        {
+            "id": "OBPPV3/CR83",
+            "description": "Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique",
+            "nonce-id": "51119bfbeca339d79eda0c61f879ae132832145e1d730780fb5c59880a9e577e"
         }
     ],
     "criteria-categories": [
