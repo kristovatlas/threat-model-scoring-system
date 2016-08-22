@@ -166,6 +166,12 @@
                                             "id": "OBPPV3/CR23",
                                             "description": "Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR13",
+                                            "description": "All transactions created by the wallet are compliant with BIP 62",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -245,24 +251,6 @@
                         },
                         {
                             "numeral": "5",
-                            "id": "OBPPV3/CM07",
-                            "description": "Only create transactions which are compliant with BIP-62",
-                            "effectiveness": 0,
-                            "criteria-groups": [
-                                {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "OBPPV3/CR13",
-                                            "description": "All transactions created by the wallet are compliant with BIP 62",
-                                            "effectiveness": 0
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "numeral": "6",
                             "id": "OBPPV3/CM08",
                             "description": "Calculate fees using a method which is not recognizably unique to a particular client",
                             "effectiveness": 0
