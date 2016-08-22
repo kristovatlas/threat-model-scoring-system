@@ -136,6 +136,12 @@
                                             "id": "OBPPV3/CR76",
                                             "description": "Multiple change outputs are created, and at least one of the transaction output values resmebles a plausible spend",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR23",
+                                            "description": "Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -145,7 +151,19 @@
                             "numeral": "3",
                             "id": "OBPPV3/CM64",
                             "description": "The composition of transaction output scripts does not does not reveal information regarding output ownership",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR23",
+                                            "description": "Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "numeral": "4",
@@ -221,24 +239,6 @@
                         },
                         {
                             "numeral": "5",
-                            "id": "OBPPV3/CM06",
-                            "description": "Avoid routinely creating outputs that are identifiable by their size or script",
-                            "effectiveness": 0,
-                            "criteria-groups": [
-                                {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "OBPPV3/CR23",
-                                            "description": "Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address",
-                                            "effectiveness": 0
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "numeral": "6",
                             "id": "OBPPV3/CM07",
                             "description": "Only create transactions which are compliant with BIP-62",
                             "effectiveness": 0,
@@ -256,13 +256,13 @@
                             ]
                         },
                         {
-                            "numeral": "7",
+                            "numeral": "6",
                             "id": "OBPPV3/CM08",
                             "description": "Calculate fees using a method which is not recognizably unique to a particular client",
                             "effectiveness": 0
                         },
                         {
-                            "numeral": "8",
+                            "numeral": "7",
                             "id": "OBPPV3/CM09",
                             "description": "Create the transaction in such a way that provides multiple possible matching sets between inputs and the user's change output(s)",
                             "effectiveness": 0
