@@ -156,7 +156,7 @@
                         {
                             "numeral": "3",
                             "id": "OBPPV3/CM64",
-                            "description": "The composition of transaction output scripts does not does not reveal information regarding output ownership",
+                            "description": "The composition of transaction output scripts and ECDSA signatures does not reveal information regarding counterparty ownership of outputs",
                             "effectiveness": 0,
                             "criteria-groups": [
                                 {
@@ -1979,7 +1979,7 @@
         },
         {
             "id": "OBPPV3/CM64",
-            "description": "The composition of transaction output scripts does not does not reveal information regarding output ownership",
+            "description": "The composition of transaction output scripts and ECDSA signatures does not reveal information regarding counterparty ownership of outputs",
             "nonce-id": "4df487da38a897450d7f2207d24899d46ac7a4ed26fdec49a9159dd8b69f9e0d"
         }
     ],
