@@ -590,7 +590,7 @@
                                         {
                                             "numeral": "b",
                                             "id": "OBPPV3/CR29",
-                                            "description": "Provides a visual indication if the balance information is not being obtained through an anonymizing network, including IP address information",
+                                            "description": "The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2122,7 +2122,7 @@
         },
         {
             "id": "OBPPV3/CR29",
-            "description": "Provides a visual indication if the balance information is not being obtained through an anonymizing network, including IP address information",
+            "description": "The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network",
             "nonce-id": "39a6395c7e93ac44cde490d1970b0b6fb1dd812f2d8c5c83fff7e6f8839afd69"
         },
         {
