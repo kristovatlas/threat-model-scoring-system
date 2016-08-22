@@ -932,7 +932,19 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM35",
                             "description": "Avoid broadcasting more than one version of a transaction",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "id": "OBPPV3/CR90",
+                                            "description": "More than one version of a transaction is never signed, or new versions do not modify transaction output values from previous versions",
+                                            "effectiveness": 0,
+                                            "comment": "Wallets that do not implement RBF on the sending side always fulfill this criterion"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2345,6 +2357,11 @@
             "id": "OBPPV3/CR73",
             "description": "The wallet functions without requiring the user to supply Class I personally identifying information (PII) such as a SSN",
             "nonce-id": "76e2eaa0b805ce9b3446e35f64ba4e59b0547468370529006948cc970469649d"
+        },
+        {
+            "id": "OBPPV3/CR90",
+            "description": "More than one version of a transaction is never signed, or new versions do not modify transaction output values from previous versions",
+            "nonce-id": "71b9d459fb307c0a24e9fffad8486e7436341fd9e0bf08c25d47e0e4ee8f69f7"
         }
     ],
     "criteria-categories": [
