@@ -142,6 +142,12 @@
                                             "id": "OBPPV3/CR23",
                                             "description": "Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR77",
+                                            "description": "Previous transaction outputs and new output values are selected to create multiple possible matching sets between inputs and the user's change outputs",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -259,12 +265,6 @@
                             "numeral": "6",
                             "id": "OBPPV3/CM08",
                             "description": "Calculate fees using a method which is not recognizably unique to a particular client",
-                            "effectiveness": 0
-                        },
-                        {
-                            "numeral": "7",
-                            "id": "OBPPV3/CM09",
-                            "description": "Create the transaction in such a way that provides multiple possible matching sets between inputs and the user's change output(s)",
                             "effectiveness": 0
                         }
                     ]
@@ -2369,6 +2369,11 @@
             "id": "OBPPV3/CR76",
             "description": "Multiple change outputs are created, and at least one of the transaction output values resmebles a plausible spend",
             "nonce-id": "585acc1ac4c06437693d9b978d410b3801232138e80afe8a4e41acc912c2a286"
+        },
+        {
+            "id": "OBPPV3/CR77",
+            "description": "Previous transaction outputs and new output values are selected to create multiple possible matching sets between inputs and the user's change outputs",
+            "nonce-id": "9a4da5b74c48248459f4400ae71aa8cc8c06b945b1eaa1e7fda93d8277c05fb1"
         }
     ],
     "criteria-categories": [
