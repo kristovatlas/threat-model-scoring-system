@@ -221,24 +221,6 @@
                         },
                         {
                             "numeral": "5",
-                            "id": "OBPPV3/CM05",
-                            "description": "Use standardized ordering of inputs and outputs",
-                            "effectiveness": 0,
-                            "criteria-groups": [
-                                {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "OBPPV3/CR10",
-                                            "description": "Inputs and outputs are ordered in a deterministic manner based on criteria other than the status of outputs as spends or change (BIP 69)",
-                                            "effectiveness": 0
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "numeral": "6",
                             "id": "OBPPV3/CM06",
                             "description": "Avoid routinely creating outputs that are identifiable by their size or script",
                             "effectiveness": 0,
@@ -256,7 +238,7 @@
                             ]
                         },
                         {
-                            "numeral": "7",
+                            "numeral": "6",
                             "id": "OBPPV3/CM07",
                             "description": "Only create transactions which are compliant with BIP-62",
                             "effectiveness": 0,
@@ -274,13 +256,13 @@
                             ]
                         },
                         {
-                            "numeral": "8",
+                            "numeral": "7",
                             "id": "OBPPV3/CM08",
                             "description": "Calculate fees using a method which is not recognizably unique to a particular client",
                             "effectiveness": 0
                         },
                         {
-                            "numeral": "9",
+                            "numeral": "8",
                             "id": "OBPPV3/CM09",
                             "description": "Create the transaction in such a way that provides multiple possible matching sets between inputs and the user's change output(s)",
                             "effectiveness": 0
