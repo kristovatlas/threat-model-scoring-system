@@ -541,7 +541,7 @@
                                         {
                                             "numeral": "b",
                                             "id": "OBPPV3/CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -558,7 +558,7 @@
                                         {
                                             "numeral": "d",
                                             "id": "OBPPV3/CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -726,7 +726,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2140,7 +2140,7 @@
         },
         {
             "id": "OBPPV3/CR33",
-            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
             "nonce-id": "3252f80071182ed6d8dd10454897d1cd72a663fa35ea54bf80c6c5dced1f5cc5"
         },
         {
