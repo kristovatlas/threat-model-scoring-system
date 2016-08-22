@@ -674,7 +674,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR28",
-                                            "description": "If balance information is obtained via querying more than one address in a given query, a separate connection context is used for each unique query",
+                                            "description": "A single query for blockchain data may corerespond to multiple addresses in a user's wallet, but a separate connection context is used for each query",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2116,7 +2116,7 @@
         },
         {
             "id": "OBPPV3/CR28",
-            "description": "If balance information is obtained via querying more than one address in a given query, a separate connection context is used for each unique query",
+            "description": "A single query for blockchain data may corerespond to multiple addresses in a user's wallet, but a separate connection context is used for each query",
             "nonce-id": "eaa21085ff84067e245a2f48ed6c6b27c23040163a7b87ea1f0ab93b2d715489"
         },
         {
