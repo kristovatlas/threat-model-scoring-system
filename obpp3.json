@@ -517,7 +517,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR25",
-                                            "description": "Balance information is obtained from a local copy of the blockchain",
+                                            "description": "Blockchain data is obtained from a local copy of the blockchain",
                                             "effectiveness": 1.0
                                         }
                                     ]
@@ -2101,7 +2101,7 @@
         },
         {
             "id": "OBPPV3/CR25",
-            "description": "Balance information is obtained from a local copy of the blockchain",
+            "description": "Blockchain data is obtained from a local copy of the blockchain",
             "nonce-id": "e9d26b9622bbc535f5625505cf2e4924847058b97e055323a332f82ed24bf067"
         },
         {
