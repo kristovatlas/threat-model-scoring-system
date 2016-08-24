@@ -214,6 +214,7 @@
                             "numeral": "6",
                             "id": "OBPPV3/CM06",
                             "description": "Avoid routinely creating outputs that are identifiable by their size or script",
+                            "comment": "An attacker can use wallet client fingerprinting to probabilistically distinguish between spend and change outputs if the wallet clients used to create the initial transaction and subsequent spends of outputs remain consistent for the counter-parties involved",
                             "effectiveness": 0,
                             "criteria-groups": [
                                 {
@@ -233,6 +234,7 @@
                             "id": "OBPPV3/CM07",
                             "description": "Only create transactions which are compliant with BIP-62",
                             "effectiveness": 0,
+                            "comment": "An attacker can use wallet client fingerprinting to probabilistically distinguish between spend and change outputs if the wallet clients used to create the initial transaction and subsequent spends of outputs remain consistent for the counter-parties involved",
                             "criteria-groups": [
                                 {
                                     "criteria": [
@@ -250,6 +252,7 @@
                             "numeral": "8",
                             "id": "OBPPV3/CM08",
                             "description": "Calculate fees using a method which is not recognizably unique to a particular client",
+                            "comment": "An attacker can use wallet client fingerprinting to probabilistically distinguish between spend and change outputs if the wallet clients used to create the initial transaction and subsequent spends of outputs remain consistent for the counter-parties involved",
                             "effectiveness": 0
                         },
                         {
