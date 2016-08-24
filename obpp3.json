@@ -520,7 +520,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR25",
-                                            "description": "Balance information is obtained from a local copy of the blockchain",
+                                            "description": "Blockchain data is obtained from a local copy of the blockchain",
                                             "effectiveness": 1.0
                                         }
                                     ]
@@ -538,13 +538,13 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR26",
-                                            "description": "Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context",
+                                            "description": "Connection contexts are not reused when querying for blockchain data that corresponds to more than one address in a user's wallet",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "b",
                                             "id": "OBPPV3/CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -554,14 +554,14 @@
                                         {
                                             "numeral": "c",
                                             "id": "OBPPV3/CR27",
-                                            "description": "Balance information is obtained via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+                                            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
                                             "effectiveness": 1.0,
                                             "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
                                         },
                                         {
                                             "numeral": "d",
                                             "id": "OBPPV3/CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -587,13 +587,13 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR24",
-                                            "description": "Number of clicks required by user to to obtain balance information without leaking their machine identity over the network",
+                                            "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "b",
                                             "id": "OBPPV3/CR29",
-                                            "description": "Provides a visual indication if the balance information is not being obtained through an anonymizing network, including IP address information",
+                                            "description": "The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -677,7 +677,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR28",
-                                            "description": "If balance information is obtained via querying more than one address in a given query, a separate connection context is used for each unique query",
+                                            "description": "A single query for blockchain data may corerespond to multiple addresses in a user's wallet, but a separate connection context is used for each query",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -703,7 +703,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR31",
-                                            "description": "Outgoing transactions are routed through a different entry point into the network than the source of balance information",
+                                            "description": "Outgoing transactions are routed through a different entry point into the network than the source of blockchain data",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -729,7 +729,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2104,32 +2104,34 @@
         },
         {
             "id": "OBPPV3/CR24",
-            "description": "Number of clicks required by user to to obtain balance information without leaking their machine identity over the network",
-            "nonce-id": "d594bb5bc8f342b8794072a48bffe36cdfe142dd19a4773e46abbfc931083a9f"
+            "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
+            "nonce-id": "d594bb5bc8f342b8794072a48bffe36cdfe142dd19a4773e46abbfc931083a9f",
+            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet"
         },
         {
             "id": "OBPPV3/CR25",
-            "description": "Balance information is obtained from a local copy of the blockchain",
+            "description": "Blockchain data is obtained from a local copy of the blockchain",
             "nonce-id": "e9d26b9622bbc535f5625505cf2e4924847058b97e055323a332f82ed24bf067"
         },
         {
             "id": "OBPPV3/CR26",
-            "description": "Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context",
-            "nonce-id": "bba9be9cd221ff2b40afa74dcc424d420fb30120f2c0a0f007bdd07c66f1c054"
+            "description": "Connection contexts are not reused when querying for blockchain data that corresponds to more than one address in a user's wallet",
+            "nonce-id": "bba9be9cd221ff2b40afa74dcc424d420fb30120f2c0a0f007bdd07c66f1c054",
+            "comment": "A 'connection context' is a persistent network connection to a network peer, such as a Tor identity in Tor Browser used to access a blockchain explorer API, or a TCP connection to another node in the Bitcoin P2P network with a specific origin IP address. The degree to which a new connection context has been created is the degree to which a network observer would find it difficult to correlate new network interactions with prior ones"
         },
         {
             "id": "OBPPV3/CR27",
-            "description": "Balance information is obtained via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
             "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1"
         },
         {
             "id": "OBPPV3/CR28",
-            "description": "If balance information is obtained via querying more than one address in a given query, a separate connection context is used for each unique query",
+            "description": "A single query for blockchain data may corerespond to multiple addresses in a user's wallet, but a separate connection context is used for each query",
             "nonce-id": "eaa21085ff84067e245a2f48ed6c6b27c23040163a7b87ea1f0ab93b2d715489"
         },
         {
             "id": "OBPPV3/CR29",
-            "description": "Provides a visual indication if the balance information is not being obtained through an anonymizing network, including IP address information",
+            "description": "The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network",
             "nonce-id": "39a6395c7e93ac44cde490d1970b0b6fb1dd812f2d8c5c83fff7e6f8839afd69"
         },
         {
@@ -2139,7 +2141,7 @@
         },
         {
             "id": "OBPPV3/CR31",
-            "description": "Outgoing transactions are routed through a different entry point into the network than the source of balance information",
+            "description": "Outgoing transactions are routed through a different entry point into the network than the source of blockchain data",
             "nonce-id": "3062c4004edebbcd23f7e2688889994d119f1dd4df2c2f95755bd2f1446573bc"
         },
         {
@@ -2149,7 +2151,7 @@
         },
         {
             "id": "OBPPV3/CR33",
-            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
             "nonce-id": "3252f80071182ed6d8dd10454897d1cd72a663fa35ea54bf80c6c5dced1f5cc5"
         },
         {
