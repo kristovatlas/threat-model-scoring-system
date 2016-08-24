@@ -1191,25 +1191,43 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR54",
-                                            "description": "Number of clicks needed to permanently and completely erase the wallet from a device",
+                                            "description": "Number of clicks to delete wallet data within the wallet client",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "b",
-                                            "id": "OBPPV3/CR55",
-                                            "description": "Number of clicks needed to permanently and completely remove the wallet application from a device",
+                                            "id": "OBPPV3/CR74",
+                                            "description": "A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "c",
-                                            "id": "OBPPV3/CR58",
-                                            "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
+                                            "id": "OBPPV3/CR59",
+                                            "description": "A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "d",
-                                            "id": "OBPPV3/CR59",
-                                            "description": "The wallet deletion process eliminates all evidence that a wallet was previously installed",
+                                            "id": "OBPPV3/CR55",
+                                            "description": "Number of clicks to remove the wallet client from a device",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "e",
+                                            "id": "OBPPV3/CR75",
+                                            "description": "A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "f",
+                                            "id": "OBPPV3/CR58",
+                                            "description": "A user cannot determine outside of the app whether the wallet client was previously installed on the device after the uninstallation process has been completed",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "g",
+                                            "id": "OBPPV3/CR76",
+                                            "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2227,14 +2245,14 @@
         },
         {
             "id": "OBPPV3/CR54",
-            "description": "Number of clicks needed to permanently and completely erase the wallet from a device",
+            "description": "Number of clicks to delete wallet data within the wallet client",
             "comment": "Wallet data is considered erased if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges",
             "nonce-id": "e157bce4222167924c532205b40a7992a3ac1f1f9de36a4f9980e5281c033ad3"
         },
         {
             "id": "OBPPV3/CR55",
-            "description": "Number of clicks needed to permanently and completely remove the wallet application from a device",
-            "comment": "The wallet application is considered removed if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges",
+            "description": "Number of clicks to remove the wallet client from a device",
+            "comment": "The wallet application is considered removed if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default system privileges",
             "nonce-id": "b5f8660f835d1738b73d8c65e14a0164a00e731bb0176688ab80a998efc4670e"
         },
         {
@@ -2251,14 +2269,14 @@
         },
         {
             "id": "OBPPV3/CR58",
-            "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
-            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges. This does not include non-standard accounts, such as admin accounts unlocked via rooted methods on mobile devices",
+            "description": "A user cannot determine outside of the app whether the wallet client was previously installed on the device after the uninstallation process has been completed",
+            "comment": "Detection is considered eliminated if prior installation cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default system privileges. This does not include non-standard accounts, such as admin accounts unlocked via rooted methods on mobile devices. This does include accessing the Operating System's app store or package manager to review which apps have been previously downloaded",
             "nonce-id": "01cbe777a3abea219a15924080a4110a99c7c49057c9f5c274ea99dfc9b9dfef"
         },
         {
             "id": "OBPPV3/CR59",
-            "description": "The wallet deletion process eliminates all evidence that a wallet was previously installed",
-            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges",
+            "description": "A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed",
+            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account on the same system with default system privileges",
             "nonce-id": "cae67a1a0304b1a9f30d194953f0470146d82a5a26a194bc915ed2e6d322b69b"
         },
         {
@@ -2326,6 +2344,22 @@
             "id": "OBPPV3/CR73",
             "description": "The wallet functions without requiring the user to supply Class I personally identifying information (PII) such as a SSN",
             "nonce-id": "76e2eaa0b805ce9b3446e35f64ba4e59b0547468370529006948cc970469649d"
+        },
+        {
+            "id": "OBPPV3/CR74",
+            "description": "A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed",
+            "nonce-id": "4fd2628fed355d0b8a85ebcc5ec41b5322ee9fcfd78a423f48084ef0534a1e40"
+        },
+        {
+            "id": "OBPPV3/CR75",
+            "description": "A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself",
+            "nonce-id": "d9bd6b76c72182980400549bf84beb44ccd3695f5f365c0cc1d0b4e3f6d7fcba"
+        },
+        {
+            "id": "OBPPV3/CR76",
+            "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
+            "comment": "An application can achieve this, for example, by initializing application metadata with random data that is indistinguishable from encrypted data",
+            "nonce-id": "397e84381c824a9dfb5b24bcc56d123201c2fc7a084a1f6f21d72c27b1accb63"
         }
     ],
     "criteria-categories": [
