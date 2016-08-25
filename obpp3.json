@@ -2381,7 +2381,7 @@
         },
         {
             "id": "OBPPV3/CR90",
-            "description": "The wallet client never signs and broadcasts more than one version of a transaction (RBF)",
+            "description": "The wallet client never signs and broadcasts more than one version of a transaction",
             "nonce-id": "71b9d459fb307c0a24e9fffad8486e7436341fd9e0bf08c25d47e0e4ee8f69f7"
         },
         {
