@@ -114,11 +114,12 @@ class WarningsTest(unittest.TestCase):
 
         with warnings.catch_warnings(record=True) as expected_warnings:
             warnings.simplefilter("always")
-            validate_json.validate_json(test_json, schema)
+            validate_json.validate_json(test_json, schema, trap_warnings=False)
 
-            assert len(expected_warnings) == 1, "%d" % len(expected_warnings)
-            assert issubclass(expected_warnings[0].category, UserWarning)
-            assert 'NINJAGHOSTV1-CM5' in str(expected_warnings[0].message)
+            self.assertEqual(len(expected_warnings), 1)
+            self.assertTrue(issubclass(expected_warnings[0].category,
+                                       UserWarning))
+            self.assertIn('NINJAGHOSTV1-CM5', str(expected_warnings[0].message))
 
     def test_unlisted_criterion(self):
         """A warning is emitted if a criterion is unlisted in the threat model.
@@ -129,11 +130,12 @@ class WarningsTest(unittest.TestCase):
 
         with warnings.catch_warnings(record=True) as expected_warnings:
             warnings.simplefilter("always")
-            validate_json.validate_json(test_json, schema)
+            validate_json.validate_json(test_json, schema, trap_warnings=False)
 
-            assert len(expected_warnings) == 1, "%d" % len(expected_warnings)
-            assert issubclass(expected_warnings[0].category, UserWarning)
-            assert 'NINJAGHOSTV1-CR8' in str(expected_warnings[0].message)
+            self.assertEqual(len(expected_warnings), 1)
+            self.assertTrue(issubclass(expected_warnings[0].category,
+                                       UserWarning))
+            self.assertIn('NINJAGHOSTV1-CR8', str(expected_warnings[0].message))
 
 SUITE1 = unittest.TestLoader().loadTestsFromTestCase(DefaultValuesTest)
 SUITE2 = unittest.TestLoader().loadTestsFromTestCase(IDProblemsTest)
