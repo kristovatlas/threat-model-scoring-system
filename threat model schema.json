@@ -49,7 +49,8 @@
                         "type": "array",
                         "uniqueItems": true,
                         "items": {
-                            "$ref": "#/definitions/tag"
+                            "type": "string",
+                            "minLength": 1
                         }
                     },
                     "attacks": {
@@ -85,7 +86,8 @@
                                     "type": "array",
                                     "uniqueItems": true,
                                     "items": {
-                                        "$ref": "#/definitions/tag"
+                                        "type": "string",
+                                        "minLength": 1
                                     }
                                 },
                                 "countermeasures": {
@@ -117,7 +119,8 @@
                                                 "type": "array",
                                                 "uniqueItems": true,
                                                 "items": {
-                                                    "$ref": "#/definitions/tag"
+                                                    "type": "string",
+                                                    "minLength": 1
                                                 }
                                             },
                                             "criteria-groups": {
@@ -165,7 +168,8 @@
                         "type": "array",
                         "uniqueItems": true,
                         "items": {
-                            "$ref": "#/definitions/tag"
+                            "type": "string",
+                            "minLength": 1
                         }
                     },
                     "nonce-id": {
@@ -204,7 +208,8 @@
                         "type": "array",
                         "uniqueItems": true,
                         "items": {
-                            "$ref": "#/definitions/tag"
+                            "type": "string",
+                            "minLength": 1
                         }
                     },
                     "nonce-id": {
@@ -281,7 +286,8 @@
                                 "type": "array",
                                 "uniqueItems": true,
                                 "items": {
-                                    "$ref": "#/definitions/tag"
+                                    "type": "string",
+                                    "minLength": 1
                                 }
                             },
                             "effectiveness": {
@@ -298,33 +304,6 @@
                     "items": {
                         "$ref": "#/definitions/criteria-group"
                     }
-                }
-            }
-        },
-        "tag": {
-            "description": "A tag that applies to a threat model item, and which must also be co-listed in the document's 'tags' array",
-            "oneOf": [
-                {
-                    "required": [ "id" ]
-                },
-                {
-                    "required": [ "nonce-id" ]
-                }
-            ],
-            "properties": {
-                "id": {
-                    "description": "A unique string identifying this tag which MUST match the id of a tag listed in the document's 'tags' array",
-                    "type": "string",
-                    "minLength": 1
-                },
-                "name": {
-                    "description": "The actual tag, which MUST match the name of a tag listed in the document's 'tags' array with a matching id or nonce-id",
-                    "type": "string",
-                    "minLength": 1
-                },
-                "nonce-id": {
-                    "description": "An optional field that uniquely identifies a tag and which MUST match a tag with the same name and nonce-id in the document's 'tags' array",
-                    "type": "string"
                 }
             }
         }

@@ -9,6 +9,8 @@ Todos:
 
 import json
 import sys
+from common import _empty, iter_items #common.py
+import model_builder #model_builder.py
 
 SUPPORTED_FORMATS = ['github-flavored-markdown']
 DEBUG_PRINT = False
@@ -17,14 +19,16 @@ def _main():
     args = get_args()
 
     with open(args['json_filename'], 'r') as json_file:
-        json_obj = json.load(json_file)
+        bare_threat_model = json.load(json_file)
+        built_threat_model = model_builder.get_built_model(bare_threat_model)
 
         if args['format'] == 'github-flavored-markdown':
             markdown = ("%s%s%s\n%s\n%s" %
-                        (get_model_headers(json_obj), _get_table_headers(),
-                         _get_table_body(json_obj),
-                         get_countermeasures_list(json_obj),
-                         get_criteria_list(json_obj)))
+                        (get_model_headers(built_threat_model),
+                         _get_table_headers(),
+                         _get_table_body(built_threat_model),
+                         get_countermeasures_list(built_threat_model),
+                         get_criteria_list(built_threat_model)))
             with open(args['json_filename'] + ".md", 'w') as markdown_file:
                 markdown_file.write(markdown)
         else:
@@ -46,7 +50,6 @@ def _get_table_headers():
     return ("Attackers | Attacks | Countermeasures | Criteria\n"
             "--- | --- | --- | ---\n")
 
-
 def _get_table_body(threat_model):
     """Generates the GFM text of the table body.
 
@@ -56,9 +59,12 @@ def _get_table_body(threat_model):
     column.
     """
     table_body = ""
-    assert 'attackers' in threat_model
-    for attacker in threat_model['attackers']:
+
+    for attacker in iter_items(threat_model, 'attackers'):
         attacker_name = attacker['name']
+        attacker_name += get_tags_markdown(iter_items(attacker,
+                                                      'printable-tags'))
+
         dprint("attacker_name = %s" % attacker_name)
 
         if _empty(attacker, 'attacks'):
@@ -67,6 +73,8 @@ def _get_table_body(threat_model):
 
         for attack in attacker['attacks']:
             attack_name = attack['name']
+            attack_name += get_tags_markdown(iter_items(attack,
+                                                        'printable-tags'))
 
             dprint("attack_name = %s" % attack_name)
 
@@ -75,10 +83,13 @@ def _get_table_body(threat_model):
                 attacker_name = None #display name only one row per attacker
                 continue
 
-            for countermeasure in attack['countermeasures']:
+            for countermeasure in iter_items(attack, 'countermeasures'):
                 countermeasure_text = countermeasure['id']
                 if 'description' in countermeasure:
                     countermeasure_text = countermeasure['description']
+
+                countermeasure_text += get_tags_markdown(iter_items(
+                    countermeasure, 'printable-tags'))
 
                 dprint("countermeasure_text = %s" % countermeasure_text)
 
@@ -89,7 +100,8 @@ def _get_table_body(threat_model):
                     attack_name = None #display name only one row per attack
                     continue
 
-                for criteria_group in countermeasure['criteria-groups']:
+                for criteria_group in iter_items(countermeasure,
+                                                 'criteria-groups'):
                     table_body += _get_table_body_criteria_group_recurse(
                         threat_model, criteria_group, attacker_name,
                         attack_name, countermeasure_text)
@@ -98,6 +110,30 @@ def _get_table_body(threat_model):
                     countermeasure_text = None #display once per countermeasure
 
     return table_body
+
+def get_tags_markdown(printable_tags):
+    """Get a string to append to markdown for a list of tags.
+
+    An array of tags may apply to an attacker, an attack, a counteremeasure, or
+    a criterion. It may be applied within the threat model itself, or in the
+    arrays of countermeasures or criteria below the threat model in the JSON
+    specification.
+
+    Args:
+        printable_tags (List[str]): A list of tags that will be printed
+
+    Returns:
+        str: The markdown, or empty string if none needs to be generated.
+    """
+    MARKDOWN_HEADER = '<BR><EM>Tags:</EM> '
+
+    if len(printable_tags) == 0:
+        return ""
+    else:
+        markdown = MARKDOWN_HEADER
+        for tag in printable_tags:
+            markdown += "<CODE>%s</CODE> " % tag
+        return markdown
 
 def _get_table_body_criteria_group_recurse(threat_model, criteria_group,
                                            attacker_name, attack_name,
@@ -118,27 +154,27 @@ def _get_table_body_criteria_group_recurse(threat_model, criteria_group,
         #print everything else.
         return get_one_row(attacker_name, attack_name, countermeasure_text)
 
-    if 'criteria' in criteria_group:
-        for criterion in criteria_group['criteria']:
-            criterion_text = criterion['id']
-            #if 'description' in criterion:
-            #    criterion_text = criterion['description']
-            dprint("criterion_text=%s" % criterion_text)
-            num_rows_printed += 1
-            body += get_one_row(
-                attacker_name, attack_name, countermeasure_text, criterion_text)
-            attacker_name = None #display name only one row per attacker
-            attack_name = None #display name only one row per attack
-            countermeasure_text = None #display once per countermeasure
+    for criterion in iter_items(criteria_group, 'criteria'):
+        criterion_text = criterion['id']
 
-    if 'criteria-groups' in criteria_group:
-        for criteria_group in criteria_group['criteria-groups']:
-            body += _get_table_body_criteria_group_recurse(
-                threat_model, criteria_group, attacker_name, attack_name,
-                countermeasure_text, num_rows_printed)
-            attacker_name = None #display name only one row per attacker
-            attack_name = None #display name only one row per attack
-            countermeasure_text = None #display once per countermeasure
+        criterion_text += get_tags_markdown(iter_items(criterion,
+                                                       'printable-tags'))
+
+        dprint("criterion_text=%s" % criterion_text)
+        num_rows_printed += 1
+        body += get_one_row(
+            attacker_name, attack_name, countermeasure_text, criterion_text)
+        attacker_name = None #display name only one row per attacker
+        attack_name = None #display name only one row per attack
+        countermeasure_text = None #display once per countermeasure
+
+    for criteria_group in iter_items(criteria_group, 'criteria-groups'):
+        body += _get_table_body_criteria_group_recurse(
+            threat_model, criteria_group, attacker_name, attack_name,
+            countermeasure_text, num_rows_printed)
+        attacker_name = None #display name only one row per attacker
+        attack_name = None #display name only one row per attack
+        countermeasure_text = None #display once per countermeasure
 
     return body
 
@@ -148,11 +184,13 @@ def get_countermeasures_list(threat_model):
                         "ID | Description\n"
                         "--- | ---\n")
     for counterm in threat_model['countermeasures']:
+        description =  counterm['description']
+        description += get_tags_markdown(iter_items(counterm, 'printable-tags'))
         comment = ''
         if 'comment' in counterm:
             comment = "<br><br> _%s_" % counterm['comment']
         counterm_section += ("%s | %s%s\n" % (counterm['id'],
-                                              counterm['description'],
+                                              description,
                                               comment))
     return counterm_section
 
@@ -162,11 +200,14 @@ def get_criteria_list(threat_model):
                         "ID | Description\n"
                         "--- | ---\n")
     for criterion in threat_model['criteria']:
+        description = criterion['description']
+        description += get_tags_markdown(iter_items(criterion,
+                                                    'printable-tags'))
         comment = ''
         if 'comment' in criterion:
             comment = "<br><br> _%s_" % criterion['comment']
         criteria_section += ("%s | %s%s\n" % (criterion['id'],
-                                              criterion['description'],
+                                              description,
                                               comment))
     return criteria_section
 
@@ -228,10 +269,6 @@ def dprint(data):
     """Print debug data, if enabled."""
     if DEBUG_PRINT:
         print "DEBUG: %s" % str(data)
-
-def _empty(dict_parent, array_child_name):
-    return (array_child_name not in dict_parent or
-            len(dict_parent[array_child_name]) == 0)
 
 if __name__ == '__main__':
     _main()
