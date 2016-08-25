@@ -941,9 +941,13 @@
                                     "criteria": [
                                         {
                                             "id": "OBPPV3/CR90",
-                                            "description": "More than one version of a transaction is never signed, or new versions do not modify transaction output values from previous versions",
-                                            "effectiveness": 0,
-                                            "comment": "Wallets that do not implement RBF on the sending side always fulfill this criterion"
+                                            "description": "The wallet client never signs and broadcasts more than one version of a transaction",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR91",
+                                            "description": "When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -2376,9 +2380,14 @@
             "nonce-id": "397e84381c824a9dfb5b24bcc56d123201c2fc7a084a1f6f21d72c27b1accb63"
         },
         {
-         "id": "OBPPV3/CR90",
-            "description": "More than one version of a transaction is never signed, or new versions do not modify transaction output values from previous versions",
+            "id": "OBPPV3/CR90",
+            "description": "The wallet client never signs and broadcasts more than one version of a transaction (RBF)",
             "nonce-id": "71b9d459fb307c0a24e9fffad8486e7436341fd9e0bf08c25d47e0e4ee8f69f7"
+        },
+        {
+            "id": "OBPPV3/CR91",
+            "description": "When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions",
+            "nonce-id": "c9c2f71a47d5aa66336c8c126aba9b44688d6b06e7e65f53023e6334d5c63fb7"
         }
     ],
     "criteria-categories": [
