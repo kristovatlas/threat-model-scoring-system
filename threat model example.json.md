@@ -13,7 +13,7 @@ Ninja | Punch | Block attacks | NINJAGHOSTV1-CR1
     |     | Teleport<BR><EM>Tags:</EM> <CODE>teleportation</CODE>  | NINJAGHOSTV1-CR6
     |     |     | NINJAGHOSTV1-CR1
     | Criticize |     |    
-Ghost | Make scary noises | Assume defensive posture | NINJAGHOSTV1-CR7<BR><EM>Tags:</EM> <CODE>eargplugs</CODE> <CODE>hearing protection</CODE> 
+Ghost | Make scary noises | Assume defensive posture | NINJAGHOSTV1-CR7<BR><EM>Tags:</EM> <CODE>hearing protection</CODE> <CODE>earplugs</CODE> 
     |     |     | NINJAGHOSTV1-CR3
     | Drop an anvil | Assume defensive posture | NINJAGHOSTV1-CR2
 
