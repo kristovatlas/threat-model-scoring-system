@@ -253,6 +253,7 @@
                             "numeral": "5",
                             "id": "OBPPV3/CM08",
                             "description": "Calculate fees using a method which is not recognizably unique to a particular client",
+                            "comment": "An attacker can use wallet client fingerprinting to probabilistically distinguish between spend and change outputs if the wallet clients used to create the initial transaction and subsequent spends of outputs remain consistent for the counter-parties involved",
                             "effectiveness": 0
                         }
                     ]
@@ -514,7 +515,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR25",
-                                            "description": "Balance information is obtained from a local copy of the blockchain",
+                                            "description": "Blockchain data is obtained from a local copy of the blockchain",
                                             "effectiveness": 1.0
                                         }
                                     ]
@@ -532,13 +533,13 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR26",
-                                            "description": "Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context",
+                                            "description": "Connection contexts are not reused when querying for blockchain data that corresponds to more than one address in a user's wallet",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "b",
                                             "id": "OBPPV3/CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -548,14 +549,14 @@
                                         {
                                             "numeral": "c",
                                             "id": "OBPPV3/CR27",
-                                            "description": "Balance information is obtained via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+                                            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
                                             "effectiveness": 1.0,
                                             "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
                                         },
                                         {
                                             "numeral": "d",
                                             "id": "OBPPV3/CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -581,13 +582,13 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR24",
-                                            "description": "Number of clicks required by user to to obtain balance information without leaking their machine identity over the network",
+                                            "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "b",
                                             "id": "OBPPV3/CR29",
-                                            "description": "Provides a visual indication if the balance information is not being obtained through an anonymizing network, including IP address information",
+                                            "description": "The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -671,7 +672,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR28",
-                                            "description": "If balance information is obtained via querying more than one address in a given query, a separate connection context is used for each unique query",
+                                            "description": "A single query for blockchain data may corerespond to multiple addresses in a user's wallet, but a separate connection context is used for each query",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -697,7 +698,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR31",
-                                            "description": "Outgoing transactions are routed through a different entry point into the network than the source of balance information",
+                                            "description": "Outgoing transactions are routed through a different entry point into the network than the source of blockchain data",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -723,7 +724,7 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR33",
-                                            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+                                            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -1004,12 +1005,6 @@
                                             "id": "OBPPV3/CR44",
                                             "description": "Number of clicks to create a new identity container from the home screen of an existing identity container",
                                             "effectiveness": 0
-                                        },
-                                        {
-                                            "numeral": "b",
-                                            "id": "OBPPV3/CR45",
-                                            "description": "Number of clicks to assign an imported private key into an identity container",
-                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -1191,25 +1186,43 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR54",
-                                            "description": "Number of clicks needed to permanently and completely erase the wallet from a device",
+                                            "description": "Number of clicks to delete wallet data within the wallet client",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "b",
-                                            "id": "OBPPV3/CR55",
-                                            "description": "Number of clicks needed to permanently and completely remove the wallet application from a device",
+                                            "id": "OBPPV3/CR78",
+                                            "description": "A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "c",
-                                            "id": "OBPPV3/CR58",
-                                            "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
+                                            "id": "OBPPV3/CR59",
+                                            "description": "A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "d",
-                                            "id": "OBPPV3/CR59",
-                                            "description": "The wallet deletion process eliminates all evidence that a wallet was previously installed",
+                                            "id": "OBPPV3/CR55",
+                                            "description": "Number of clicks to remove the wallet client from a device",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "e",
+                                            "id": "OBPPV3/CR79",
+                                            "description": "A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "f",
+                                            "id": "OBPPV3/CR58",
+                                            "description": "A user cannot determine outside of the app whether the wallet client was previously installed on the device after the uninstallation process has been completed",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "g",
+                                            "id": "OBPPV3/CR80",
+                                            "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -1520,12 +1533,6 @@
                                     "criteria": [
                                         {
                                             "numeral": "a",
-                                            "id": "OBPPV3/CR61",
-                                            "description": "Number of clicks to create the first wallet backup",
-                                            "effectiveness": 0
-                                        },
-                                        {
-                                            "numeral": "b",
                                             "id": "OBPPV3/CR62",
                                             "description": "Number of clicks needed to update an existing backup due to the creation of a new receiving or change address",
                                             "effectiveness": 0
@@ -2092,32 +2099,34 @@
         },
         {
             "id": "OBPPV3/CR24",
-            "description": "Number of clicks required by user to to obtain balance information without leaking their machine identity over the network",
-            "nonce-id": "d594bb5bc8f342b8794072a48bffe36cdfe142dd19a4773e46abbfc931083a9f"
+            "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
+            "nonce-id": "d594bb5bc8f342b8794072a48bffe36cdfe142dd19a4773e46abbfc931083a9f",
+            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet"
         },
         {
             "id": "OBPPV3/CR25",
-            "description": "Balance information is obtained from a local copy of the blockchain",
+            "description": "Blockchain data is obtained from a local copy of the blockchain",
             "nonce-id": "e9d26b9622bbc535f5625505cf2e4924847058b97e055323a332f82ed24bf067"
         },
         {
             "id": "OBPPV3/CR26",
-            "description": "Balance information is obtained by making queries to other network participants that do not include multiple addresses in a specific connection context",
-            "nonce-id": "bba9be9cd221ff2b40afa74dcc424d420fb30120f2c0a0f007bdd07c66f1c054"
+            "description": "Connection contexts are not reused when querying for blockchain data that corresponds to more than one address in a user's wallet",
+            "nonce-id": "bba9be9cd221ff2b40afa74dcc424d420fb30120f2c0a0f007bdd07c66f1c054",
+            "comment": "A 'connection context' is a persistent network connection to a network peer, such as a Tor identity in Tor Browser used to access a blockchain explorer API, or a TCP connection to another node in the Bitcoin P2P network with a specific origin IP address. The degree to which a new connection context has been created is the degree to which a network observer would find it difficult to correlate new network interactions with prior ones"
         },
         {
             "id": "OBPPV3/CR27",
-            "description": "Balance information is obtained via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
             "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1"
         },
         {
             "id": "OBPPV3/CR28",
-            "description": "If balance information is obtained via querying more than one address in a given query, a separate connection context is used for each unique query",
+            "description": "A single query for blockchain data may corerespond to multiple addresses in a user's wallet, but a separate connection context is used for each query",
             "nonce-id": "eaa21085ff84067e245a2f48ed6c6b27c23040163a7b87ea1f0ab93b2d715489"
         },
         {
             "id": "OBPPV3/CR29",
-            "description": "Provides a visual indication if the balance information is not being obtained through an anonymizing network, including IP address information",
+            "description": "The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network",
             "nonce-id": "39a6395c7e93ac44cde490d1970b0b6fb1dd812f2d8c5c83fff7e6f8839afd69"
         },
         {
@@ -2127,7 +2136,7 @@
         },
         {
             "id": "OBPPV3/CR31",
-            "description": "Outgoing transactions are routed through a different entry point into the network than the source of balance information",
+            "description": "Outgoing transactions are routed through a different entry point into the network than the source of blockchain data",
             "nonce-id": "3062c4004edebbcd23f7e2688889994d119f1dd4df2c2f95755bd2f1446573bc"
         },
         {
@@ -2137,7 +2146,7 @@
         },
         {
             "id": "OBPPV3/CR33",
-            "description": "Avoids including addresses from multiple identity containers in the same balance query",
+            "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
             "nonce-id": "3252f80071182ed6d8dd10454897d1cd72a663fa35ea54bf80c6c5dced1f5cc5"
         },
         {
@@ -2192,11 +2201,6 @@
             "nonce-id": "bf25cd7e62ecc64aa5fd964c579a9a3c9a2617b7cf1aa3ee9ed6eafbca5cdc6c"
         },
         {
-            "id": "OBPPV3/CR45",
-            "description": "Number of clicks to assign an imported private key into an identity container",
-            "nonce-id": "b531b43871c89961b2a73c50364bab7660053a5cbdc1b75fca10a792d1736287"
-        },
-        {
             "id": "OBPPV3/CR46",
             "description": "Avoids creating transactions which contain inputs from different identity containers, except optionally if the user has intentionally overridden this behavior",
             "nonce-id": "2e54baaff1e94c4930b43264b060bce49bd4d78822441d39f704916cc5aac398"
@@ -2238,14 +2242,14 @@
         },
         {
             "id": "OBPPV3/CR54",
-            "description": "Number of clicks needed to permanently and completely erase the wallet from a device",
+            "description": "Number of clicks to delete wallet data within the wallet client",
             "comment": "Wallet data is considered erased if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges",
             "nonce-id": "e157bce4222167924c532205b40a7992a3ac1f1f9de36a4f9980e5281c033ad3"
         },
         {
             "id": "OBPPV3/CR55",
-            "description": "Number of clicks needed to permanently and completely remove the wallet application from a device",
-            "comment": "The wallet application is considered removed if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges",
+            "description": "Number of clicks to remove the wallet client from a device",
+            "comment": "The wallet application is considered removed if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default system privileges",
             "nonce-id": "b5f8660f835d1738b73d8c65e14a0164a00e731bb0176688ab80a998efc4670e"
         },
         {
@@ -2262,25 +2266,20 @@
         },
         {
             "id": "OBPPV3/CR58",
-            "description": "When logged into the user who previously installed the wallet application or another user with default privileges, the user cannot detect that the wallet was previously installed once the application removal process is completed",
-            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges. This does not include non-standard accounts, such as admin accounts unlocked via rooted methods on mobile devices",
+            "description": "A user cannot determine outside of the app whether the wallet client was previously installed on the device after the uninstallation process has been completed",
+            "comment": "Detection is considered eliminated if prior installation cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default system privileges. This does not include non-standard accounts, such as admin accounts unlocked via rooted methods on mobile devices. This does include accessing the Operating System's app store or package manager to review which apps have been previously downloaded",
             "nonce-id": "01cbe777a3abea219a15924080a4110a99c7c49057c9f5c274ea99dfc9b9dfef"
         },
         {
             "id": "OBPPV3/CR59",
-            "description": "The wallet deletion process eliminates all evidence that a wallet was previously installed",
-            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account with default privileges",
+            "description": "A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed",
+            "comment": "Evidence is considered eliminated if it cannot be evidenced using the privileges of the user account that installed the wallet client, or any other user account on the same system with default system privileges",
             "nonce-id": "cae67a1a0304b1a9f30d194953f0470146d82a5a26a194bc915ed2e6d322b69b"
         },
         {
             "id": "OBPPV3/CR60",
             "description": "Persistent wallet metadata is stored in a form not identifiable as belonging to a Bitcoin wallet",
             "nonce-id": "d8d82a51f925703305d00cef69fc624bb92b12d9c134c1df04ec597a6f803c7c"
-        },
-        {
-            "id": "OBPPV3/CR61",
-            "description": "Number of clicks to create the first wallet backup",
-            "nonce-id": "7469be3f34f05b2c68134f15c34a652770bc7bf6f87c55efb13e8947fec6b7ec"
         },
         {
             "id": "OBPPV3/CR62",
@@ -2362,6 +2361,21 @@
             "id": "OBPPV3/CR77",
             "description": "Previous transaction outputs and new output values are selected to create multiple possible matching sets between inputs and the user's change outputs",
             "nonce-id": "9a4da5b74c48248459f4400ae71aa8cc8c06b945b1eaa1e7fda93d8277c05fb1"
+        },
+        {
+            "id": "OBPPV3/CR78",
+            "description": "A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed",
+            "nonce-id": "4fd2628fed355d0b8a85ebcc5ec41b5322ee9fcfd78a423f48084ef0534a1e40"
+        },
+        {
+            "id": "OBPPV3/CR79",
+            "description": "A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself",
+            "nonce-id": "d9bd6b76c72182980400549bf84beb44ccd3695f5f365c0cc1d0b4e3f6d7fcba"
+        },
+        {
+            "id": "OBPPV3/CR80",
+            "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
+            "comment": "An application can achieve this, for example, by initializing application metadata with random data that is indistinguishable from encrypted data"
         }
     ],
     "criteria-categories": [
