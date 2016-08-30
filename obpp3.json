@@ -1498,6 +1498,24 @@
                                             "id": "OBPPV3/CR71",
                                             "description": "A user can produce a compiled version of the application from the public source code that exactly matches the version distributed by the wallet provider",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR120",
+                                            "description": "Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using udpated software",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR121",
+                                            "description": "Developers cryptographically sign all application binaries (or source code for interpreted languages) provided, and the client can verify the signature before private keys or wallet metadata are decrypted using updated software",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR122",
+                                            "description": "The wallet client cryptographically verifies all packaged software updates with a pinned public key before automatically updating software",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -2362,6 +2380,21 @@
             "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
             "comment": "An application can achieve this, for example, by initializing application metadata with random data that is indistinguishable from encrypted data",
             "nonce-id": "397e84381c824a9dfb5b24bcc56d123201c2fc7a084a1f6f21d72c27b1accb63"
+        },
+        {
+            "id": "OBPPV3/CR120",
+            "description": "Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using udpated software",
+            "nonce-id": "8732471400c61f1bdedb5c2d065635bc43b3b7e93d1295b9263794f818609758"
+        },
+        {
+            "id": "OBPPV3/CR121",
+            "description": "Developers cryptographically sign all application binaries (or source code for interpreted languages) provided, and the client can verify the signature before private keys or wallet metadata are decrypted using updated software",
+            "nonce-id": "bb69cef4049d52d46a9da90e3daeceebee83768d87cb0d0f7d92e5e9bffcdab2"
+        },
+        {
+            "id": "OBPPV3/CR122",
+            "description": "The wallet client cryptographically verifies all packaged software updates with a pinned public key before automatically updating software",
+            "nonce-id": "f09d7dcb1f36adec20de3b0e60b5c6d27bd6ac64547b5a9ce67f2858b3e55cdf"
         }
     ],
     "criteria-categories": [
