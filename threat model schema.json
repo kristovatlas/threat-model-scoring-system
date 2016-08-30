@@ -44,6 +44,15 @@
                         "description": "An optional field that uniquely identifies an attacker between different versions of a threat model in order to facilitate threat model development",
                         "type": "string"
                     },
+                    "tags": {
+                        "description": "An optional list of tags for this attacker",
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                            "type": "string",
+                            "minLength": 1
+                        }
+                    },
                     "attacks": {
                         "description": "Attacks performed by attackers",
                         "type": "array",
@@ -72,6 +81,15 @@
                                     "description": "An optional field that uniquely identifies an attack between different versions of a threat model in order to facilitate threat model development",
                                     "type": "string"
                                 },
+                                "tags": {
+                                    "description": "An optional list of tags for this attack",
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "items": {
+                                        "type": "string",
+                                        "minLength": 1
+                                    }
+                                },
                                 "countermeasures": {
                                     "description": "A countermeasure that partially or wholly mitigates an attack",
                                     "type": "array",
@@ -95,6 +113,15 @@
                                                 "description": "A unique string that identifies a single countermeasure that may be common to multiple attacks in one or more attack categories",
                                                 "type": "string",
                                                 "pattern": "^[a-zA-Z0-9_\\-]+$"
+                                            },
+                                            "tags": {
+                                                "description": "An optional list of tags for this countermeasure as it applies to the parent attack specifically",
+                                                "type": "array",
+                                                "uniqueItems": true,
+                                                "items": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
                                             },
                                             "criteria-groups": {
                                                 "type": "array",
@@ -136,6 +163,15 @@
                         "type": "string",
                         "minLength": 1
                     },
+                    "tags": {
+                        "description": "An optional list of tags for this countermeasure",
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                            "type": "string",
+                            "minLength": 1
+                        }
+                    },
                     "nonce-id": {
                         "description": "An optional field that uniquely identifies a countermeasure between different versions of a threat model in order to facilitate threat model development",
                         "type": "string"
@@ -167,9 +203,53 @@
                         "type": "string",
                         "minLength": 1
                     },
+                    "tags": {
+                        "description": "An optional list of tags for this criterion",
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                            "type": "string",
+                            "minLength": 1
+                        }
+                    },
                     "nonce-id": {
                         "description": "An optional field that uniquely identifies a criterion between different versions of a threat model in order to facilitate threat model development",
                         "type": "string"
+                    }
+                }
+            }
+        },
+        "tags": {
+            "description": "An optional list of tags that can be applied to attackers, attacks, countermeasures, or criteria and which may be optionally displayed in generated documentation",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "required": [ "name" ],
+                "properties": {
+                    "id": {
+                        "description": "A unique string identifying this tag",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "name": {
+                        "description": "The actual tag",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "comment": {
+                        "description": "An optional, human-readable string explaining more about this tag",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "nonce-id": {
+                        "description": "An optional field that uniquely identifies a tag between different versions of a threat model in order to facilitate threat model development",
+                        "type": "string"
+                    },
+                    "print-in-docs": {
+                        "description": "This specifies whether tags should be displayed along side the threat model elements they've tagged in documentation. If not specified, the default value is `true`",
+                        "type": "boolean"
                     }
                 }
             }
@@ -200,6 +280,15 @@
                             "description": {
                                 "description": "Summary of the criterion",
                                 "type": "string"
+                            },
+                            "tags": {
+                                "description": "An optional list of tags for this criterion as it applies to the parent countermeasure",
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
                             },
                             "effectiveness": {
                                 "description": "A decimal expressing the percentage which the criterion satisfies a countermeasure if successfully implemented.",
