@@ -650,7 +650,38 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM11",
                             "description": "Use mixing when sending transactions, and make non-mixed transactions resemble mixed transactions",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "comment": "Whereas single-sender transactions' input ownership is unambiguous, multi-sender transactions make the ownership of particular inputs ambiguous",
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR09",
+                                            "description": "When an outgoing transaction must merge inputs, and when mixing is not being used, the transaction constructed in a way that plausibly resembles a mixing transaction",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR18",
+                                            "description": "Number of clicks required by user for inputs/outputs to be mixed with one or more other users",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR19",
+                                            "description": "Average number of other users whose funds are mixed with the client user's when sending through a mixing process",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR20",
+                                            "description": "Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "numeral": "2",
