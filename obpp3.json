@@ -1027,7 +1027,7 @@
                                 {
                                     "criteria": [
                                         {
-                                            "id": "OBPPV3/CR80",
+                                            "id": "OBPPV3/CR84",
                                             "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
                                             "effectiveness": 0
                                         },
@@ -2470,11 +2470,6 @@
             "nonce-id": "397e84381c824a9dfb5b24bcc56d123201c2fc7a084a1f6f21d72c27b1accb63"
         },
         {
-            "id": "OBPPV3/CR80",
-            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
-            "nonce-id": "f68b9e6f7d9334cc62a7bcc1e47135ddf11b3b645c513c214e460b48a8e3c058"
-        },
-        {
             "id": "OBPPV3/CR81",
             "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API selected at random from a list of nodes/APIs once per transaction",
             "nonce-id": "dce6718cfb42ef5c9aa87f37aaa8cd745d385bfbe877fc502764078498e91cc1"
@@ -2488,6 +2483,11 @@
             "id": "OBPPV3/CR83",
             "description": "Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique",
             "nonce-id": "51119bfbeca339d79eda0c61f879ae132832145e1d730780fb5c59880a9e577e"
+        },
+        {
+            "id": "OBPPV3/CR84",
+            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
+            "nonce-id": "f68b9e6f7d9334cc62a7bcc1e47135ddf11b3b645c513c214e460b48a8e3c058"
         },
         {
             "id": "OBPPV3/CR90",
