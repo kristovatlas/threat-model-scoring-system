@@ -645,7 +645,38 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM11",
                             "description": "Use mixing when sending transactions, and make non-mixed transactions resemble mixed transactions",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "comment": "Whereas single-sender transactions' input ownership is unambiguous, multi-sender transactions make the ownership of particular inputs ambiguous",
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR09",
+                                            "description": "When an outgoing transaction must merge inputs, and when mixing is not being used, the transaction constructed in a way that plausibly resembles a mixing transaction",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR18",
+                                            "description": "Number of clicks required by user for inputs/outputs to be mixed with one or more other users",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR19",
+                                            "description": "Average number of other users whose funds are mixed with the client user's when sending through a mixing process",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR20",
+                                            "description": "Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "numeral": "2",
@@ -930,7 +961,23 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM35",
                             "description": "Avoid broadcasting more than one version of a transaction",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "id": "OBPPV3/CR90",
+                                            "description": "The wallet client never signs and broadcasts more than one version of a transaction",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR91",
+                                            "description": "When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -975,7 +1022,33 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM36",
                             "description": "Broadcast outgoing transactions in a manner that is not easily correlated to the wallet provider",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "id": "OBPPV3/CR80",
+                                            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR81",
+                                            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API selected at random from a list of nodes/APIs once per transaction",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR82",
+                                            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API that is used by more than one wallet provider for pushing transactions to the network",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR83",
+                                            "description": "Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1492,6 +1565,24 @@
                                             "numeral": "a",
                                             "id": "OBPPV3/CR71",
                                             "description": "A user can produce a compiled version of the application from the public source code that exactly matches the version distributed by the wallet provider",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR120",
+                                            "description": "Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using updated software",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR121",
+                                            "description": "Developers cryptographically sign all application binaries (or source code for interpreted languages) provided, and the client can verify the signature before private keys or wallet metadata are decrypted using updated software",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR122",
+                                            "description": "The wallet client cryptographically verifies all packaged software updates with a pinned public key before automatically updating software",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2375,7 +2466,53 @@
         {
             "id": "OBPPV3/CR80",
             "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
-            "comment": "An application can achieve this, for example, by initializing application metadata with random data that is indistinguishable from encrypted data"
+            "comment": "An application can achieve this, for example, by initializing application metadata with random data that is indistinguishable from encrypted data",
+            "nonce-id": "397e84381c824a9dfb5b24bcc56d123201c2fc7a084a1f6f21d72c27b1accb63"
+        },
+        {
+            "id": "OBPPV3/CR80",
+            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
+            "nonce-id": "f68b9e6f7d9334cc62a7bcc1e47135ddf11b3b645c513c214e460b48a8e3c058"
+        },
+        {
+            "id": "OBPPV3/CR81",
+            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API selected at random from a list of nodes/APIs once per transaction",
+            "nonce-id": "dce6718cfb42ef5c9aa87f37aaa8cd745d385bfbe877fc502764078498e91cc1"
+        },
+        {
+            "id": "OBPPV3/CR82",
+            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API that is used by more than one wallet provider for pushing transactions to the network",
+            "nonce-id": "946905171e9948ad52b09660a36a9c2f96e43347182332ca95e594fa392d7bd0"
+        },
+        {
+            "id": "OBPPV3/CR83",
+            "description": "Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique",
+            "nonce-id": "51119bfbeca339d79eda0c61f879ae132832145e1d730780fb5c59880a9e577e"
+        },
+        {
+            "id": "OBPPV3/CR90",
+            "description": "The wallet client never signs and broadcasts more than one version of a transaction",
+            "nonce-id": "71b9d459fb307c0a24e9fffad8486e7436341fd9e0bf08c25d47e0e4ee8f69f7"
+        },
+        {
+            "id": "OBPPV3/CR91",
+            "description": "When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions",
+            "nonce-id": "c9c2f71a47d5aa66336c8c126aba9b44688d6b06e7e65f53023e6334d5c63fb7"
+        },
+        {
+            "id": "OBPPV3/CR120",
+            "description": "Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using updated software",
+            "nonce-id": "8732471400c61f1bdedb5c2d065635bc43b3b7e93d1295b9263794f818609758"
+        },
+        {
+            "id": "OBPPV3/CR121",
+            "description": "Developers cryptographically sign all application binaries (or source code for interpreted languages) provided, and the client can verify the signature before private keys or wallet metadata are decrypted using updated software",
+            "nonce-id": "bb69cef4049d52d46a9da90e3daeceebee83768d87cb0d0f7d92e5e9bffcdab2"
+        },
+        {
+            "id": "OBPPV3/CR122",
+            "description": "The wallet client cryptographically verifies all packaged software updates with a pinned public key before automatically updating software",
+            "nonce-id": "f09d7dcb1f36adec20de3b0e60b5c6d27bd6ac64547b5a9ce67f2858b3e55cdf"
         }
     ],
     "criteria-categories": [
