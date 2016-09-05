@@ -91,8 +91,8 @@
                     "countermeasures": [
                         {
                             "numeral": "1",
-                            "id": "OBPPV3/CM02",
-                            "description": "Randomize the position of the change output(s) in the output list",
+                            "id": "OBPPV3/CM62",
+                            "description": "The order of transaction outputs does not reveal information regarding output ownership",
                             "effectiveness": 0,
                             "criteria-groups": [
                                 {
@@ -104,21 +104,78 @@
                                             "effectiveness": 0
                                         }
                                     ]
+                                },
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR74",
+                                            "description": "The order of transaction outputs is randomized using client-generated data",
+                                            "effectiveness": 0
+                                        }
+                                    ]
                                 }
                             ]
                         },
                         {
                             "numeral": "2",
-                            "id": "OBPPV3/CM03",
-                            "description": "Select inputs such that the amount of change in the transaction is close to the size of the desired spend",
-                            "effectiveness": 0
+                            "id": "OBPPV3/CM63",
+                            "description": "The values of transaction outputs do not reveal information regarding output ownership",
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR75",
+                                            "description": "Inputs are selected such that the amount of change in the transaction is close to the size of the desired spend",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR76",
+                                            "description": "Multiple change outputs are created, and at least one of the transaction output values resmebles a plausible spend",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR23",
+                                            "description": "Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR77",
+                                            "description": "Previous transaction outputs and new output values are selected to create multiple possible matching sets between inputs and the user's change outputs",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "numeral": "3",
-                            "id": "OBPPV3/CM04",
-                            "description": "Use multiple change outputs, and intentionally set the value of some outputs to values that resemble plausible spends",
+                            "id": "OBPPV3/CM64",
+                            "description": "The composition of transaction output scripts and ECDSA signatures does not reveal information regarding counterparty ownership of outputs",
                             "effectiveness": 0,
-                            "criteria-groups": []
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR23",
+                                            "description": "Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR13",
+                                            "description": "All transactions created by the wallet are compliant with BIP 62",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "numeral": "4",
@@ -194,71 +251,9 @@
                         },
                         {
                             "numeral": "5",
-                            "id": "OBPPV3/CM05",
-                            "description": "Use standardized ordering of inputs and outputs",
-                            "effectiveness": 0,
-                            "criteria-groups": [
-                                {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "OBPPV3/CR10",
-                                            "description": "Inputs and outputs are ordered in a deterministic manner based on criteria other than the status of outputs as spends or change (BIP 69)",
-                                            "effectiveness": 0
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "numeral": "6",
-                            "id": "OBPPV3/CM06",
-                            "description": "Avoid routinely creating outputs that are identifiable by their size or script",
-                            "comment": "An attacker can use wallet client fingerprinting to probabilistically distinguish between spend and change outputs if the wallet clients used to create the initial transaction and subsequent spends of outputs remain consistent for the counter-parties involved",
-                            "effectiveness": 0,
-                            "criteria-groups": [
-                                {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "OBPPV3/CR23",
-                                            "description": "Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address",
-                                            "effectiveness": 0
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "numeral": "7",
-                            "id": "OBPPV3/CM07",
-                            "description": "Only create transactions which are compliant with BIP-62",
-                            "effectiveness": 0,
-                            "comment": "An attacker can use wallet client fingerprinting to probabilistically distinguish between spend and change outputs if the wallet clients used to create the initial transaction and subsequent spends of outputs remain consistent for the counter-parties involved",
-                            "criteria-groups": [
-                                {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "OBPPV3/CR13",
-                                            "description": "All transactions created by the wallet are compliant with BIP 62",
-                                            "effectiveness": 0
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "numeral": "8",
                             "id": "OBPPV3/CM08",
                             "description": "Calculate fees using a method which is not recognizably unique to a particular client",
                             "comment": "An attacker can use wallet client fingerprinting to probabilistically distinguish between spend and change outputs if the wallet clients used to create the initial transaction and subsequent spends of outputs remain consistent for the counter-parties involved",
-                            "effectiveness": 0
-                        },
-                        {
-                            "numeral": "9",
-                            "id": "OBPPV3/CM09",
-                            "description": "Create the transaction in such a way that provides multiple possible matching sets between inputs and the user's change output(s)",
                             "effectiveness": 0
                         }
                     ]
@@ -1032,7 +1027,7 @@
                                 {
                                     "criteria": [
                                         {
-                                            "id": "OBPPV3/CR80",
+                                            "id": "OBPPV3/CR84",
                                             "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
                                             "effectiveness": 0
                                         },
@@ -1269,7 +1264,7 @@
                                         },
                                         {
                                             "numeral": "b",
-                                            "id": "OBPPV3/CR74",
+                                            "id": "OBPPV3/CR78",
                                             "description": "A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed",
                                             "effectiveness": 0
                                         },
@@ -1287,7 +1282,7 @@
                                         },
                                         {
                                             "numeral": "e",
-                                            "id": "OBPPV3/CR75",
+                                            "id": "OBPPV3/CR79",
                                             "description": "A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself",
                                             "effectiveness": 0
                                         },
@@ -1299,7 +1294,7 @@
                                         },
                                         {
                                             "numeral": "g",
-                                            "id": "OBPPV3/CR76",
+                                            "id": "OBPPV3/CR80",
                                             "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
                                             "effectiveness": 0
                                         }
@@ -1774,21 +1769,6 @@
             "nonce-id": "f85a652a3e2f2572a49db4bc5f7f5e83a5a3b325d33f467c658eac6942560ff6"
         },
         {
-            "id": "OBPPV3/CM02",
-            "description": "Randomize the position of the change output(s) in the output list",
-            "nonce-id": "f072eb54309e98671b4397728fe97f3d176c724fdee1f5f2bd74deb5080abd5e"
-        },
-        {
-            "id": "OBPPV3/CM03",
-            "description": "Select inputs such that the amount of change in the transaction is close to the size of the desired spend",
-            "nonce-id": "4dfe4a43712091382a3b08745942d1d9c123db3a782cb0f0953db1a3f9a0f608"
-        },
-        {
-            "id": "OBPPV3/CM04",
-            "description": "Use multiple change outputs, and intentionally set the value of some outputs to values that resemble plausible spends",
-            "nonce-id": "585acc1ac4c06437693d9b978d410b3801232138e80afe8a4e41acc912c2a286"
-        },
-        {
             "id": "OBPPV3/CM05",
             "description": "Use standardized ordering of inputs and outputs",
             "nonce-id": "435b2cadf47f667d5faf7a188a59f248e63493147ef3912176a874d65a254c09"
@@ -2072,6 +2052,21 @@
             "id": "OBPPV3/CM61",
             "description": "Perform multiple queries for blockchain data in a way that makes it difficult to correlate the queries with one another",
             "nonce-id": "493b8e64e550c9f3fac6517206b47d8c121f53f766376979800a8a71bede85a2"
+        },
+        {
+            "id": "OBPPV3/CM62",
+            "description": "The order of transaction outputs does not reveal information regarding output ownership",
+            "nonce-id": "20b5df3b8b436ee3571c5c96c15a02e50b7b3b61a339e589990c43121a295acc"
+        },
+        {
+            "id": "OBPPV3/CM63",
+            "description": "The values of transaction outputs do not reveal information regarding output ownership",
+            "nonce-id": "7a4f47ebc5b1882c35458c2b7171aec9c248c260cefbb6bbb1d997700ea4decc"
+        },
+        {
+            "id": "OBPPV3/CM64",
+            "description": "The composition of transaction output scripts and ECDSA signatures does not reveal information regarding counterparty ownership of outputs",
+            "nonce-id": "4df487da38a897450d7f2207d24899d46ac7a4ed26fdec49a9159dd8b69f9e0d"
         }
     ],
     "criteria": [
@@ -2440,24 +2435,39 @@
         },
         {
             "id": "OBPPV3/CR74",
+            "description": "The order of transaction outputs is randomized using client-generated data",
+            "nonce-id": "f072eb54309e98671b4397728fe97f3d176c724fdee1f5f2bd74deb5080abd5e"
+        },
+        {
+            "id": "OBPPV3/CR75",
+            "description": "Inputs are selected such that the amount of change in the transaction is close to the size of the desired spend",
+            "nonce-id": "4dfe4a43712091382a3b08745942d1d9c123db3a782cb0f0953db1a3f9a0f608"
+        },
+        {
+            "id": "OBPPV3/CR76",
+            "description": "Multiple change outputs are created, and at least one of the transaction output values resmebles a plausible spend",
+            "nonce-id": "585acc1ac4c06437693d9b978d410b3801232138e80afe8a4e41acc912c2a286"
+        },
+        {
+            "id": "OBPPV3/CR77",
+            "description": "Previous transaction outputs and new output values are selected to create multiple possible matching sets between inputs and the user's change outputs",
+            "nonce-id": "9a4da5b74c48248459f4400ae71aa8cc8c06b945b1eaa1e7fda93d8277c05fb1"
+        },
+        {
+            "id": "OBPPV3/CR78",
             "description": "A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed",
             "nonce-id": "4fd2628fed355d0b8a85ebcc5ec41b5322ee9fcfd78a423f48084ef0534a1e40"
         },
         {
-            "id": "OBPPV3/CR75",
+            "id": "OBPPV3/CR79",
             "description": "A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself",
             "nonce-id": "d9bd6b76c72182980400549bf84beb44ccd3695f5f365c0cc1d0b4e3f6d7fcba"
         },
         {
-            "id": "OBPPV3/CR76",
+            "id": "OBPPV3/CR80",
             "description": "When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively",
             "comment": "An application can achieve this, for example, by initializing application metadata with random data that is indistinguishable from encrypted data",
             "nonce-id": "397e84381c824a9dfb5b24bcc56d123201c2fc7a084a1f6f21d72c27b1accb63"
-        },
-        {
-            "id": "OBPPV3/CR80",
-            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
-            "nonce-id": "f68b9e6f7d9334cc62a7bcc1e47135ddf11b3b645c513c214e460b48a8e3c058"
         },
         {
             "id": "OBPPV3/CR81",
@@ -2473,6 +2483,11 @@
             "id": "OBPPV3/CR83",
             "description": "Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique",
             "nonce-id": "51119bfbeca339d79eda0c61f879ae132832145e1d730780fb5c59880a9e577e"
+        },
+        {
+            "id": "OBPPV3/CR84",
+            "description": "New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order",
+            "nonce-id": "f68b9e6f7d9334cc62a7bcc1e47135ddf11b3b645c513c214e460b48a8e3c058"
         },
         {
             "id": "OBPPV3/CR90",
