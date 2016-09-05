@@ -45,7 +45,7 @@ def get_json(filename):
     with open(filename) as data:
         return json.load(data)
 
-def validate_json(json_object, schema_object):
+def validate_json(json_object, schema_object, trap_warnings=True):
     """Raises an error if the JSON is not valid.
 
     Raises:
@@ -60,15 +60,18 @@ def validate_json(json_object, schema_object):
     check_all_criteria_descriptions(json_object)
     check_all_nonce_ids_unique(json_object)
 
-    with warnings.catch_warnings(record=True) as warns:
+    with warnings.catch_warnings(record=trap_warnings) as warns:
         # Cause all warnings to always be triggered.
         warnings.simplefilter("always")
 
         check_unassigned_countermeasure(json_object)
         check_unassigned_criterion(json_object)
 
-        for warning in warns:
-            print "WARNING! %s" % warning.message
+        if warns is not None:
+            for warning in warns:
+                print "WARNING! %s" % warning.message
+
+    warnings.resetwarnings()
 
 def check_all_countermeasure_ids(threat_model_json):
     """Verifies that all countermeasures listed under attacks are found.
