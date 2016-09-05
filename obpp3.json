@@ -2179,7 +2179,8 @@
         {
             "id": "OBPPV3/CR27",
             "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
-            "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1"
+            "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1",
+            "comment": "This criterion may be met e.g. by the use of bloom or prefix filters for querying balance data"
         },
         {
             "id": "OBPPV3/CR28",
