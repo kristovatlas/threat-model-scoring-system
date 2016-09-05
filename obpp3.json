@@ -966,7 +966,23 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM35",
                             "description": "Avoid broadcasting more than one version of a transaction",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "id": "OBPPV3/CR90",
+                                            "description": "The wallet client never signs and broadcasts more than one version of a transaction",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR91",
+                                            "description": "When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2439,6 +2455,16 @@
             "id": "OBPPV3/CR83",
             "description": "Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique",
             "nonce-id": "51119bfbeca339d79eda0c61f879ae132832145e1d730780fb5c59880a9e577e"
+        },
+        {
+            "id": "OBPPV3/CR90",
+            "description": "The wallet client never signs and broadcasts more than one version of a transaction",
+            "nonce-id": "71b9d459fb307c0a24e9fffad8486e7436341fd9e0bf08c25d47e0e4ee8f69f7"
+        },
+        {
+            "id": "OBPPV3/CR91",
+            "description": "When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions",
+            "nonce-id": "c9c2f71a47d5aa66336c8c126aba9b44688d6b06e7e65f53023e6334d5c63fb7"
         }
     ],
     "criteria-categories": [
