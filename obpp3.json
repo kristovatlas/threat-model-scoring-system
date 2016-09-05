@@ -1575,7 +1575,7 @@
                                         {
                                             "numeral": "b",
                                             "id": "OBPPV3/CR120",
-                                            "description": "Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using udpated software",
+                                            "description": "Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using updated software",
                                             "effectiveness": 0
                                         },
                                         {
@@ -2486,7 +2486,7 @@
         },
         {
             "id": "OBPPV3/CR120",
-            "description": "Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using udpated software",
+            "description": "Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using updated software",
             "nonce-id": "8732471400c61f1bdedb5c2d065635bc43b3b7e93d1295b9263794f818609758"
         },
         {
