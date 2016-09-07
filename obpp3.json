@@ -2319,7 +2319,8 @@
         {
             "id": "OBPPV3/CR51",
             "description": "Does not display non-ECDH addresses or transaction hashes in any form prior to the user explicitly requesting to see them",
-            "nonce-id": "07ac2b60d129ea807841d9ee552d467cbf886747737699d073ba3db69ad51285"
+            "nonce-id": "07ac2b60d129ea807841d9ee552d467cbf886747737699d073ba3db69ad51285",
+            "comment": "Alternative forms of non-ECDH addresses include backup seeds and non-ECDH extended public keys"
         },
         {
             "id": "OBPPV3/CR52",
