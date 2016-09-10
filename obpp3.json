@@ -962,7 +962,7 @@
                         {
                             "numeral": "1",
                             "id": "OBPPV3/CM32",
-                            "description": "Pin the expected public key/certificate in the client to prevent successful MITM attacks",
+                            "description": "Network communication begins with authenticating the server or peer before encrypting subsequent traffic",
                             "effectiveness": 0
                         }
                     ]
@@ -1959,7 +1959,7 @@
         },
         {
             "id": "OBPPV3/CM32",
-            "description": "Pin the expected public key/certificate in the client to prevent successful MITM attacks",
+            "description": "Network communication begins with authenticating the server or peer before encrypting subsequent traffic",
             "nonce-id": "56c04d497f9587a4465ce50ae567e215a207da7d769b6261799630b5eb86c5bb"
         },
         {
