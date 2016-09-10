@@ -927,7 +927,7 @@
                 },
                 {
                     "numeral": "K",
-                    "name": "Temporally correlate activity of a specific wallet across different connection sessions by observing idiosyncratic client wallet behavior which acts as a unique fingerprint",
+                    "name": "Correlate activity of a specific wallet across different connection sessions by observing idiosyncratic client wallet behavior which acts as a unique fingerprint",
                     "weight": 0,
                     "nonce-id": "277ec132f4cb4edc1cffc0905bde99fe5d6453f368661ff9aad87d1fca34662a",
                     "countermeasures": [
