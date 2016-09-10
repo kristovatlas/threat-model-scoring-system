@@ -640,6 +640,12 @@
                                             "id": "OBPPV3/CR32",
                                             "description": "Client provides a visual indication if outgoing transactions are not being routed through an anonymizing network, including IP address information",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR140",
+                                            "description": "A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -700,7 +706,19 @@
                             "numeral": "2",
                             "id": "OBPPV3/CM20",
                             "description": "Route outgoing transactions via a method that does not reveal the IP address of the sender",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR140",
+                                            "description": "A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2561,6 +2579,12 @@
             "id": "OBPPV3/CR131",
             "description": "The wallet provider waits for a random amount of time before introducing the transaction to the Bitcoin P2P network",
             "nonce-id": "ad027b3771d9eca1af2ff21666d3c3eacb1d340b984c36c73f225f437970e8c9"
+        },
+        {
+            "id": "OBPPV3/CR140",
+            "description": "A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user",
+            "nonce-id": "fcd6d8436c96e62a34becae0c873b31b177654ce6a6c709cc42ab9577ac3d640",
+            "comment": "This criterion is measured based on the percentage. This behavior is typically demonstrated by full node clients connected directly to the Bitcoin P2P network"
         }
     ],
     "criteria-categories": [
