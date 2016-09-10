@@ -486,7 +486,25 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM15",
                             "description": "Introduce random delays before introducing new transactions to the network",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR130",
+                                            "description": "The wallet client waits for a random amount of time before introducing the transaction to the Bitcoin P2P network",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR131",
+                                            "description": "The wallet provider waits for a random amount of time before introducing the transaction to the Bitcoin P2P network",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1009,7 +1027,25 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM15",
                             "description": "Introduce random delays before introducing new transactions to the network",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR130",
+                                            "description": "The wallet client waits for a random amount of time before introducing the transaction to the Bitcoin P2P network",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR131",
+                                            "description": "The wallet provider waits for a random amount of time before introducing the transaction to the Bitcoin P2P network",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
@@ -2226,7 +2262,8 @@
         {
             "id": "OBPPV3/CR27",
             "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
-            "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1"
+            "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1",
+            "comment": "This criterion may be met e.g. by the use of bloom or prefix filters for querying balance data"
         },
         {
             "id": "OBPPV3/CR28",
@@ -2337,7 +2374,8 @@
         {
             "id": "OBPPV3/CR51",
             "description": "Does not display non-ECDH addresses or transaction hashes in any form prior to the user explicitly requesting to see them",
-            "nonce-id": "07ac2b60d129ea807841d9ee552d467cbf886747737699d073ba3db69ad51285"
+            "nonce-id": "07ac2b60d129ea807841d9ee552d467cbf886747737699d073ba3db69ad51285",
+            "comment": "Alternative forms of non-ECDH addresses include backup seeds and non-ECDH extended public keys"
         },
         {
             "id": "OBPPV3/CR52",
@@ -2531,6 +2569,16 @@
             "id": "OBPPV3/CR122",
             "description": "The wallet client cryptographically verifies all packaged software updates with a pinned public key before automatically updating software",
             "nonce-id": "f09d7dcb1f36adec20de3b0e60b5c6d27bd6ac64547b5a9ce67f2858b3e55cdf"
+        },
+        {
+            "id": "OBPPV3/CR130",
+            "description": "The wallet client waits for a random amount of time before introducing the transaction to the Bitcoin P2P network",
+            "nonce-id": "3780e065130b7921506e488ced61027786ad342f453af04291ee321d9cdd4f75"
+        },
+        {
+            "id": "OBPPV3/CR131",
+            "description": "The wallet provider waits for a random amount of time before introducing the transaction to the Bitcoin P2P network",
+            "nonce-id": "ad027b3771d9eca1af2ff21666d3c3eacb1d340b984c36c73f225f437970e8c9"
         },
         {
             "id": "OBPPV3/CR140",
