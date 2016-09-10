@@ -963,7 +963,23 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM32",
                             "description": "Network communication begins with authenticating the server or peer before encrypting subsequent traffic",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "id": "OBPPV3/CR160",
+                                            "description": "The wallet client uses a pinned X509 certificate or public key for TLS encryption of traffic",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR161",
+                                            "description": "The wallet client uses a pre-shared key to authenticate the server",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2585,6 +2601,16 @@
             "description": "A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user",
             "nonce-id": "fcd6d8436c96e62a34becae0c873b31b177654ce6a6c709cc42ab9577ac3d640",
             "comment": "This criterion is measured based on the percentage. This behavior is typically demonstrated by full node clients connected directly to the Bitcoin P2P network"
+        },
+        {
+            "id": "OBPPV3/CR160",
+            "description": "The wallet client uses a pinned X509 certificate or public key for TLS encryption of traffic",
+            "nonce-id": "a62783a2a4e41ffecd4d01df3dd833af64e74c9f219f6823eb6ae3a6bdc3d3cb"
+        },
+        {
+            "id": "OBPPV3/CR161",
+            "description": "The wallet client uses a pre-shared key to authenticate the server",
+            "nonce-id": "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3"
         }
     ],
     "criteria-categories": [
