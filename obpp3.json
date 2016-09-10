@@ -949,7 +949,38 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM31",
                             "description": "Avoid performing queries to third party services regarding specific transactions in a manner which reveals the IP address of the user",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR24",
+                                            "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR25",
+                                            "description": "Blockchain data is obtained from a local copy of the blockchain",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR27",
+                                            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+                                            "effectiveness": 0,
+                                            "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR170",
+                                            "description": "The wallet client queries for blockchain data via a method that matches a fraction of the blockchain beyond the transactions corresponding to the user's wallet",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2585,6 +2616,11 @@
             "description": "A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user",
             "nonce-id": "fcd6d8436c96e62a34becae0c873b31b177654ce6a6c709cc42ab9577ac3d640",
             "comment": "This criterion is measured based on the percentage. This behavior is typically demonstrated by full node clients connected directly to the Bitcoin P2P network"
+        },
+        {
+            "id": "OBPPV3/CR170",
+            "description": "The wallet client queries for blockchain data via a method that matches a fraction of the blockchain beyond the transactions corresponding to the user's wallet",
+            "nonce-id": "584c85a88f62a5b7ca7de1f2d0a12c3555b348a7d6df05cfc849917788b4a695"
         }
     ],
     "criteria-categories": [
