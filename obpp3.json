@@ -559,22 +559,34 @@
                                             "id": "OBPPV3/CR33",
                                             "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR180",
+                                            "description": "The wallet client does not send stateful information in messages that persists between connection contexts",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 },
                                 {
                                     "criteria": [
                                         {
-                                            "numeral": "c",
+                                            "numeral": "d",
                                             "id": "OBPPV3/CR27",
                                             "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
                                             "effectiveness": 1.0,
                                             "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
                                         },
                                         {
-                                            "numeral": "d",
+                                            "numeral": "e",
                                             "id": "OBPPV3/CR33",
                                             "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "f",
+                                            "id": "OBPPV3/CR180",
+                                            "description": "The wallet client does not send stateful information in messages that persists between connection contexts",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -935,7 +947,19 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM30",
                             "description": "Avoid communicating state-based information to other entities which could be used to uniquely identify the client",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR180",
+                                            "description": "The wallet client does not send stateful information in messages that persists between connection contexts",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2585,6 +2609,12 @@
             "description": "A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user",
             "nonce-id": "fcd6d8436c96e62a34becae0c873b31b177654ce6a6c709cc42ab9577ac3d640",
             "comment": "This criterion is measured based on the percentage. This behavior is typically demonstrated by full node clients connected directly to the Bitcoin P2P network"
+        },
+        {
+            "id": "OBPPV3/CR180",
+            "description": "The wallet client does not send stateful information in messages that persists between connection contexts",
+            "nonce-id": "3d613dcf8c0ac1aa373b5e008d8fd1c6e7f3f19548b1b04df32483f96ec7de71",
+            "comment": "Stateful information includes a unique browser fingerprint, HTTP cookies, HTTP headers, etc."
         }
     ],
     "criteria-categories": [
