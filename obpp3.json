@@ -1209,6 +1209,12 @@
                                             "id": "OBPPV3/CR30",
                                             "description": "Number of clicks required by user to route outgoing transactions through an anonymizing network",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR48",
+                                            "description": "Mixing is secure against correlation attacks by the facilitator",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
