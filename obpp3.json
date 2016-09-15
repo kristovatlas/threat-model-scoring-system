@@ -1228,7 +1228,17 @@
                                     "criteria": [
                                         {
                                             "id": "OBPPV3/CR150",
-                                            "description": "The client does not use a protocol that shares the same non-ECDH public key with more than one transaction participant",
+                                            "description": "The client uses a secure ECDH protocol to derive payment addresses that are unpredictable to parties other than the transaction participant",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR151",
+                                            "description": "The client does not share the same BIP32 extended public key for the purposes of key derivation between multiple transaction participants",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR152",
+                                            "description": "The client derives a unique payment address for each transaction participant using random data, an address derived from a secret parent public key, or a hardened address derived from a known parent public key",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2599,8 +2609,18 @@
         },
         {
             "id": "OBPPV3/CR150",
-            "description": "The client does not use a protocol that shares the same non-ECDH public key with more than one transaction participant",
+            "description": "The client uses a secure ECDH protocol to derive payment addresses that are unpredictable to parties other than the transaction participant",
             "nonce-id": "013d799c49176b6aa9e281058f578c52382bc0d1867850c693e168ea13e37dfb"
+        },
+        {
+            "id": "OBPPV3/CR151",
+            "description": "The client does not share the same BIP32 extended public key for the purposes of key derivation between multiple transaction participants",
+            "nonce-id": "9de1413e8c0646db39992c696eaa06a6b45c5933babe1f08005c5dccb7ec1478"
+        },
+        {
+            "id": "OBPPV3/CR152",
+            "description": "The client derives a unique payment address for each transaction participant using random data, an address derived from a secret parent public key, or a hardened address derived from a known parent public key",
+            "nonce-id": "64805513b3eb320e02c1ea31cb32df78ee86bddc1bdd2ae019f0ea180061aa5c"
         }
     ],
     "criteria-categories": [
