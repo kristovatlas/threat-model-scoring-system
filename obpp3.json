@@ -1240,7 +1240,28 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM41",
                             "description": "Avoid protocols for transferring payment instructions which leak information about transactions originating from entities other than the intended sender",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "id": "OBPPV3/CR150",
+                                            "description": "The client uses a secure ECDH protocol to derive payment addresses that are unpredictable to parties other than the transaction participant",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR151",
+                                            "description": "The client does not share the same BIP32 extended public key for the purposes of key derivation between multiple transaction participants",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR152",
+                                            "description": "The client derives a unique payment address for each transaction participant using random data, an address derived from a secret parent public key, or a hardened address derived from a known parent public key",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
@@ -2603,6 +2624,21 @@
             "description": "A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user",
             "nonce-id": "fcd6d8436c96e62a34becae0c873b31b177654ce6a6c709cc42ab9577ac3d640",
             "comment": "This criterion is measured based on the percentage. This behavior is typically demonstrated by full node clients connected directly to the Bitcoin P2P network"
+        },
+        {
+            "id": "OBPPV3/CR150",
+            "description": "The client uses a secure ECDH protocol to derive payment addresses that are unpredictable to parties other than the transaction participant",
+            "nonce-id": "013d799c49176b6aa9e281058f578c52382bc0d1867850c693e168ea13e37dfb"
+        },
+        {
+            "id": "OBPPV3/CR151",
+            "description": "The client does not share the same BIP32 extended public key for the purposes of key derivation between multiple transaction participants",
+            "nonce-id": "9de1413e8c0646db39992c696eaa06a6b45c5933babe1f08005c5dccb7ec1478"
+        },
+        {
+            "id": "OBPPV3/CR152",
+            "description": "The client derives a unique payment address for each transaction participant using random data, an address derived from a secret parent public key, or a hardened address derived from a known parent public key",
+            "nonce-id": "64805513b3eb320e02c1ea31cb32df78ee86bddc1bdd2ae019f0ea180061aa5c"
         },
         {
             "id": "OBPPV3/CR160",
