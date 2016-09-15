@@ -970,13 +970,13 @@
                                         {
                                             "numeral": "a",
                                             "id": "OBPPV3/CR160",
-                                            "description": "The wallet client uses a pinned X509 certificate or public key for TLS encryption of traffic",
+                                            "description": "The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic",
                                             "effectiveness": 0
                                         },
                                         {
                                             "numeral": "b",
                                             "id": "OBPPV3/CR161",
-                                            "description": "The wallet client uses a pre-shared key to authenticate the server",
+                                            "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2606,12 +2606,12 @@
         },
         {
             "id": "OBPPV3/CR160",
-            "description": "The wallet client uses a pinned X509 certificate or public key for TLS encryption of traffic",
+            "description": "The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic",
             "nonce-id": "a62783a2a4e41ffecd4d01df3dd833af64e74c9f219f6823eb6ae3a6bdc3d3cb"
         },
         {
             "id": "OBPPV3/CR161",
-            "description": "The wallet client uses a pre-shared key to authenticate the server",
+            "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
             "nonce-id": "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3"
         }
     ],
