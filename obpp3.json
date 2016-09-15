@@ -962,8 +962,26 @@
                         {
                             "numeral": "1",
                             "id": "OBPPV3/CM32",
-                            "description": "Pin the expected public key/certificate in the client to prevent successful MITM attacks",
-                            "effectiveness": 0
+                            "description": "Network communication begins with authenticating the server or peer before encrypting subsequent traffic",
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR160",
+                                            "description": "The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR161",
+                                            "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1980,7 +1998,7 @@
         },
         {
             "id": "OBPPV3/CM32",
-            "description": "Pin the expected public key/certificate in the client to prevent successful MITM attacks",
+            "description": "Network communication begins with authenticating the server or peer before encrypting subsequent traffic",
             "nonce-id": "56c04d497f9587a4465ce50ae567e215a207da7d769b6261799630b5eb86c5bb"
         },
         {
@@ -2621,6 +2639,16 @@
             "id": "OBPPV3/CR152",
             "description": "The client derives a unique payment address for each transaction participant using random data, an address derived from a secret parent public key, or a hardened address derived from a known parent public key",
             "nonce-id": "64805513b3eb320e02c1ea31cb32df78ee86bddc1bdd2ae019f0ea180061aa5c"
+        },
+        {
+            "id": "OBPPV3/CR160",
+            "description": "The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic",
+            "nonce-id": "a62783a2a4e41ffecd4d01df3dd833af64e74c9f219f6823eb6ae3a6bdc3d3cb"
+        },
+        {
+            "id": "OBPPV3/CR161",
+            "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
+            "nonce-id": "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3"
         }
     ],
     "criteria-categories": [
