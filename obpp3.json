@@ -1922,16 +1922,6 @@
             "nonce-id": "16105562d1445b9b15fbeb2f4baa929447e78c71d358b0c22d2df5de8e62a605"
         },
         {
-            "id": "OBPPV3/CM17",
-            "description": "Only query one address at a time from a specific connection context",
-            "nonce-id": "d823f2dd9e93f8064d89e170ae95ae60743bf178825f7a14ae35dcdc9f4911aa"
-        },
-        {
-            "id": "OBPPV3/CM18",
-            "description": "Query multiple addresses at once using a technique that returns false positives",
-            "nonce-id": "3585e1d272b81ae6721123b112a977350b60d118d1394e5f01b94aaf13557cbc"
-        },
-        {
             "id": "OBPPV3/CM19",
             "description": "Connect to the source of relevant blockchain data in a manner that does not leak the IP address of the requestor",
             "nonce-id": "9970bd72a7e132e3650db2e1c547172733cdf89dd045481124f6130d93aaa47a"
