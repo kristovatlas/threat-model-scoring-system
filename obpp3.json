@@ -995,13 +995,37 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM33",
                             "description": "Do not transmit out-of-band notifications to a user when a transaction has been received",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR190",
+                                            "description": "The wallet provider sends out-of-band notifications which are encrypted and cannot be identified as originating from the wallet provider when notifying the user about a transaction",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "numeral": "2",
                             "id": "OBPPV3/CM34",
                             "description": "Transmit out-of-band notifications via a method that is not detectable to a network observer",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR191",
+                                            "description": "Number of clicks to prevent the wallet provider from sending out-of-band notifications to the user about a transaction",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2649,6 +2673,16 @@
             "id": "OBPPV3/CR161",
             "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
             "nonce-id": "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3"
+        },
+        {
+            "id": "OBPPV3/CR190",
+            "description": "The wallet provider sends out-of-band notifications which are encrypted and cannot be identified as originating from the wallet provider when notifying the user about a transaction",
+            "nonce-id": "e3154139d9371496110cc04c0a97a44e4d6391cda48602c2f8204a442bcb2a7b"
+        },
+        {
+            "id": "OBPPV3/CR191",
+            "description": "Number of clicks to prevent the wallet provider from sending out-of-band notifications to the user about a transaction",
+            "nonce-id": "f87b1d4fcf05b5df587effa8a766a6561028412c6937949033812e7b5e6fe3ea"
         }
     ],
     "criteria-categories": [
