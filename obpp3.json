@@ -1559,7 +1559,7 @@
                 },
                 {
                     "numeral": "C",
-                    "name": "Cause the wallet to transmit usage and/or debug data back to the provider which can be used to correlate transactions to a particular user",
+                    "name": "Cause the wallet to transmit usage and/or debug data back to the provider which can be used to correlate blockchain data to a particular user",
                     "weight": 0,
                     "nonce-id": "fdb38b33f31c08b6b7b26c9260e13bc38145ddaca649ee2211f2b01816235532",
                     "countermeasures": [
