@@ -464,20 +464,6 @@
                 },
                 {
                     "numeral": "F",
-                    "name": "Link related outputs and transactions by observing the m and n parameters of multisig transactions",
-                    "weight": 0,
-                    "nonce-id": "1e772699fb8f43f7e5f82899c32b5db21939965223f29391f057b0063056d241",
-                    "countermeasures": [
-                        {
-                            "numeral": "1",
-                            "id": "OBPPV3/CM14",
-                            "description": "Sign transactions using techniques that do not reveal the number of signers or keys involved in producing the signature",
-                            "effectiveness": 0
-                        }
-                    ]
-                },
-                {
-                    "numeral": "G",
                     "name": "Correlate transactions with out-of-band behavior by recording the time at which transactions are included in a block",
                     "weight": 0,
                     "nonce-id": "76b0b33bbb8f2cd3bf86de1d4c14b178203af5fd7b57f6bd3f66b317590fb384",
@@ -1905,11 +1891,6 @@
             "id": "OBPPV3/CM13",
             "description": "Avoid constructing transactions that contain inputs from more than one identity/account",
             "nonce-id": "fd4fd758a6ec43d9643b71ba90cf0256261433c754d22f1de09ae8d227831ac5"
-        },
-        {
-            "id": "OBPPV3/CM14",
-            "description": "Sign transactions using techniques that do not reveal the number of signers or keys involved in producing the signature",
-            "nonce-id": "59712e84921730ac91cd8edabf5d1c9d045eb4e0f72648bcdab54c19c05a3bdd"
         },
         {
             "id": "OBPPV3/CM15",
