@@ -172,6 +172,12 @@
                                             "id": "OBPPV3/CR13",
                                             "description": "All transactions created by the wallet are compliant with BIP 62",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR200",
+                                            "description": "Wallet warns the user of a likely loss of privacy when sending to a P2SH address and the clients have not negotiated a common redeem script structure for spending transaction outputs",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -2630,6 +2636,11 @@
             "id": "OBPPV3/CR161",
             "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
             "nonce-id": "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3"
+        },
+        {
+            "id": "OBPPV3/CR200",
+            "description": "Wallet warns the user of a likely loss of privacy when sending to a P2SH address and the clients have not negotiated a common redeem script structure for spending transaction outputs",
+            "nonce-id": "eb6dcaf5cdf46a9088bd322e795d561bb89cebd192d155f5f136b436627dcf6e"
         }
     ],
     "criteria-categories": [
