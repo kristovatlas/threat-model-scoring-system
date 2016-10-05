@@ -975,7 +975,7 @@
                                         {
                                             "numeral": "d",
                                             "id": "OBPPV3/CR170",
-                                            "description": "The wallet client queries for blockchain data via a method that matches a fraction of the blockchain beyond the transactions corresponding to the user's wallet",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -2619,8 +2619,9 @@
         },
         {
             "id": "OBPPV3/CR170",
-            "description": "The wallet client queries for blockchain data via a method that matches a fraction of the blockchain beyond the transactions corresponding to the user's wallet",
-            "nonce-id": "584c85a88f62a5b7ca7de1f2d0a12c3555b348a7d6df05cfc849917788b4a695"
+            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query",
+            "nonce-id": "584c85a88f62a5b7ca7de1f2d0a12c3555b348a7d6df05cfc849917788b4a695",
+            "comment": "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters"
         }
     ],
     "criteria-categories": [
