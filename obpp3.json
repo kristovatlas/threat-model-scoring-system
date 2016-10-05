@@ -2277,7 +2277,7 @@
             "id": "OBPPV3/CR24",
             "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
             "nonce-id": "d594bb5bc8f342b8794072a48bffe36cdfe142dd19a4773e46abbfc931083a9f",
-            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet"
+            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet. Tor, I2P, and VPNs are valid methods of hiding machine identity"
         },
         {
             "id": "OBPPV3/CR25",
