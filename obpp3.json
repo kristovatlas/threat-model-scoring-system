@@ -573,7 +573,7 @@
                                         {
                                             "numeral": "d",
                                             "id": "OBPPV3/CR27",
-                                            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
                                             "effectiveness": 1.0,
                                             "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
                                         },
@@ -973,7 +973,38 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM31",
                             "description": "Avoid performing queries to third party services regarding specific transactions in a manner which reveals the IP address of the user",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR24",
+                                            "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR25",
+                                            "description": "Blockchain data is obtained from a local copy of the blockchain",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR27",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
+                                            "effectiveness": 0,
+                                            "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR170",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -986,8 +1017,26 @@
                         {
                             "numeral": "1",
                             "id": "OBPPV3/CM32",
-                            "description": "Pin the expected public key/certificate in the client to prevent successful MITM attacks",
-                            "effectiveness": 0
+                            "description": "Network communication begins with authenticating the server or peer before encrypting subsequent traffic",
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR160",
+                                            "description": "The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR161",
+                                            "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1246,7 +1295,28 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM41",
                             "description": "Avoid protocols for transferring payment instructions which leak information about transactions originating from entities other than the intended sender",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "id": "OBPPV3/CR150",
+                                            "description": "The client uses a secure ECDH protocol to derive payment addresses that are unpredictable to parties other than the transaction participant",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR151",
+                                            "description": "The client does not share the same BIP32 extended public key for the purposes of key derivation between multiple transaction participants",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "id": "OBPPV3/CR152",
+                                            "description": "The client derives a unique payment address for each transaction participant using random data, an address derived from a secret parent public key, or a hardened address derived from a known parent public key",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1544,7 +1614,7 @@
                 },
                 {
                     "numeral": "C",
-                    "name": "Cause the wallet to transmit usage and/or debug data back to the provider which can be used to correlate transactions to a particular user",
+                    "name": "Cause the wallet to transmit usage and/or debug data back to the provider which can be used to correlate blockchain data to a particular user",
                     "weight": 0,
                     "nonce-id": "fdb38b33f31c08b6b7b26c9260e13bc38145ddaca649ee2211f2b01816235532",
                     "countermeasures": [
@@ -1983,7 +2053,7 @@
         },
         {
             "id": "OBPPV3/CM32",
-            "description": "Pin the expected public key/certificate in the client to prevent successful MITM attacks",
+            "description": "Network communication begins with authenticating the server or peer before encrypting subsequent traffic",
             "nonce-id": "56c04d497f9587a4465ce50ae567e215a207da7d769b6261799630b5eb86c5bb"
         },
         {
@@ -2270,7 +2340,7 @@
             "id": "OBPPV3/CR24",
             "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
             "nonce-id": "d594bb5bc8f342b8794072a48bffe36cdfe142dd19a4773e46abbfc931083a9f",
-            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet"
+            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet. Tor, I2P, and VPNs are valid methods of hiding machine identity"
         },
         {
             "id": "OBPPV3/CR25",
@@ -2285,9 +2355,9 @@
         },
         {
             "id": "OBPPV3/CR27",
-            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
             "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1",
-            "comment": "This criterion may be met e.g. by the use of bloom or prefix filters for querying balance data"
+            "comment": "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters"
         },
         {
             "id": "OBPPV3/CR28",
@@ -2609,6 +2679,37 @@
             "description": "A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user",
             "nonce-id": "fcd6d8436c96e62a34becae0c873b31b177654ce6a6c709cc42ab9577ac3d640",
             "comment": "This criterion is measured based on the percentage. This behavior is typically demonstrated by full node clients connected directly to the Bitcoin P2P network"
+        },
+        {
+            "id": "OBPPV3/CR150",
+            "description": "The client uses a secure ECDH protocol to derive payment addresses that are unpredictable to parties other than the transaction participant",
+            "nonce-id": "013d799c49176b6aa9e281058f578c52382bc0d1867850c693e168ea13e37dfb"
+        },
+        {
+            "id": "OBPPV3/CR151",
+            "description": "The client does not share the same BIP32 extended public key for the purposes of key derivation between multiple transaction participants",
+            "nonce-id": "9de1413e8c0646db39992c696eaa06a6b45c5933babe1f08005c5dccb7ec1478"
+        },
+        {
+            "id": "OBPPV3/CR152",
+            "description": "The client derives a unique payment address for each transaction participant using random data, an address derived from a secret parent public key, or a hardened address derived from a known parent public key",
+            "nonce-id": "64805513b3eb320e02c1ea31cb32df78ee86bddc1bdd2ae019f0ea180061aa5c"
+        },
+        {
+            "id": "OBPPV3/CR160",
+            "description": "The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic",
+            "nonce-id": "a62783a2a4e41ffecd4d01df3dd833af64e74c9f219f6823eb6ae3a6bdc3d3cb"
+        },
+        {
+            "id": "OBPPV3/CR161",
+            "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
+            "nonce-id": "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3"
+        },
+        {
+            "id": "OBPPV3/CR170",
+            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query",
+            "nonce-id": "584c85a88f62a5b7ca7de1f2d0a12c3555b348a7d6df05cfc849917788b4a695",
+            "comment": "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters"
         },
         {
             "id": "OBPPV3/CR180",
