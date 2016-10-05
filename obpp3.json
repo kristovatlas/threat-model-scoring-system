@@ -567,7 +567,7 @@
                                         {
                                             "numeral": "c",
                                             "id": "OBPPV3/CR27",
-                                            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
                                             "effectiveness": 1.0,
                                             "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
                                         },
@@ -968,7 +968,7 @@
                                         {
                                             "numeral": "c",
                                             "id": "OBPPV3/CR27",
-                                            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
                                             "effectiveness": 0,
                                             "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
                                         },
@@ -2292,9 +2292,9 @@
         },
         {
             "id": "OBPPV3/CR27",
-            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
             "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1",
-            "comment": "This criterion may be met e.g. by the use of bloom or prefix filters for querying balance data"
+            "comment": "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters"
         },
         {
             "id": "OBPPV3/CR28",
