@@ -567,7 +567,7 @@
                                         {
                                             "numeral": "c",
                                             "id": "OBPPV3/CR27",
-                                            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
                                             "effectiveness": 1.0,
                                             "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
                                         },
@@ -949,7 +949,38 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM31",
                             "description": "Avoid performing queries to third party services regarding specific transactions in a manner which reveals the IP address of the user",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR24",
+                                            "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR25",
+                                            "description": "Blockchain data is obtained from a local copy of the blockchain",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR27",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
+                                            "effectiveness": 0,
+                                            "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR170",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2285,7 +2316,7 @@
             "id": "OBPPV3/CR24",
             "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
             "nonce-id": "d594bb5bc8f342b8794072a48bffe36cdfe142dd19a4773e46abbfc931083a9f",
-            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet"
+            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet. Tor, I2P, and VPNs are valid methods of hiding machine identity"
         },
         {
             "id": "OBPPV3/CR25",
@@ -2300,9 +2331,9 @@
         },
         {
             "id": "OBPPV3/CR27",
-            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
             "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1",
-            "comment": "This criterion may be met e.g. by the use of bloom or prefix filters for querying balance data"
+            "comment": "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters"
         },
         {
             "id": "OBPPV3/CR28",
@@ -2649,6 +2680,12 @@
             "id": "OBPPV3/CR161",
             "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
             "nonce-id": "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3"
+        },
+        {
+            "id": "OBPPV3/CR170",
+            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query",
+            "nonce-id": "584c85a88f62a5b7ca7de1f2d0a12c3555b348a7d6df05cfc849917788b4a695",
+            "comment": "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters"
         }
     ],
     "criteria-categories": [
