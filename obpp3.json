@@ -172,6 +172,12 @@
                                             "id": "OBPPV3/CR13",
                                             "description": "All transactions created by the wallet are compliant with BIP 62",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR200",
+                                            "description": "Wallet warns the user of a likely loss of privacy when sending to a P2SH address and the clients have not negotiated a common redeem script structure for spending transaction outputs",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -464,20 +470,6 @@
                 },
                 {
                     "numeral": "F",
-                    "name": "Link related outputs and transactions by observing the m and n parameters of multisig transactions",
-                    "weight": 0,
-                    "nonce-id": "1e772699fb8f43f7e5f82899c32b5db21939965223f29391f057b0063056d241",
-                    "countermeasures": [
-                        {
-                            "numeral": "1",
-                            "id": "OBPPV3/CM14",
-                            "description": "Sign transactions using techniques that do not reveal the number of signers or keys involved in producing the signature",
-                            "effectiveness": 0
-                        }
-                    ]
-                },
-                {
-                    "numeral": "G",
                     "name": "Correlate transactions with out-of-band behavior by recording the time at which transactions are included in a block",
                     "weight": 0,
                     "nonce-id": "76b0b33bbb8f2cd3bf86de1d4c14b178203af5fd7b57f6bd3f66b317590fb384",
@@ -1986,11 +1978,6 @@
             "nonce-id": "fd4fd758a6ec43d9643b71ba90cf0256261433c754d22f1de09ae8d227831ac5"
         },
         {
-            "id": "OBPPV3/CM14",
-            "description": "Sign transactions using techniques that do not reveal the number of signers or keys involved in producing the signature",
-            "nonce-id": "59712e84921730ac91cd8edabf5d1c9d045eb4e0f72648bcdab54c19c05a3bdd"
-        },
-        {
             "id": "OBPPV3/CM15",
             "description": "Introduce random delays before introducing new transactions to the network",
             "nonce-id": "ee2a22b5ad3fe15ae7430e262423c48ceeb1fcb3f2141534c08279814c76c71f"
@@ -2750,6 +2737,11 @@
             "id": "OBPPV3/CR191",
             "description": "Number of clicks to prevent the wallet provider from sending out-of-band notifications to the user about a transaction",
             "nonce-id": "f87b1d4fcf05b5df587effa8a766a6561028412c6937949033812e7b5e6fe3ea"
+        },
+        {
+            "id": "OBPPV3/CR200",
+            "description": "Wallet warns the user of a likely loss of privacy when sending to a P2SH address and the clients have not negotiated a common redeem script structure for spending transaction outputs",
+            "nonce-id": "eb6dcaf5cdf46a9088bd322e795d561bb89cebd192d155f5f136b436627dcf6e"
         }
     ],
     "criteria-categories": [
