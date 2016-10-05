@@ -551,22 +551,34 @@
                                             "id": "OBPPV3/CR33",
                                             "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR180",
+                                            "description": "The wallet client does not send stateful information in messages that persists between connection contexts",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 },
                                 {
                                     "criteria": [
                                         {
-                                            "numeral": "c",
+                                            "numeral": "d",
                                             "id": "OBPPV3/CR27",
-                                            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
                                             "effectiveness": 1.0,
                                             "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
                                         },
                                         {
-                                            "numeral": "d",
+                                            "numeral": "e",
                                             "id": "OBPPV3/CR33",
                                             "description": "Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "f",
+                                            "id": "OBPPV3/CR180",
+                                            "description": "The wallet client does not send stateful information in messages that persists between connection contexts",
                                             "effectiveness": 0
                                         }
                                     ]
@@ -919,7 +931,7 @@
                 },
                 {
                     "numeral": "K",
-                    "name": "Temporally correlate activity of a specific wallet across different connection sessions by observing idiosyncratic client wallet behavior which acts as a unique fingerprint",
+                    "name": "Correlate activity of a specific wallet across different connection sessions by observing idiosyncratic client wallet behavior which acts as a unique fingerprint",
                     "weight": 0,
                     "nonce-id": "277ec132f4cb4edc1cffc0905bde99fe5d6453f368661ff9aad87d1fca34662a",
                     "countermeasures": [
@@ -927,7 +939,19 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM30",
                             "description": "Avoid communicating state-based information to other entities which could be used to uniquely identify the client",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR180",
+                                            "description": "The wallet client does not send stateful information in messages that persists between connection contexts",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -941,7 +965,38 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM31",
                             "description": "Avoid performing queries to third party services regarding specific transactions in a manner which reveals the IP address of the user",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR24",
+                                            "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "b",
+                                            "id": "OBPPV3/CR25",
+                                            "description": "Blockchain data is obtained from a local copy of the blockchain",
+                                            "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR27",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
+                                            "effectiveness": 0,
+                                            "comment": "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score"
+                                        },
+                                        {
+                                            "numeral": "d",
+                                            "id": "OBPPV3/CR170",
+                                            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -987,13 +1042,37 @@
                             "numeral": "1",
                             "id": "OBPPV3/CM33",
                             "description": "Do not transmit out-of-band notifications to a user when a transaction has been received",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR190",
+                                            "description": "The wallet provider sends out-of-band notifications which are encrypted and cannot be identified as originating from the wallet provider when notifying the user about a transaction",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "numeral": "2",
                             "id": "OBPPV3/CM34",
                             "description": "Transmit out-of-band notifications via a method that is not detectable to a network observer",
-                            "effectiveness": 0
+                            "effectiveness": 0,
+                            "criteria-groups": [
+                                {
+                                    "criteria": [
+                                        {
+                                            "numeral": "a",
+                                            "id": "OBPPV3/CR191",
+                                            "description": "Number of clicks to prevent the wallet provider from sending out-of-band notifications to the user about a transaction",
+                                            "effectiveness": 0
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1551,7 +1630,7 @@
                 },
                 {
                     "numeral": "C",
-                    "name": "Cause the wallet to transmit usage and/or debug data back to the provider which can be used to correlate transactions to a particular user",
+                    "name": "Cause the wallet to transmit usage and/or debug data back to the provider which can be used to correlate blockchain data to a particular user",
                     "weight": 0,
                     "nonce-id": "fdb38b33f31c08b6b7b26c9260e13bc38145ddaca649ee2211f2b01816235532",
                     "countermeasures": [
@@ -2272,7 +2351,7 @@
             "id": "OBPPV3/CR24",
             "description": "Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network",
             "nonce-id": "d594bb5bc8f342b8794072a48bffe36cdfe142dd19a4773e46abbfc931083a9f",
-            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet"
+            "comment": "Blockchain data that might be queried includes balance information for addresses in the user's wallet. Tor, I2P, and VPNs are valid methods of hiding machine identity"
         },
         {
             "id": "OBPPV3/CR25",
@@ -2287,9 +2366,9 @@
         },
         {
             "id": "OBPPV3/CR27",
-            "description": "Blockchain data is queried via a method that matches a fraction of the blockchain beyond the addresses belonging to the wallet",
+            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query",
             "nonce-id": "16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1",
-            "comment": "This criterion may be met e.g. by the use of bloom or prefix filters for querying balance data"
+            "comment": "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters"
         },
         {
             "id": "OBPPV3/CR28",
@@ -2636,6 +2715,28 @@
             "id": "OBPPV3/CR161",
             "description": "The wallet client uses a pre-shared symmetric key to authenticate the server",
             "nonce-id": "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3"
+        },
+        {
+            "id": "OBPPV3/CR170",
+            "description": "Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query",
+            "nonce-id": "584c85a88f62a5b7ca7de1f2d0a12c3555b348a7d6df05cfc849917788b4a695",
+            "comment": "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters"
+        },
+        {
+            "id": "OBPPV3/CR180",
+            "description": "The wallet client does not send stateful information in messages that persists between connection contexts",
+            "nonce-id": "3d613dcf8c0ac1aa373b5e008d8fd1c6e7f3f19548b1b04df32483f96ec7de71",
+            "comment": "Stateful information includes a unique browser fingerprint, HTTP cookies, HTTP headers, etc."
+        },
+        {
+            "id": "OBPPV3/CR190",
+            "description": "The wallet provider sends out-of-band notifications which are encrypted and cannot be identified as originating from the wallet provider when notifying the user about a transaction",
+            "nonce-id": "e3154139d9371496110cc04c0a97a44e4d6391cda48602c2f8204a442bcb2a7b"
+        },
+        {
+            "id": "OBPPV3/CR191",
+            "description": "Number of clicks to prevent the wallet provider from sending out-of-band notifications to the user about a transaction",
+            "nonce-id": "f87b1d4fcf05b5df587effa8a766a6561028412c6937949033812e7b5e6fe3ea"
         },
         {
             "id": "OBPPV3/CR200",
