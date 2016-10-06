@@ -1289,20 +1289,6 @@
                 },
                 {
                     "numeral": "D",
-                    "name": "Require users to submit transactions and identification information to one or more another parties in order to complete the signing process",
-                    "weight": 0,
-                    "nonce-id": "3b0dd82cd54a5d886b92e7fc917da910a349d5b4acf86682d3c5411093362884",
-                    "countermeasures": [
-                        {
-                            "numeral": "1",
-                            "id": "OBPPV3/CM40",
-                            "description": "Do not require users to provide information to one or more other parties in order to complete the signing process in a way that allows the other parties to identify the source or destination of the transaction",
-                            "effectiveness": 0
-                        }
-                    ]
-                },
-                {
-                    "numeral": "E",
                     "name": "Monitor the past and future behavior of a user based on receiving payment instructions from that user (such as a master xpub) which leak enough information about how other senders have paid/will pay the same recipient to identify the relevant transactions",
                     "weight": 0,
                     "nonce-id": "e89ea6618e35217310d840d35d851c1d2169b14300a042259089f7e195f677f2",
@@ -2091,11 +2077,6 @@
             "id": "OBPPV3/CM39",
             "description": "Use mixing protocols which are secure against misbehavior by any participant",
             "nonce-id": "db47dade197f8ffd63eccd122de698f998da14e7a6ac41420eb83f46cd9def58"
-        },
-        {
-            "id": "OBPPV3/CM40",
-            "description": "Do not require users to provide information to one or more other parties in order to complete the signing process in a way that allows the other parties to identify the source or destination of the transaction",
-            "nonce-id": "3f301ed8b1c83aa57077b404362dc845ef2e5dfb6065d0b7d146484f76494183"
         },
         {
             "id": "OBPPV3/CM41",
