@@ -1280,6 +1280,12 @@
                                             "id": "OBPPV3/CR30",
                                             "description": "Number of clicks required by user to route outgoing transactions through an anonymizing network",
                                             "effectiveness": 0
+                                        },
+                                        {
+                                            "numeral": "c",
+                                            "id": "OBPPV3/CR48",
+                                            "description": "The facilitator of the mix does not have an increased ability to reverse the mix beyond the mix participants",
+                                            "effectiveness": 0
                                         }
                                     ]
                                 }
@@ -2434,7 +2440,7 @@
         },
         {
             "id": "OBPPV3/CR48",
-            "description": "Mixing is secure against correlation attacks by the facilitator",
+            "description": "The facilitator of the mix does not have an increased ability to reverse the mix beyond the mix participants",
             "nonce-id": "0f2c4a66316a42c998ea5ba46c0ceca0595ee53c66959a8e4a6f934a6f75918b"
         },
         {
