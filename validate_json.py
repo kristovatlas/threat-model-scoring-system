@@ -1,7 +1,8 @@
 """Verifies that the threat model adheres to the schema.
 
+The threat model may optionally be specified in Hjson (https://hjson.org/).
+
 Todos:
-    * Accept json filename as command-line arg
     * Add warnings for these conditions:
         * The same countermeasure id is listed multiple times under the same
             attack
@@ -43,6 +44,9 @@ def get_args():
 def get_json(filename):
     """Get JSON object from file."""
     with open(filename) as data:
+        if filename.endswith('.hjson'):
+            import hjson
+            return hjson.load(data)
         return json.load(data)
 
 def validate_json(json_object, schema_object, trap_warnings=True):
