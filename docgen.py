@@ -1,7 +1,9 @@
 """Generates human-readable content from a threat model's JSON specification.
 
+The threat model may optionally be specified in Hjson (https://hjson.org/).
+
 Examples:
-    $ python docgen.py "threat model example.json"
+    $ python docgen.py "threat model example.[h]json"
 
 Todos:
     * Unit tests
@@ -19,7 +21,12 @@ def _main():
     args = get_args()
 
     with open(args['json_filename'], 'r') as json_file:
-        bare_threat_model = json.load(json_file)
+        bare_threat_model = None
+        if args['json_filename'].endswith('.hjson'):
+            import hjson
+            bare_threat_model = hjson.load(json_file)
+        else:
+            bare_threat_model = json.load(json_file)
         built_threat_model = model_builder.get_built_model(bare_threat_model)
 
         if args['format'] == 'github-flavored-markdown':

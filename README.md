@@ -13,6 +13,7 @@ Projects that use this scoring system include:
 
 * Tested on Python 2.7
 * jsonschema `pip install jsonschema`
+* hjson if parsing hjson files (optional) `pip install hjson`
 
 ## Description of files
 
