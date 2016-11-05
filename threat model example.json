@@ -86,25 +86,21 @@
                             "id": "NINJAGHOSTV1-CM3",
                             "description": "Teleport",
                             "effectiveness": 1.0,
-                            "criteria-groups": [
+                            "criteria": [
                                 {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "NINJAGHOSTV1-CR6",
-                                            "description": "Magically relocates five feet when attacked",
-                                            "effectiveness": 0.5
-                                        },
-                                        {
-                                            "numeral": "b",
-                                            "id": "NINJAGHOSTV1-CR1",
-                                            "description": "Evades attacks completely",
-                                            "effectiveness": 1.0
-                                        }
-                                    ],
-                                    "comment": "You can both relocate and evade completely, but teleporting only five feet away is less effective by itself."
+                                    "numeral": "a",
+                                    "id": "NINJAGHOSTV1-CR6",
+                                    "description": "Magically relocates five feet when attacked",
+                                    "effectiveness": 0.5
+                                },
+                                {
+                                    "numeral": "b",
+                                    "id": "NINJAGHOSTV1-CR1",
+                                    "description": "Evades attacks completely",
+                                    "effectiveness": 1.0
                                 }
-                            ]
+                            ],
+                            "comment": "You can both relocate and evade completely, but teleporting only five feet away is less effective by itself."
                         }
                     ]
                 },
@@ -132,23 +128,19 @@
                             "id": "NINJAGHOSTV1-CM4",
                             "description": "Assume defensive posture",
                             "effectiveness": 1.0,
-                            "criteria-groups": [
+                            "criteria": [
                                 {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "NINJAGHOSTV1-CR7",
-                                            "description": "Wears earplugs",
-                                            "effectiveness": 1.0,
-                                            "tags": [ "earplugs", "hearing protection" ]
-                                        },
-                                        {
-                                            "numeral": "b",
-                                            "id": "NINJAGHOSTV1-CR3",
-                                            "description": "Assumes fetal position when attacked",
-                                            "effectiveness": 0.1
-                                        }
-                                    ]
+                                    "numeral": "a",
+                                    "id": "NINJAGHOSTV1-CR7",
+                                    "description": "Wears earplugs",
+                                    "effectiveness": 1.0,
+                                    "tags": [ "earplugs", "hearing protection" ]
+                                },
+                                {
+                                    "numeral": "b",
+                                    "id": "NINJAGHOSTV1-CR3",
+                                    "description": "Assumes fetal position when attacked",
+                                    "effectiveness": 0.1
                                 }
                             ],
                             "comment": "You can simultaneously assume the fetal position and wear earplugs, but the former alone is not effective."
@@ -165,16 +157,12 @@
                             "id": "NINJAGHOSTV1-CM4",
                             "description": "Assume defensive posture",
                             "effectiveness": 0.5,
-                            "criteria-groups": [
+                            "criteria": [
                                 {
-                                    "criteria": [
-                                        {
-                                            "numeral": "a",
-                                            "id": "NINJAGHOSTV1-CR2",
-                                            "description": "Crosses arms in front of body when attacked",
-                                            "effectiveness": 1.0
-                                        }
-                                    ]
+                                    "numeral": "a",
+                                    "id": "NINJAGHOSTV1-CR2",
+                                    "description": "Crosses arms in front of body when attacked",
+                                    "effectiveness": 1.0
                                 }
                             ]
                         }

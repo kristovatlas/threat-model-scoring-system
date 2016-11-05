@@ -94,9 +94,14 @@
                                     "description": "A countermeasure that partially or wholly mitigates an attack",
                                     "type": "array",
                                     "uniqueItems": true,
+                                    "required": ["criteria-groups", "criteria"],
                                     "items": {
                                         "type": "object",
                                         "required": [ "numeral", "id", "effectiveness" ],
+                                        "oneOf": [
+                                            { "required": [ "criteria-groups" ] },
+                                            { "required": [ "criteria" ]}
+                                        ],
                                         "properties": {
                                             "numeral": {
                                                 "description": "Unique number that identifies this countermeasure, such as '1'",
@@ -128,6 +133,13 @@
                                                 "uniqueItems": true,
                                                 "items": {
                                                     "$ref": "#/definitions/criteria-group"
+                                                }
+                                            },
+                                            "criteria": {
+                                                "type": "array",
+                                                "uniqueItems": true,
+                                                "items": {
+                                                    "$ref": "#/definitions/criterion-ref"
                                                 }
                                             }
                                         }
@@ -262,49 +274,53 @@
                 "criteria": {
                     "description": "A list of criteria that satisfy this criteria-group. The effectiveness of each applicable criterion is summed to a maximum of 100% for this criteria-group.",
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
-                        "description": "A criterion for how successfully a countermeasure has been implemented.",
-                        "type": "object",
-                        "properties": {
-                            "numeral": {
-                                "description": "Unique lowercase letter or letters that identifies this category, such as 'a'",
-                                "type": "string",
-                                "minLength": 1,
-                                "pattern": "^[a-z]+$"
-                            },
-                            "id": {
-                                "description": "A unique string identifying this countermeasure that MUST match an id of a criterion object listed in the document's 'criteria' array.",
-                                "type": "string",
-                                "minLength": 1
-                            },
-                            "description": {
-                                "description": "Summary of the criterion",
-                                "type": "string"
-                            },
-                            "tags": {
-                                "description": "An optional list of tags for this criterion as it applies to the parent countermeasure",
-                                "type": "array",
-                                "uniqueItems": true,
-                                "items": {
-                                    "type": "string",
-                                    "minLength": 1
-                                }
-                            },
-                            "effectiveness": {
-                                "description": "A decimal expressing the percentage which the criterion satisfies a countermeasure if successfully implemented.",
-                                "type": "number",
-                                "minimum": 0,
-                                "maximum": 1
-                            }
-                        }
-                    }
-                },
-                "criteria-groups": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/criteria-group"
+                        "$ref": "#/definitions/criterion-ref"
                     }
                 }
+            }
+        },
+        "criterion-ref": {
+            "description": "A criterion listed under a parent countermeasure, referring to an object in the document's `criteria` array",
+            "required": [ "id", "description" ],
+            "properties": {
+                "numeral": {
+                    "description": "Unique lowercase letter or letters that identifies this category, such as 'a'",
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "^[a-z]+$"
+                },
+                "id": {
+                    "description": "A unique string identifying this countermeasure that MUST match an id of a criterion object listed in the document's 'criteria' array.",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "description": {
+                    "description": "Summary of the criterion",
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "An optional list of tags for this criterion as it applies to the parent countermeasure",
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "effectiveness": {
+                    "description": "A decimal expressing the percentage which the criterion satisfies a countermeasure if successfully implemented.",
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                }
+            }
+        },
+        "criteria-groups": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/criteria-group"
             }
         }
     }

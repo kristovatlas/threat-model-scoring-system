@@ -84,11 +84,24 @@ def add_printable_tags(threat_model):
                     built_threat_model, counterm,
                     ThreatModelElementType.COUNTERMEASURE)
 
-                for criteria_group in iter_items(counterm, 'criteria-groups'):
-                    tag_criteriagroup_recurse(built_threat_model,
-                                              criteria_group)
-                    dprint(("add_printable_tags: Modified criteria group is: "
-                            "'%s'") % criteria_group)
+                if (not _empty(counterm, 'criteria-groups') and
+                        not _empty(counterm, 'criteria')):
+                    counterm_id = counterm['id'] if 'id' in counterm else 'NOID'
+                    raise ValueError(("Countermeasure '%s' lists both a "
+                                      "'criteria-groups' array and a 'criteria' "
+                                      "array, which is not permitted.") %
+                                     counterm_id)
+
+                elif not _empty(counterm, 'criteria-groups'):
+                    for criteria_group in iter_items(counterm,
+                                                     'criteria-groups'):
+                        tag_criteriagroup_recurse(built_threat_model,
+                                                  criteria_group)
+                        dprint(("add_printable_tags: Modified criteria group "
+                                "is: '%s'") % criteria_group)
+
+                elif not _empty(counterm, 'criteria'):
+                    tag_criteriagroup_recurse(built_threat_model, counterm)
 
     for countermeasure in iter_items(built_threat_model, 'countermeasures'):
         countermeasure['printable-tags'] = get_printable_tags(
@@ -102,23 +115,29 @@ def add_printable_tags(threat_model):
 
     return built_threat_model
 
-def tag_criteriagroup_recurse(threat_model, criteria_group):
+def tag_criteriagroup_recurse(threat_model, criteria_container):
     """Recursively builds tags for criteria groups.
 
     This is a destructive function; the `criteria_group` object will be
     modified.
+
+    Args:
+        threat_model (`dict`): The threat model object.
+        criteria_container (`dict`): Either a criteria group or the
+            parent countermeasure of the criteria containing a 'criteria' array.
     """
-    dprint("Inspecting criteria group: '%s'" % pformat(criteria_group))
+    dprint("Inspecting criteria group or countermeasure: '%s'" %
+           pformat(criteria_container))
 
-    if (_empty(criteria_group, 'criteria-groups') and
-            _empty(criteria_group, 'criteria')):
+    if (_empty(criteria_container, 'criteria-groups') and
+            _empty(criteria_container, 'criteria')):
         dprint("Criteria group was empty.")
-        return criteria_group
+        return criteria_container
 
-    for inner_criteria_group in iter_items(criteria_group, 'criteria-groups'):
+    for inner_criteria_group in iter_items(criteria_container, 'criteria-groups'):
         tag_criteriagroup_recurse(threat_model, inner_criteria_group)
 
-    for criterion in iter_items(criteria_group, 'criteria'):
+    for criterion in iter_items(criteria_container, 'criteria'):
         criterion['printable-tags'] = get_printable_tags(
             threat_model, criterion, ThreatModelElementType.CRITERION)
 

@@ -100,21 +100,42 @@ def _get_table_body(threat_model):
 
                 dprint("countermeasure_text = %s" % countermeasure_text)
 
-                if _empty(countermeasure, 'criteria-groups'):
+                #countermeasure may contain either 'criteria-groups' array or
+                #   'criteria' array. Avoiding both is enforced by
+                #   the `validate_json` module.
+                if (_empty(countermeasure, 'criteria-groups') and
+                        _empty(countermeasure, 'criteria')):
                     table_body += get_one_row(
                         attacker_name, attack_name, countermeasure_text)
                     attacker_name = None #display name only one row per attacker
                     attack_name = None #display name only one row per attack
                     continue
 
-                for criteria_group in iter_items(countermeasure,
-                                                 'criteria-groups'):
+                elif not _empty(countermeasure, 'criteria-groups'):
+                    for criteria_group in iter_items(countermeasure,
+                                                     'criteria-groups'):
+                        table_body += _get_table_body_criteria_group_recurse(
+                            threat_model, criteria_group, attacker_name,
+                            attack_name, countermeasure_text)
+
+                        #reset, so we display name only one row per attacker
+                        attacker_name = None
+                        #reset, so we display name only one row per attack
+                        attack_name = None
+                        #reset, so we display once per countermeasure
+                        countermeasure_text = None
+
+                elif not _empty(countermeasure, 'criteria'):
                     table_body += _get_table_body_criteria_group_recurse(
-                        threat_model, criteria_group, attacker_name,
+                        threat_model, countermeasure, attacker_name,
                         attack_name, countermeasure_text)
-                    attacker_name = None #display name only one row per attacker
-                    attack_name = None #display name only one row per attack
-                    countermeasure_text = None #display once per countermeasure
+
+                    #reset, so we display name only one row per attacker
+                    attacker_name = None
+                    #reset, so we display name only one row per attack
+                    attack_name = None
+                    #reset, so we display once per countermeasure
+                    countermeasure_text = None
 
     return table_body
 
@@ -142,26 +163,35 @@ def get_tags_markdown(printable_tags):
             markdown += "<CODE>%s</CODE> " % tag
         return markdown
 
-def _get_table_body_criteria_group_recurse(threat_model, criteria_group,
+def _get_table_body_criteria_group_recurse(threat_model, criteria_container,
                                            attacker_name, attack_name,
                                            countermeasure_text,
                                            num_rows_printed=0):
-    """A criteria-group may contain criteria and/or child criteria-groups."""
+    """Get the table body contents for criteria or a criteria group.
+
+    This may recurse if a criteria group is provided, as it may contain criteria
+    and/or child criteria-groups.
+
+    Args:
+        threat_model (`dict`): The threat model object.
+        criteria_container (`dict`): Either the countermeasure containing a
+            `criteria` array, or a criteria group within a countermeasure.
+    """
     body = ""
 
-    dprint(("criteria_group='%s' attacker_name='%s' attack_name='%s' "
-            "countermeasure_text='%s' num_rows_printed=%d") %
-           (str(criteria_group), attacker_name, attack_name,
+    dprint(("criteria_group or countermeasure='%s' attacker_name='%s' "
+            "attack_name='%s' countermeasure_text='%s' num_rows_printed=%d") %
+           (str(criteria_container), attacker_name, attack_name,
             countermeasure_text, num_rows_printed))
 
-    if (_empty(criteria_group, 'criteria') and
-            _empty(criteria_group, 'criteria-groups') and
+    if (_empty(criteria_container, 'criteria') and
+            _empty(criteria_container, 'criteria-groups') and
             num_rows_printed == 0):
         #no actual criteria to be found under this countermeasure, so just
         #print everything else.
         return get_one_row(attacker_name, attack_name, countermeasure_text)
 
-    for criterion in iter_items(criteria_group, 'criteria'):
+    for criterion in iter_items(criteria_container, 'criteria'):
         criterion_text = criterion['id']
 
         criterion_text += get_tags_markdown(iter_items(criterion,
@@ -175,7 +205,7 @@ def _get_table_body_criteria_group_recurse(threat_model, criteria_group,
         attack_name = None #display name only one row per attack
         countermeasure_text = None #display once per countermeasure
 
-    for criteria_group in iter_items(criteria_group, 'criteria-groups'):
+    for criteria_group in iter_items(criteria_container, 'criteria-groups'):
         body += _get_table_body_criteria_group_recurse(
             threat_model, criteria_group, attacker_name, attack_name,
             countermeasure_text, num_rows_printed)
@@ -191,7 +221,7 @@ def get_countermeasures_list(threat_model):
                         "ID | Description\n"
                         "--- | ---\n")
     for counterm in threat_model['countermeasures']:
-        description =  counterm['description']
+        description = counterm['description']
         description += get_tags_markdown(iter_items(counterm, 'printable-tags'))
         comment = ''
         if 'comment' in counterm:
