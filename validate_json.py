@@ -119,18 +119,47 @@ def check_all_criteria_ids(threat_model_json):
                 continue
             for countermeasure in attack['countermeasures']:
                 countermeasure_id = countermeasure['id']
-                if _empty(countermeasure, 'criteria-groups'):
+
+                #countermeasure in threat model can either specify a list of
+                #   critiera or criteria-groups but not both
+                if (not _empty(countermeasure, 'criteria-groups') and
+                        not _empty(countermeasure, 'criteria')):
+                    raise ValueError(("Countermeasure '%s' specifies both a "
+                                      "'criteria-groups' array and a 'criteria' "
+                                      "array, which is not permitted.") %
+                                     countermeasure_id)
+
+                elif not _empty(countermeasure, 'criteria-groups'):
+                    for criteria_group in countermeasure['criteria-groups']:
+                        _check_all_criteria_ids_recurse(threat_model_json,
+                                                        countermeasure_id,
+                                                        criteria_group)
+                elif not _empty(countermeasure, 'criteria'):
+                    _check_all_criteria_ids_recurse(
+                        threat_model_json, countermeasure_id, countermeasure)
+
+                else:
                     continue
-                for criteria_group in countermeasure['criteria-groups']:
-                    _check_all_criteria_ids_recurse(threat_model_json,
-                                                    countermeasure_id,
-                                                    criteria_group)
+
 
 def _check_all_criteria_ids_recurse(threat_model_json, countermeasure_id,
-                                    criteria_group):
-    """A criteria-group may contain criteria and/or child criteria-groups."""
-    if 'criteria' in criteria_group:
-        for criterion in criteria_group['criteria']:
+                                    criteria_container):
+    """Verify all criteria ids are present in the document's 'criteria' array.
+
+    This will recursive if provided a `criteria_group` that needs to be recursed
+    on, as a criteria-group may contain criteria and/or child criteria-groups.
+
+    Args:
+        threat_model_json (`dict`): The threat model
+        countermeasure_id (str): The id for the countermeasure we're checking
+            criteria within
+        criteria_container (`dict` or List): Either one criteria group within
+            the countermeasure we're checking criteria within, or the
+            countermeasure itself if it specifies a 'criteria' array rather than
+            a 'criteria-groups' array.
+    """
+    if 'criteria' in criteria_container:
+        for criterion in criteria_container['criteria']:
             criterion_id = criterion['id']
             if not is_id_in_criteria(threat_model_json, criterion_id):
                 raise ValueError(("The criterion id '%s' specified in "
@@ -138,8 +167,8 @@ def _check_all_criteria_ids_recurse(threat_model_json, countermeasure_id,
                                   "the criteria array.") %
                                  (criterion_id, countermeasure_id))
 
-    if 'criteria-groups' in criteria_group:
-        for criteria_group_inner in criteria_group['criteria-groups']:
+    if 'criteria-groups' in criteria_container:
+        for criteria_group_inner in criteria_container['criteria-groups']:
             _check_all_criteria_ids_recurse(threat_model_json,
                                             countermeasure_id,
                                             criteria_group_inner)
@@ -342,23 +371,41 @@ def _is_criterion_in_countermeasure(countermeasure, criterion_id):
 
     Returns: bool: whether criterion ID was found
     """
-    if _empty(countermeasure, 'criteria-groups'):
+    if (_empty(countermeasure, 'criteria-groups') and
+            _empty(countermeasure, 'criteria')):
         return False
-    for criteria_group in countermeasure['criteria-groups']:
-        if _is_criterion_in_countermeasure_recurse(criteria_group,
+    elif not _empty(countermeasure, 'criteria-groups'):
+        for criteria_group in countermeasure['criteria-groups']:
+            if _is_criterion_in_countermeasure_recurse(criteria_group,
+                                                       criterion_id):
+                return True
+    elif not _empty(countermeasure, 'criteria'):
+        if _is_criterion_in_countermeasure_recurse(countermeasure,
                                                    criterion_id):
             return True
+
     return False
 
-def _is_criterion_in_countermeasure_recurse(criteria_group, criterion_id):
-    """A criteria group may continue criteria or child  criteria groups."""
-    if 'criteria' in criteria_group:
-        for criterion in criteria_group['criteria']:
+def _is_criterion_in_countermeasure_recurse(criteria_container, criterion_id):
+    """Determine if criterion is listed under specified countermeasure.
+
+    This may recurse if provided a criteria group, as a criteria group may
+        contain criteria or child  criteria groups.
+
+    Args:
+        criteria_container (`dict`): Either a criteria group or the countermeasure
+            in question.
+        criterion_id (str): The criterion we're looking for.
+
+    Returns: bool: whether criterion ID was found
+    """
+    if 'criteria' in criteria_container:
+        for criterion in criteria_container['criteria']:
             if 'id' in criterion and criterion['id'] == criterion_id:
                 return True
 
-    if 'criteria-groups' in criteria_group:
-        for criteria_group_inner in criteria_group:
+    if 'criteria-groups' in criteria_container:
+        for criteria_group_inner in criteria_container:
             if _is_criterion_in_countermeasure_recurse(criteria_group_inner,
                                                        criterion_id):
                 return True

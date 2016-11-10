@@ -21,53 +21,52 @@
                             id: OBPPV3/CM01
                             description: Avoid reuse of identifiable script elements
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR01
-                                            description: Number of clicks required to deviate from the default receiving functionality and generate a new non-ECDH receiving address for an existing wallet
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR01
+                                    description: Number of clicks required to deviate from the default receiving functionality and generate a new non-ECDH receiving address for an existing wallet
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR02
-                                            description: Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR02
+                                    description: Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR03
-                                            description: Non-ECDH receiving addresses are hidden from the default Receive worflow screens once they have been used
-                                            effectiveness: 0 }{
+                                    numeral: c
+                                    id: OBPPV3/CR03
+                                    description: Non-ECDH receiving addresses are hidden from the default Receive worflow screens once they have been used
+                                    effectiveness: 0 }{
 
-                                            numeral: d
-                                            id: OBPPV3/CR04
-                                            description: Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely
-                                            effectiveness: 0 }{
+                                    numeral: d
+                                    id: OBPPV3/CR04
+                                    description: Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely
+                                    effectiveness: 0 }{
 
-                                            numeral: e
-                                            id: OBPPV3/CR05
-                                            description: Number of clicks required to deviate from the default change functionality and receive change at a newly generated address
-                                            effectiveness: 0 }{
+                                    numeral: e
+                                    id: OBPPV3/CR05
+                                    description: Number of clicks required to deviate from the default change functionality and receive change at a newly generated address
+                                    effectiveness: 0 }{
 
-                                            numeral: f
-                                            id: OBPPV3/CR07
-                                            description: Change addresses are hidden from the normal receiving workflow by default to discourage using them as receiving addresses
-                                            effectiveness: 0 }{
+                                    numeral: f
+                                    id: OBPPV3/CR07
+                                    description: Change addresses are hidden from the normal receiving workflow by default to discourage using them as receiving addresses
+                                    effectiveness: 0 }{
 
-                                            numeral: g
-                                            id: OBPPV3/CR08
-                                            description: Preemptively indicates a loss of privacy when user elects to reuse change addresses as receiving addresses, or prohibits this operation entirely
-                                            effectiveness: 0 }{
+                                    numeral: g
+                                    id: OBPPV3/CR08
+                                    description: Preemptively indicates a loss of privacy when user elects to reuse change addresses as receiving addresses, or prohibits this operation entirely
+                                    effectiveness: 0 }{
 
-                                            numeral: h
-                                            id: OBPPV3/CR16
-                                            description: Warns user when sending to a non-ECDH address that the user has sent to before
-                                            effectiveness: 0 }{
+                                    numeral: h
+                                    id: OBPPV3/CR16
+                                    description: Warns user when sending to a non-ECDH address that the user has sent to before
+                                    effectiveness: 0 }{
 
-                                            numeral: i
-                                            id: OBPPV3/CR17
-                                            description: Warns user when sending to a non-ECDH address that has received deposits from any source
-                                            effectiveness: 0 }]}]}]}{
+                                    numeral: i
+                                    id: OBPPV3/CR17
+                                    description: Warns user when sending to a non-ECDH address that has received deposits from any source
+                                    effectiveness: 0 }]}]}{
 
                     #Blockchain Observer Attack 2 of 6
                     numeral: B
@@ -81,7 +80,7 @@
                             id: OBPPV3/CM62
                             description: The order of transaction outputs does not reveal information regarding output ownership
                             effectiveness: 0
-                            criteria-groups: [{
+                            criteria-groups: [{ #Inputs and outputs cannot both be ordered deterministically and randomly.
 
                                     criteria: [{
                                             numeral: a
@@ -100,109 +99,106 @@
                             id: OBPPV3/CM63
                             description: The values of transaction outputs do not reveal information regarding output ownership
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR75
-                                            description: Inputs are selected such that the amount of change in the transaction is close to the size of the desired spend
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR75
+                                    description: Inputs are selected such that the amount of change in the transaction is close to the size of the desired spend
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR76
-                                            description: Multiple change outputs are created, and at least one of the transaction output values resmebles a plausible spend
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR76
+                                    description: Multiple change outputs are created, and at least one of the transaction output values resmebles a plausible spend
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR23
-                                            description: Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address
-                                            effectiveness: 0 }{
+                                    numeral: c
+                                    id: OBPPV3/CR23
+                                    description: Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address
+                                    effectiveness: 0 }{
 
-                                            numeral: d
-                                            id: OBPPV3/CR77
-                                            description: Previous transaction outputs and new output values are selected to create multiple possible matching sets between inputs and the user's change outputs
-                                            effectiveness: 0 }]}]}{
+                                    numeral: d
+                                    id: OBPPV3/CR77
+                                    description: Previous transaction outputs and new output values are selected to create multiple possible matching sets between inputs and the user's change outputs
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 3 of 5
                             numeral: "3"
                             id: OBPPV3/CM64
                             description: The composition of transaction output scripts and ECDSA signatures does not reveal information regarding counterparty ownership of outputs
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR23
-                                            description: Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR23
+                                    description: Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR13
-                                            description: All transactions created by the wallet are compliant with BIP 62
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR13
+                                    description: All transactions created by the wallet are compliant with BIP 62
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR200
-                                            description: Wallet warns the user of a likely loss of privacy when sending to a P2SH address and the clients have not negotiated a common redeem script structure for spending transaction outputs
-                                            effectiveness: 0 }]}]}{
+                                    numeral: c
+                                    id: OBPPV3/CR200
+                                    description: Wallet warns the user of a likely loss of privacy when sending to a P2SH address and the clients have not negotiated a common redeem script structure for spending transaction outputs
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 4 of 5
                             numeral: "4"
                             id: OBPPV3/CM01
                             description: Avoid reuse of identifiable script elements
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR01
-                                            description: Number of clicks required to deviate from the default receiving functionality and generate a new non-ECDH receiving address for an existing wallet
-                                            effectiveness: 0
-                                            comment: "A reused receiving address may help identify which address is for change" }{
+                                    numeral: a
+                                    id: OBPPV3/CR01
+                                    description: Number of clicks required to deviate from the default receiving functionality and generate a new non-ECDH receiving address for an existing wallet
+                                    effectiveness: 0
+                                    comment: "A reused receiving address may help identify which address is for change" }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR02
-                                            description: Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page
-                                            effectiveness: 0
-                                            comment: "A reused receiving address may help identify which address is for change" }{
+                                    numeral: b
+                                    id: OBPPV3/CR02
+                                    description: Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page
+                                    effectiveness: 0
+                                    comment: "A reused receiving address may help identify which address is for change" }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR03
-                                            description: Non-ECDH receiving addresses are hidden from the default Receive worflow screens once they have been used
-                                            effectiveness: 0
-                                            comment: "A reused receiving address may help identify which address is for change" }{
+                                    numeral: c
+                                    id: OBPPV3/CR03
+                                    description: Non-ECDH receiving addresses are hidden from the default Receive worflow screens once they have been used
+                                    effectiveness: 0
+                                    comment: "A reused receiving address may help identify which address is for change" }{
 
-                                            numeral: d
-                                            id: OBPPV3/CR04
-                                            description: Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely
-                                            effectiveness: 0
-                                            comment: "A reused receiving address may help identify which address is for change" }{
+                                    numeral: d
+                                    id: OBPPV3/CR04
+                                    description: Preemptively indicates a loss of privacy when user elects to receive funds at a previously-used non-ECDH address, or prohibits this operation entirely
+                                    effectiveness: 0
+                                    comment: "A reused receiving address may help identify which address is for change" }{
 
-                                            numeral: e
-                                            id: OBPPV3/CR05
-                                            description: Number of clicks required to deviate from the default change functionality and receive change at a newly generated address
-                                            effectiveness: 0
-                                            comment: "A reused receiving address may help identify which address is for change" }{
+                                    numeral: e
+                                    id: OBPPV3/CR05
+                                    description: Number of clicks required to deviate from the default change functionality and receive change at a newly generated address
+                                    effectiveness: 0
+                                    comment: "A reused receiving address may help identify which address is for change" }{
 
-                                            numeral: f
-                                            id: OBPPV3/CR07
-                                            description: Change addresses are hidden from the normal receiving workflow by default to discourage using them as receiving addresses
-                                            effectiveness: 0 }{
+                                    numeral: f
+                                    id: OBPPV3/CR07
+                                    description: Change addresses are hidden from the normal receiving workflow by default to discourage using them as receiving addresses
+                                    effectiveness: 0 }{
 
-                                            numeral: g
-                                            id: OBPPV3/CR08
-                                            description: Preemptively indicates a loss of privacy when user elects to reuse change addresses as receiving addresses, or prohibits this operation entirely
-                                            effectiveness: 0 }{
+                                    numeral: g
+                                    id: OBPPV3/CR08
+                                    description: Preemptively indicates a loss of privacy when user elects to reuse change addresses as receiving addresses, or prohibits this operation entirely
+                                    effectiveness: 0 }{
 
-                                            numeral: h
-                                            id: OBPPV3/CR16
-                                            description: Warns user when sending to a non-ECDH address that the user has sent to before
-                                            effectiveness: 0 }{
+                                    numeral: h
+                                    id: OBPPV3/CR16
+                                    description: Warns user when sending to a non-ECDH address that the user has sent to before
+                                    effectiveness: 0 }{
 
-                                            numeral: i
-                                            id: OBPPV3/CR17
-                                            description: Warns user when sending to a non-ECDH address that has received deposits from any source
-                                            effectiveness: 0 }]}]}{
+                                    numeral: i
+                                    id: OBPPV3/CR17
+                                    description: Warns user when sending to a non-ECDH address that has received deposits from any source
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 5 of 5
 
@@ -210,7 +206,8 @@
                             id: OBPPV3/CM08
                             description: Calculate fees using a method which is not recognizably unique to a particular client
                             comment: An attacker can use wallet client fingerprinting to probabilistically distinguish between spend and change outputs if the wallet clients used to create the initial transaction and subsequent spends of outputs remain consistent for the counter-parties involved
-                            effectiveness: 0 }]}{
+                            effectiveness: 0
+                            criteria: [] }]}{
 
                     #Blockchain Observer Attack 3 of 6
                     numeral: C
@@ -224,58 +221,56 @@
                             id: OBPPV3/CM10
                             description: Avoid using inputs from different addresses in the same transaction
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR15
-                                            description: Outside of a mixing transaction, preemptively indicates a loss of privacy when merging inputs from different addresses in the same transaction
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR15
+                                    description: Outside of a mixing transaction, preemptively indicates a loss of privacy when merging inputs from different addresses in the same transaction
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 4
                             numeral: "2"
                             id: OBPPV3/CM11
                             description: Use mixing when sending transactions, and make non-mixed transactions resemble mixed transactions
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR09
-                                            description: When an outgoing transaction must merge inputs, and when mixing is not being used, the transaction constructed in a way that plausibly resembles a mixing transaction
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR09
+                                    description: When an outgoing transaction must merge inputs, and when mixing is not being used, the transaction constructed in a way that plausibly resembles a mixing transaction
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR18
-                                            description: Number of clicks required by user for inputs/outputs to be mixed with one or more other users
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR18
+                                    description: Number of clicks required by user for inputs/outputs to be mixed with one or more other users
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR19
-                                            description: Average number of other users whose funds are mixed with the client user's when sending through a mixing process
-                                            effectiveness: 0 }{
+                                    numeral: c
+                                    id: OBPPV3/CR19
+                                    description: Average number of other users whose funds are mixed with the client user's when sending through a mixing process
+                                    effectiveness: 0 }{
 
-                                            numeral: d
-                                            id: OBPPV3/CR20
-                                            description: Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions
-                                            effectiveness: 0 }]}]}{
+                                    numeral: d
+                                    id: OBPPV3/CR20
+                                    description: Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 3 of 4
                             numeral: "3"
                             id: OBPPV3/CM12
                             description: Use the same type of script used for change output as for the desired spend when creating transactions
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR06
-                                            description: Produces P2SH change addresses when one or more of the spend outputs in a transaction is P2SH
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR06
+                                    description: Produces P2SH change addresses when one or more of the spend outputs in a transaction is P2SH
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 4 of 4
                             numeral: "4"
                             id: OBPPV3/CM09
                             description: Create the transaction in such a way that provides multiple possible matching sets between inputs and the user's change output(s)
-                            effectiveness: 0 }]}{
+                            effectiveness: 0
+                            criteria: [] }]}{
 
                     #Blockchain Observer Attack 4 of 6
                     numeral: D
@@ -289,23 +284,22 @@
                             id: OBPPV3/CM13
                             description: Avoid constructing transactions that contain inputs from more than one identity/account
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR44
-                                            description: Number of clicks to create a new identity container from the home screen of an existing identity container
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR44
+                                    description: Number of clicks to create a new identity container from the home screen of an existing identity container
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR46
-                                            description: Avoids creating transactions which contain inputs from different identity containers, except optionally if the user has intentionally overridden this behavior
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR46
+                                    description: Avoids creating transactions which contain inputs from different identity containers, except optionally if the user has intentionally overridden this behavior
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR47
-                                            description: Visually indicates when inputs from different identity containers are merged before the transaction is broadcast, or prohibits this operation entirely
-                                            effectiveness: 0 }]}]}]}{
+                                    numeral: c
+                                    id: OBPPV3/CR47
+                                    description: Visually indicates when inputs from different identity containers are merged before the transaction is broadcast, or prohibits this operation entirely
+                                    effectiveness: 0 }]}]}{
 
                     #Blockchain Observer Attack 5 of 6
                     numeral: E
@@ -319,54 +313,52 @@
                             id: OBPPV3/CM05
                             description: Use standardized ordering of inputs and outputs
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR10
-                                            description: Inputs and outputs are ordered in a deterministic manner based on criteria other than the status of outputs as spends or change (BIP 69)
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR10
+                                    description: Inputs and outputs are ordered in a deterministic manner based on criteria other than the status of outputs as spends or change (BIP 69)
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR11
-                                            description: Order inputs and outputs via a methodology common to multiple wallets
-                                            effectiveness: 0 }]}]}{
+                                    numeral: b
+                                    id: OBPPV3/CR11
+                                    description: Order inputs and outputs via a methodology common to multiple wallets
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 4
                             numeral: "2"
                             id: OBPPV3/CM06
                             description: Avoid routinely creating outputs that are identifiable by their size or script
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR22
-                                            description: Number of clicks to opt out of creating recurring transactions, such as for donations to the wallet provider
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR22
+                                    description: Number of clicks to opt out of creating recurring transactions, such as for donations to the wallet provider
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR23
-                                            description: Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address
-                                            effectiveness: 0 }]}]}{
+                                    numeral: b
+                                    id: OBPPV3/CR23
+                                    description: Avoids creating recurring transactions with outputs of a known value or to a known non-ECDH address
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 3 of 4
                             numeral: "3"
                             id: OBPPV3/CM07
                             description: Only create transactions which are compliant with BIP-62
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR13
-                                            description: All transactions created by the wallet are compliant with BIP 62
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR13
+                                    description: All transactions created by the wallet are compliant with BIP 62
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 4 of 4
                             numeral: "4"
                             id: OBPPV3/CM08
                             description: Calculate fees using a method which is not recognizably unique to a particular client
-                            effectiveness: 0 }]}{
+                            effectiveness: 0
+                            criteria: [] }]}{
 
                     #Blockchain Observer Attack 6 of 6
                     numeral: F
@@ -380,18 +372,17 @@
                             id: OBPPV3/CM15
                             description: Introduce random delays before introducing new transactions to the network
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR130
-                                            description: The wallet client waits for a random amount of time before introducing the transaction to the Bitcoin P2P network
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR130
+                                    description: The wallet client waits for a random amount of time before introducing the transaction to the Bitcoin P2P network
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR131
-                                            description: The wallet provider waits for a random amount of time before introducing the transaction to the Bitcoin P2P network
-                                            effectiveness: 0 }]}]}]}]}{
+                                    numeral: b
+                                    id: OBPPV3/CR131
+                                    description: The wallet provider waits for a random amount of time before introducing the transaction to the Bitcoin P2P network
+                                    effectiveness: 0 }]}]}]}{
 
             #Attacker 2 of 7
             numeral: II
@@ -412,19 +403,18 @@
                             id: OBPPV3/CM16
                             description: Obtain relevant blockchain data without making queries to other network participants
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR25
-                                            description: Blockchain data is obtained from a local copy of the blockchain
-                                            effectiveness: 1.0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR25
+                                    description: Blockchain data is obtained from a local copy of the blockchain
+                                    effectiveness: 1.0 }]}{
 
                             #Countermeasure 2 of 2
                             numeral: "2"
                             id: OBPPV3/CM61
                             description: Perform multiple queries for blockchain data in a way that makes it difficult to correlate the queries with one another
                             effectiveness: 0
-                            criteria-groups: [{
+                            criteria-groups: [{ #A wallet client can either query for one address at a time (OPPV3/CR26) or use bloom filters (OBPPV3/CR27) but not both
 
                                     criteria: [{
 
@@ -473,18 +463,17 @@
                             id: OBPPV3/CM19
                             description: Connect to the source of relevant blockchain data in a manner that does not leak the IP address of the requestor
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR24
-                                            description: Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR24
+                                    description: Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR29
-                                            description: The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network
-                                            effectiveness: 0 }]}]}]}{
+                                    numeral: b
+                                    id: OBPPV3/CR29
+                                    description: The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 3 of 16
                     numeral: C
@@ -498,28 +487,28 @@
                             id: OBPPV3/CM20
                             description: Route outgoing transactions via a method that does not reveal the IP address of the sender
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR30
-                                            description: Number of clicks required by user to route outgoing transactions through an anonymizing network
-                                            effectiveness: 0 }{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR30
+                                    description: Number of clicks required by user to route outgoing transactions through an anonymizing network
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR32
-                                            description: Client provides a visual indication if outgoing transactions are not being routed through an anonymizing network, including IP address information
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR32
+                                    description: Client provides a visual indication if outgoing transactions are not being routed through an anonymizing network, including IP address information
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR140
-                                            description: A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user
-                                            effectiveness: 0 }]}]}{
+                                    numeral: c
+                                    id: OBPPV3/CR140
+                                    description: A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 2
                             numeral: "2"
                             id: OBPPV3/CM21
                             description: Broadcast outgoing transactions in a manner that causes them to appear to have a network origin distinct from previously-broadcast transactions
-                            effectiveness: 0 }]}{
+                            effectiveness: 0
+                            criteria: [] }]}{
 
                     #Network Observer Attack 4 of 16
                     numeral: D
@@ -534,40 +523,38 @@
                             description: Use mixing when sending transactions, and make non-mixed transactions resemble mixed transactions
                             effectiveness: 0
                             comment: Whereas single-sender transactions' input ownership is unambiguous, multi-sender transactions make the ownership of particular inputs ambiguous
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR09
-                                            description: When an outgoing transaction must merge inputs, and when mixing is not being used, the transaction constructed in a way that plausibly resembles a mixing transaction
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR09
+                                    description: When an outgoing transaction must merge inputs, and when mixing is not being used, the transaction constructed in a way that plausibly resembles a mixing transaction
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR18
-                                            description: Number of clicks required by user for inputs/outputs to be mixed with one or more other users
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR18
+                                    description: Number of clicks required by user for inputs/outputs to be mixed with one or more other users
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR19
-                                            description: Average number of other users whose funds are mixed with the client user's when sending through a mixing process
-                                            effectiveness: 0 }{
+                                    numeral: c
+                                    id: OBPPV3/CR19
+                                    description: Average number of other users whose funds are mixed with the client user's when sending through a mixing process
+                                    effectiveness: 0 }{
 
-                                            numeral: d
-                                            id: OBPPV3/CR20
-                                            description: Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions
-                                            effectiveness: 0 }]}]}{
+                                    numeral: d
+                                    id: OBPPV3/CR20
+                                    description: Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 2
                             numeral: "2"
                             id: OBPPV3/CM20
                             description: Route outgoing transactions via a method that does not reveal the IP address of the sender
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR140
-                                            description: A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR140
+                                    description: A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 5 of 16
                     numeral: E
@@ -579,12 +566,11 @@
                             id: OBPPV3/CM22
                             description: If a filter requires an update, send the new filter to a different peer than the peer which has the old filter
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR28
-                                            description: A single query for blockchain data may corerespond to multiple addresses in a user's wallet, but a separate connection context is used for each query
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR28
+                                    description: A single query for blockchain data may corerespond to multiple addresses in a user's wallet, but a separate connection context is used for each query
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 6 of 16
                     numeral: F
@@ -596,12 +582,11 @@
                             id: OBPPV3/CM23
                             description: Route outgoing transactions through a different route than through the peer which is providing relevant blockchain data
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR31
-                                            description: Outgoing transactions are routed through a different entry point into the network than the source of blockchain data
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR31
+                                    description: Outgoing transactions are routed through a different entry point into the network than the source of blockchain data
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 7 of 16
                     numeral: G
@@ -613,12 +598,12 @@
                             id: OBPPV3/CM24
                             description: Use separate filters, provided to different peers, for each identity
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR33
-                                            description: Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR33
+                                    description: Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet
+                                    effectiveness: 0 }]}]}{
+
                     #Network Observer Attack 8 of 16
                     numeral: H
                     name: Link different identities by observing that the same IP address is sending outgoing transactions associated with multiple identities
@@ -629,12 +614,11 @@
                             id: OBPPV3/CM25
                             description: Use separate routes for outgoing transactions associated with each identity
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR34
-                                            description: Avoids broadcasting outgoing transactions from different identity containers via the same connection context
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR34
+                                    description: Avoids broadcasting outgoing transactions from different identity containers via the same connection context
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 9 of 16
                     numeral: I
@@ -648,24 +632,22 @@
                             id: OBPPV3/CM26
                             description: Avoid leaking information about user behavior via observable network traffic
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR35
-                                            description: The backup process avoids leaking information about wallet addresses
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR35
+                                    description: The backup process avoids leaking information about wallet addresses
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 2
                             numeral: "2"
                             id: OBPPV3/CM27
                             description: Avoid leaking information about recipients in transaction via an external network lookup
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR36
-                                            description: Wallet avoids leaking information about recipients via an external identity lookup
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR36
+                                    description: Wallet avoids leaking information about recipients via an external identity lookup
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 10 of 16
                     numeral: J
@@ -679,9 +661,8 @@
                             id: OBPPV3/CM28
                             description: Avoid using one distinctive user agent when connecting to the Bitcoin network
                             effectiveness: 0
-                            criteria-groups: [{
+                            criteria-groups: [{ #A wallet can use one unremarkable user agent or several, but can't do both at the same time.
 
-                                #A wallet can use one unremarkable user agent or several, but can't do both at the same time.
                                     criteria: [{
 
                                             numeral: a
@@ -701,12 +682,11 @@
                             id: OBPPV3/CM29
                             description: Avoid using a non-Bitcoin network protocol that leaks information about the type of client in use
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR37
-                                            description: The wallet avoids observably connecting to a known endpoint, such as a wallet provider's domain
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR37
+                                    description: The wallet avoids observably connecting to a known endpoint, such as a wallet provider's domain
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 11 of 16
                     numeral: K
@@ -718,12 +698,11 @@
                             id: OBPPV3/CM30
                             description: Avoid communicating state-based information to other entities which could be used to uniquely identify the client
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR180
-                                            description: The wallet client does not send stateful information in messages that persists between connection contexts
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR180
+                                    description: The wallet client does not send stateful information in messages that persists between connection contexts
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 12 of 16
                     numeral: L
@@ -735,29 +714,28 @@
                             id: OBPPV3/CM31
                             description: Avoid performing queries to third party services regarding specific transactions in a manner which reveals the IP address of the user
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR24
-                                            description: Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR24
+                                    description: Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR25
-                                            description: Blockchain data is obtained from a local copy of the blockchain
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR25
+                                    description: Blockchain data is obtained from a local copy of the blockchain
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR27
-                                            description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query
-                                            effectiveness: 0
-                                            comment: "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score" }{
+                                    numeral: c
+                                    id: OBPPV3/CR27
+                                    description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query
+                                    effectiveness: 0
+                                    comment: "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score" }{
 
-                                            numeral: d
-                                            id: OBPPV3/CR170
-                                            description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query
-                                            effectiveness: 0 }]}]}]}{
+                                    numeral: d
+                                    id: OBPPV3/CR170
+                                    description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 13 of 16
                     numeral: M
@@ -769,18 +747,17 @@
                             id: OBPPV3/CM32
                             description: Network communication begins with authenticating the server or peer before encrypting subsequent traffic
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR160
-                                            description: The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR160
+                                    description: The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR161
-                                            description: The wallet client uses a pre-shared symmetric key to authenticate the server
-                                            effectiveness: 0 }]}]}]}{
+                                    numeral: b
+                                    id: OBPPV3/CR161
+                                    description: The wallet client uses a pre-shared symmetric key to authenticate the server
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 14 of 16
                     numeral: N
@@ -794,24 +771,22 @@
                             id: OBPPV3/CM33
                             description: Do not transmit out-of-band notifications to a user when a transaction has been received
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR190
-                                            description: The wallet provider sends out-of-band notifications which are encrypted and cannot be identified as originating from the wallet provider when notifying the user about a transaction
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR190
+                                    description: The wallet provider sends out-of-band notifications which are encrypted and cannot be identified as originating from the wallet provider when notifying the user about a transaction
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 2
                             numeral: "2"
                             id: OBPPV3/CM34
                             description: Transmit out-of-band notifications via a method that is not detectable to a network observer
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR191
-                                            description: Number of clicks to prevent the wallet provider from sending out-of-band notifications to the user about a transaction
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR191
+                                    description: Number of clicks to prevent the wallet provider from sending out-of-band notifications to the user about a transaction
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 15 of 16
                     numeral: O
@@ -823,16 +798,15 @@
                             id: OBPPV3/CM35
                             description: Avoid broadcasting more than one version of a transaction
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            id: OBPPV3/CR90
-                                            description: The wallet client never signs and broadcasts more than one version of a transaction
-                                            effectiveness: 0 }{
+                                    id: OBPPV3/CR90
+                                    description: The wallet client never signs and broadcasts more than one version of a transaction
+                                    effectiveness: 0 }{
 
-                                            id: OBPPV3/CR91
-                                            description: When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions
-                                            effectiveness: 0 }]}]}]}{
+                                    id: OBPPV3/CR91
+                                    description: When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions
+                                    effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 16 of 16
                     numeral: P
@@ -844,17 +818,16 @@
                             id: OBPPV3/CM15
                             description: Introduce random delays before introducing new transactions to the network
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR130
-                                            description: The wallet client waits for a random amount of time before introducing the transaction to the Bitcoin P2P network
-                                            effectiveness: 0 }{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR130
+                                    description: The wallet client waits for a random amount of time before introducing the transaction to the Bitcoin P2P network
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR131
-                                            description: The wallet provider waits for a random amount of time before introducing the transaction to the Bitcoin P2P network
-                                            effectiveness: 0 }]}]}]}]}{
+                                    numeral: b
+                                    id: OBPPV3/CR131
+                                    description: The wallet provider waits for a random amount of time before introducing the transaction to the Bitcoin P2P network
+                                    effectiveness: 0 }]}]}]}{
 
             #Attacker 3 of 7
             numeral: III
@@ -880,24 +853,23 @@
                             id: OBPPV3/CM36
                             description: Broadcast outgoing transactions in a manner that is not easily correlated to the wallet provider
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            id: OBPPV3/CR84
-                                            description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order
-                                            effectiveness: 0 }{
+                                    id: OBPPV3/CR84
+                                    description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order
+                                    effectiveness: 0 }{
 
-                                            id:OBPPV3/CR81
-                                            description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API selected at random from a list of nodes/APIs once per transaction
-                                            effectiveness: 0 }{
+                                    id:OBPPV3/CR81
+                                    description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API selected at random from a list of nodes/APIs once per transaction
+                                    effectiveness: 0 }{
 
-                                            id: OBPPV3/CR82
-                                            description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API that is used by more than one wallet provider for pushing transactions to the network
-                                            effectiveness: 0 }{
+                                    id: OBPPV3/CR82
+                                    description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API that is used by more than one wallet provider for pushing transactions to the network
+                                    effectiveness: 0 }{
 
-                                            id: OBPPV3/CR83
-                                            description: Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique
-                                            effectiveness: 0 }]}]}]}]}{
+                                    id: OBPPV3/CR83
+                                    description: Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique
+                                    effectiveness: 0 }]}]}]}{
 
             #Attacker 4 of 7
             numeral: IV
@@ -915,12 +887,11 @@
                             id: OBPPV3/CM37
                             description: Use multiple identities/accounts to allow funds associated with one transaction participant to be kept apart from funds associated with a different transaction participant
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR44
-                                            description: Number of clicks to create a new identity container from the home screen of an existing identity container
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR44
+                                    description: Number of clicks to create a new identity container from the home screen of an existing identity container
+                                    effectiveness: 0 }]}]}{
 
                     #Transaction participant attack 2 of 4
                     numeral: B
@@ -932,12 +903,11 @@
                             id: OBPPV3/CM38
                             description: Whenever an input is selected from a set of inputs with identical scripts, always include all inputs from that set in the transaction
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR12
-                                            description: When an input is selected which is part of a set of unspent outputs containing identical scripts (multiple deposits to a single address), every output in the set is added to the transaction
-                                            effectiveness: 0 }]}]}]
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR12
+                                    description: When an input is selected which is part of a set of unspent outputs containing identical scripts (multiple deposits to a single address), every output in the set is added to the transaction
+                                    effectiveness: 0 }]}]
                     comment: "This transaction participant is involuntary with respect to the victim; the two may have no prior or following relationship aside from such 'dust' attacks." }{
 
                     #Transaction participant attack 3 of 4
@@ -950,23 +920,22 @@
                             id: OBPPV3/CM39
                             description: Use mixing protocols which are secure against misbehavior by any participant
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR21
-                                            description: Warns the user when a proposed mix is easy to reverse
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR21
+                                    description: Warns the user when a proposed mix is easy to reverse
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR30
-                                            description: Number of clicks required by user to route outgoing transactions through an anonymizing network
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR30
+                                    description: Number of clicks required by user to route outgoing transactions through an anonymizing network
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR48
-                                            description: The facilitator of the mix does not have an increased ability to reverse the mix beyond the mix participants
-                                            effectiveness: 0 }]}]}]}{
+                                    numeral: c
+                                    id: OBPPV3/CR48
+                                    description: The facilitator of the mix does not have an increased ability to reverse the mix beyond the mix participants
+                                    effectiveness: 0 }]}]}{
 
                     #Transaction participant attack 4 of 4
                     numeral: D
@@ -978,20 +947,19 @@
                             id: OBPPV3/CM41
                             description: Avoid protocols for transferring payment instructions which leak information about transactions originating from entities other than the intended sender
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            id: OBPPV3/CR150
-                                            description: The client uses a secure ECDH protocol to derive payment addresses that are unpredictable to parties other than the transaction participant
-                                            effectiveness: 0 }{
+                                    id: OBPPV3/CR150
+                                    description: The client uses a secure ECDH protocol to derive payment addresses that are unpredictable to parties other than the transaction participant
+                                    effectiveness: 0 }{
 
-                                            id: OBPPV3/CR151
-                                            description: The client does not share the same BIP32 extended public key for the purposes of key derivation between multiple transaction participants
-                                            effectiveness: 0 }{
+                                    id: OBPPV3/CR151
+                                    description: The client does not share the same BIP32 extended public key for the purposes of key derivation between multiple transaction participants
+                                    effectiveness: 0 }{
 
-                                            id: OBPPV3/CR152
-                                            description: The client derives a unique payment address for each transaction participant using random data, an address derived from a secret parent public key, or a hardened address derived from a known parent public key
-                                            effectiveness: 0 }]}]}]}]}{
+                                    id: OBPPV3/CR152
+                                    description: The client derives a unique payment address for each transaction participant using random data, an address derived from a secret parent public key, or a hardened address derived from a known parent public key
+                                    effectiveness: 0 }]}]}]}{
             #Attacker 5 of 7
             numeral: V
             name: Physical adversary
@@ -1011,24 +979,22 @@
                             id: OBPPV3/CM42
                             description: Provide a GUI that resembles an application other than a Bitcoin wallet
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR50
-                                            description: Number of clicks to configure the GUI to resemble a non-wallet application
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR50
+                                    description: Number of clicks to configure the GUI to resemble a non-wallet application
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 2
                             numeral: "2"
                             id: OBPPV3/CM43
                             description: Before or when displaying it, warn users about the privacy consequences of sharing data that can allow parties who will not be participants in the relevant transactions to link them to the user
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR51
-                                            description: Does not display non-ECDH addresses or transaction hashes in any form prior to the user explicitly requesting to see them
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR51
+                                    description: Does not display non-ECDH addresses or transaction hashes in any form prior to the user explicitly requesting to see them
+                                    effectiveness: 0 }]}]}{
 
                     #Physical adversary attack 2 of 3
                     numeral: B
@@ -1042,79 +1008,75 @@
                             id: OBPPV3/CM44
                             description: Install the application is such a way that it is not detectable unless user performs a series of actions unlikely to be duplicated by an unauthorized user
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR57
-                                            description: The wallet application is difficult to detect as being installed unless the user performs a series of actions unlikely to be duplicated by an unauthorized user
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR57
+                                    description: The wallet application is difficult to detect as being installed unless the user performs a series of actions unlikely to be duplicated by an unauthorized user
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 4
                             numeral: "2"
                             id: OBPPV3/CM45
                             description: The user can easily erase the application and all its metadata if the decide to stop using the wallet or device
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR54
-                                            description: Number of clicks to delete wallet data within the wallet client
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR54
+                                    description: Number of clicks to delete wallet data within the wallet client
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR78
-                                            description: A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR78
+                                    description: A user who opens the wallet client cannot determine whether a wallet was ever registered on this device once the wallet deletion process has been completed
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR59
-                                            description: A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed
-                                            effectiveness: 0 }{
+                                    numeral: c
+                                    id: OBPPV3/CR59
+                                    description: A user cannot determine outside of the app whether the wallet client was used to send or receive funds after the wallet deletion process has been completed
+                                    effectiveness: 0 }{
 
-                                            numeral: d
-                                            id: OBPPV3/CR55
-                                            description: Number of clicks to remove the wallet client from a device
-                                            effectiveness: 0 }{
+                                    numeral: d
+                                    id: OBPPV3/CR55
+                                    description: Number of clicks to remove the wallet client from a device
+                                    effectiveness: 0 }{
 
-                                            numeral: e
-                                            id: OBPPV3/CR79
-                                            description: A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself
-                                            effectiveness: 0 }{
+                                    numeral: e
+                                    id: OBPPV3/CR79
+                                    description: A user who re-installs the wallet client cannot determine whether the app was previously installed from within the application itself
+                                    effectiveness: 0 }{
 
-                                            numeral: f
-                                            id: OBPPV3/CR58
-                                            description: A user cannot determine outside of the app whether the wallet client was previously installed on the device after the uninstallation process has been completed
-                                            effectiveness: 0 }{
+                                    numeral: f
+                                    id: OBPPV3/CR58
+                                    description: A user cannot determine outside of the app whether the wallet client was previously installed on the device after the uninstallation process has been completed
+                                    effectiveness: 0 }{
 
-                                            numeral: g
-                                            id: OBPPV3/CR80
-                                            description: When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively
-                                            effectiveness: 0 }]}]}{
+                                    numeral: g
+                                    id: OBPPV3/CR80
+                                    description: When the application is installed, all application metadata is initialized in such a way that it cannot be distinguished from an application that has been used extensively
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 3 of 4
                             numeral: "3"
                             id: OBPPV3/CM46
                             description: If user loses physical control over the device, the wallet can be deleted via remote command
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR56
-                                            description: Wallet data can be remotely deleted by the user in the event the device containing the wallet is lost or stolen
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR56
+                                    description: Wallet data can be remotely deleted by the user in the event the device containing the wallet is lost or stolen
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 4 of 4
                             numeral: "4"
                             id: OBPPV3/CM47
                             description: Persistent wallet data is stored in a fashion that is not identifiable as belonging to a Bitcoin wallet
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR60
-                                            description: Persistent wallet metadata is stored in a form not identifiable as belonging to a Bitcoin wallet
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR60
+                                    description: Persistent wallet metadata is stored in a form not identifiable as belonging to a Bitcoin wallet
+                                    effectiveness: 0 }]}]}{
 
                     #Physical adversary attack 3 of 3
                     numeral: C
@@ -1128,24 +1090,22 @@
                             id: OBPPV3/CM48
                             description: Encrypt all public keys in the wallet
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR52
-                                            description: Number of clicks to set an encryption password/PIN for wallet public keys (apart from that needed to encrypt private keys)
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR52
+                                    description: Number of clicks to set an encryption password/PIN for wallet public keys (apart from that needed to encrypt private keys)
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 2
                             numeral: "2"
                             id: OBPPV3/CM49
                             description: Encrypt all non-keypair wallet metadata
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR53
-                                            description: Number of clicks to set an encryption password/PIN for non-keypair wallet metadata (apart from that needed to encrypt private keys)
-                                            effectiveness: 0 }]}]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR53
+                                    description: Number of clicks to set an encryption password/PIN for non-keypair wallet metadata (apart from that needed to encrypt private keys)
+                                    effectiveness: 0 }]}]}]}{
 
             #Attacker 6 of 7
             numeral: VI
@@ -1164,12 +1124,11 @@
                             id: OBPPV3/CM50
                             description: Use strictly local wallet backups, or encrypt remote wallet backups
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR63
-                                            description: Backups can occur offline, or are encrypted client-side with data that only the user controls e.g. password
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR63
+                                    description: Backups can occur offline, or are encrypted client-side with data that only the user controls e.g. password
+                                    effectiveness: 0 }]}]}{
 
                     #Wallet provider attack 2 of 6
                     numeral: B
@@ -1183,8 +1142,7 @@
                             id: OBPPV3/CM51
                             description: Do not collect any personally identifying information from the user
                             effectiveness: 1
-                            #These criteria indicate what level of PII is leaked, if any
-                            criteria-groups: [{
+                            criteria-groups: [{ #These criteria indicate what level of PII is leaked, if any
 
                                     criteria: [{
                                             numeral: a
@@ -1216,30 +1174,28 @@
                             id: OBPPV3/CM52
                             description: Only send debug information if users opt-in and are allowed to review the information before being sent
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR66
-                                            description: Number of clicks needed to disable sending telemetry data to the wallet provider (usage statistics, automatic crash reporting, etc.)
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR66
+                                    description: Number of clicks needed to disable sending telemetry data to the wallet provider (usage statistics, automatic crash reporting, etc.)
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR68
-                                            description: Avoids transmitting telemetry data to the provider before the user has a chance to review the information being sent
-                                            effectiveness: 0 }]}]}{
+                                    numeral: b
+                                    id: OBPPV3/CR68
+                                    description: Avoids transmitting telemetry data to the provider before the user has a chance to review the information being sent
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 2
                             numeral: "2"
                             id: OBPPV3/CM53
                             description: Transmit usage and/or debug data via a method that does not reveal the IP address or identity of the user
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR67
-                                            description: Number of clicks needed to ensure telemetry data is sent to the wallet provider in a manner that does not reveal the IP address of the user
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR67
+                                    description: Number of clicks needed to ensure telemetry data is sent to the wallet provider in a manner that does not reveal the IP address of the user
+                                    effectiveness: 0 }]}]}{
 
                     #Wallet provider attack 4 of 6
                     numeral: D
@@ -1251,18 +1207,17 @@
                             id: OBPPV3/CM54
                             description: Provide non-obfuscated source code and build tools needed for the users to compile their own versions
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR69
-                                            description: The wallet provider supplies simple instructions for building a usable binary from the source code
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR69
+                                    description: The wallet provider supplies simple instructions for building a usable binary from the source code
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR70
-                                            description: Non-obfuscated source code for the wallet application is available for immediate inspection
-                                            effectiveness: 0 }]}]}]}{
+                                    numeral: b
+                                    id: OBPPV3/CR70
+                                    description: Non-obfuscated source code for the wallet application is available for immediate inspection
+                                    effectiveness: 0 }]}]}{
 
                     #Wallet provider attack 5 of 6
                     numeral: E
@@ -1274,28 +1229,27 @@
                             id: OBPPV3/CM55
                             description: Provide a deterministic build system that allows users to verify that the binary version they have received was compiled from the public source code
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR71
-                                            description: A user can produce a compiled version of the application from the public source code that exactly matches the version distributed by the wallet provider
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR71
+                                    description: A user can produce a compiled version of the application from the public source code that exactly matches the version distributed by the wallet provider
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR120
-                                            description: Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using updated software
-                                            effectiveness: 0 }{
+                                    numeral: b
+                                    id: OBPPV3/CR120
+                                    description: Before applying a software update, the client notifies the user of the udpate and provides an opportunity to intervene before wallet private keys or meta data are decrypted using updated software
+                                    effectiveness: 0 }{
 
-                                            numeral: c
-                                            id: OBPPV3/CR121
-                                            description: Developers cryptographically sign all application binaries (or source code for interpreted languages) provided, and the client can verify the signature before private keys or wallet metadata are decrypted using updated software
-                                            effectiveness: 0 }{
+                                    numeral: c
+                                    id: OBPPV3/CR121
+                                    description: Developers cryptographically sign all application binaries (or source code for interpreted languages) provided, and the client can verify the signature before private keys or wallet metadata are decrypted using updated software
+                                    effectiveness: 0 }{
 
-                                            numeral: d
-                                            id: OBPPV3/CR122
-                                            description: The wallet client cryptographically verifies all packaged software updates with a pinned public key before automatically updating software
-                                            effectiveness: 0 }]}]}]}{
+                                    numeral: d
+                                    id: OBPPV3/CR122
+                                    description: The wallet client cryptographically verifies all packaged software updates with a pinned public key before automatically updating software
+                                    effectiveness: 0 }]}]}{
 
                     #Wallet provider attack 6 of 6
                     numeral: F
@@ -1323,24 +1277,22 @@
                             id: OBPPV3/CM56
                             description: Use eternal backups
                             effectiveness: 1
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR62
-                                            description: Number of clicks needed to update an existing backup due to the creation of a new receiving or change address
-                                            effectiveness: 0 }]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR62
+                                    description: Number of clicks needed to update an existing backup due to the creation of a new receiving or change address
+                                    effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 2
                             numeral: "2"
                             id: OBPPV3/CM57
                             description: Proactively inform users when backups require an update
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR64
-                                            description: Indicates a reduction in wallet safety when backups are stale, or uses eternal backups
-                                            effectiveness: 0 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR64
+                                    description: Indicates a reduction in wallet safety when backups are stale, or uses eternal backups
+                                    effectiveness: 0 }]}]}{
 
                     #Meta attack 2 of 4
                     numeral: B
@@ -1352,12 +1304,11 @@
                             id: OBPPV3/CM58
                             description: Use mixing methods that do not allow for theft of funds
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
-                                            numeral: a
-                                            id: OBPPV3/CR49
-                                            description: Mixing is secure against theft of funds
-                                            effectiveness: 1 }]}]}]}{
+                            criteria: [{
+                                    numeral: a
+                                    id: OBPPV3/CR49
+                                    description: Mixing is secure against theft of funds
+                                    effectiveness: 1 }]}]}{
 
                     #Meta attack 3 of 4
                     numeral: C
@@ -1369,18 +1320,17 @@
                             id: OBPPV3/CM59
                             description: Use deposit addresses derived from a constant seed using ECDH (e.g. stealth addresses)
                             effectiveness: 0
-                            criteria-groups: [{
-                                    criteria: [{
+                            criteria: [{
 
-                                            numeral: a
-                                            id: OBPPV3/CR02
-                                            description: Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page
-                                            effectiveness: 0 }{
+                                    numeral: a
+                                    id: OBPPV3/CR02
+                                    description: Number of clicks required by user to generate a ECDH receiving address (BIP 63 or BIP 47), from the default window/authenticated home page
+                                    effectiveness: 0 }{
 
-                                            numeral: b
-                                            id: OBPPV3/CR14
-                                            description: Allows the user to send to ECDH addresses (BIP 63 or BIP 47)
-                                            effectiveness: 0 }]}]}]}{
+                                    numeral: b
+                                    id: OBPPV3/CR14
+                                    description: Allows the user to send to ECDH addresses (BIP 63 or BIP 47)
+                                    effectiveness: 0 }]}]}{
 
                     #Meta attack 4 of 4
                     numeral: D
