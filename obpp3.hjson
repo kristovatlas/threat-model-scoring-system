@@ -393,7 +393,7 @@
 
                     #Network Observer Attack 1 of 16
                     numeral: A
-                    name: Link addresses belonging to a single user by observing information leaked by the wallet in the process of obtaining its relevant blockchain data from the network
+                    name: Link addresses belonging to a single user by observing blockchain data correlations leaked by the wallet in the process of obtaining its relevant blockchain data from the network
                     weight: 0
                     nonce-id: b3e3946042646148f10905084fa2e00d8344e1a9c1acace5e9d3db2d4b339805
                     countermeasures: [{
@@ -453,7 +453,7 @@
 
                     #Network Observer Attack 2 of 16
                     numeral: B
-                    name: Link addresses belonging to a single user by observing source IP address for relevant blockchain data queries
+                    name:  Link addresses belonging to a single user by observing non-blockchain data correlations to relevant blockchain data queries
                     weight: 0
                     nonce-id: 07a90dfdced30f03b5777fe42a5d1c33b77c4139b621627cb36221ca2a00fc81
                     countermeasures: [{
