@@ -439,7 +439,7 @@
                                             id: OBPPV3/CR27
                                             description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query
                                             effectiveness: 1.0
-                                            comment: "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score" }{
+                                            comment: "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score, assuming that the filter is not updated over time. If it is, the effetiveness score will be lower. (See OBPPV3/CR300)" }{
 
                                             numeral: e
                                             id: OBPPV3/CR33
@@ -449,11 +449,29 @@
                                             numeral: f
                                             id: OBPPV3/CR180
                                             description: The wallet client does not send stateful information in messages that persists between connection contexts
-                                            effectiveness: 0 }]}]}]}{
+                                            effectiveness: 0 }]}{
+
+                                    criteria: [{
+
+                                        numeral: g
+                                        id: OBPPV3/CR300
+                                        description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query, and which are constant in size and do not intersect with previous existing filters created by the client for a given wallet.
+                                        effectiveness: 1.0
+                                        comment: "This criteria is a subset of criteria OBPPV3/CR27, which may include the use of Bloom filters that are updated over time and thus damage privacy." }{
+
+                                        numeral: e
+                                        id: OBPPV3/CR33
+                                        description: Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet
+                                        effectiveness: 0 }{
+
+                                        numeral: f
+                                        id: OBPPV3/CR180
+                                        description: The wallet client does not send stateful information in messages that persists between connection contexts
+                                        effectiveness: 0 }]}]}]}{
 
                     #Network Observer Attack 2 of 16
                     numeral: B
-                    name:  Link addresses belonging to a single user by observing non-blockchain data correlations to relevant blockchain data queries
+                    name: Link addresses belonging to a single user by observing source IP address for relevant blockchain data queries
                     weight: 0
                     nonce-id: 07a90dfdced30f03b5777fe42a5d1c33b77c4139b621627cb36221ca2a00fc81
                     countermeasures: [{
@@ -2007,7 +2025,11 @@
 
             id: OBPPV3/CR200
             description: Wallet warns the user of a likely loss of privacy when sending to a P2SH address and the clients have not negotiated a common redeem script structure for spending transaction outputs
-            nonce-id: "eb6dcaf5cdf46a9088bd322e795d561bb89cebd192d155f5f136b436627dcf6e" }]
+            nonce-id: "eb6dcaf5cdf46a9088bd322e795d561bb89cebd192d155f5f136b436627dcf6e" }{
+
+            id: OBPPV3/CR300
+            description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query, and which are constant in size and do not intersect with previous existing filters created by the client for a given wallet.
+            nonce-id: "0db1f824f986d639357ecacb3c668355dbf518cd2ce884d4017f191de373fdd5" }]
 
     criteria-categories: [
         Usability
