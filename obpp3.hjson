@@ -478,7 +478,7 @@
                     comment: Non-blockchain data that may be consistent between blockchain data queries includes source IP address of packets, time zone, bandwidth/latency capacity of a client, stateful values such as HTTP cookies, etc.
                     countermeasures: [{
 
-                            #Countermeasure 1 of 1
+                            #Countermeasure 1 of 2
                             numeral: "1"
                             id: OBPPV3/CM19
                             description: Connect to the source of relevant blockchain data in a manner that does not leak the IP address of the requestor
@@ -493,7 +493,15 @@
                                     numeral: b
                                     id: OBPPV3/CR29
                                     description: The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network
-                                    effectiveness: 0 }]}]}{
+                                    effectiveness: 0 }]}{
+
+                            #Countermeasure 2 of 2
+                            numeral: "2"
+                            id: OBPPV3/CM30
+                            description: Avoid communicating state-based information to other entities which could be used to uniquely identify the client
+                            comment: "TODO: Add comment here explaining how this countermeasure protects against attack"
+                            effectiveness: 0
+                            criteria: [] }]}{
 
                     #Network Observer Attack 3 of 16
                     numeral: C
