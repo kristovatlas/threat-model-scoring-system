@@ -395,7 +395,8 @@
                     numeral: A
                     name: Link addresses belonging to a single user by observing blockchain data correlations leaked by the wallet in the process of obtaining its relevant blockchain data from the network
                     weight: 0
-                    nonce-id: b3e3946042646148f10905084fa2e00d8344e1a9c1acace5e9d3db2d4b339805
+                    nonce-id: b3e3946042646148f10905084fa2e00d8344e1a9c1acace5e9d3db2d4b339805,
+                    comment: "Example: User requests balance data for xpubXYZ which includes all addresses derived from the xpub."
                     countermeasures: [{
 
                             #Countermeasure 1 of 2
