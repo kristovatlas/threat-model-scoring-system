@@ -472,9 +472,10 @@
 
                     #Network Observer Attack 2 of 16
                     numeral: B
-                    name: Link addresses belonging to a single user by observing source IP address for relevant blockchain data queries
+                    name: Link addresses belonging to a single user by observing non-blockchain data correlations to relevant blockchain data queries
                     weight: 0
                     nonce-id: 07a90dfdced30f03b5777fe42a5d1c33b77c4139b621627cb36221ca2a00fc81
+                    comment: Non-blockchain data that may be consistent between blockchain data queries includes source IP address of packets, time zone, bandwidth/latency capacity of a client, stateful values such as HTTP cookies, etc.
                     countermeasures: [{
 
                             #Countermeasure 1 of 1
