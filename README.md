@@ -2,6 +2,8 @@
 
 This project describes the threat modeling system used by the Open Bitcoin Privacy Project. It includes a set of software tools for expressing threat models, calculating statistics about them, and exporting them to human-readable formats.
 
+By writing a threat model and applying scores to the elements of the threat model, engineers can prioritize security concerns and perform comparative analysis of security between software products, proposed systems, etc.
+
 This system produces threat models that can be generally characterized as "attacker-centric." For more general information about threat modeling, see: [https://en.wikipedia.org/wiki/Threat_model](https://en.wikipedia.org/wiki/Threat_model)
 
 Projects that use this scoring system include:
@@ -11,6 +13,7 @@ Projects that use this scoring system include:
 
 * Tested on Python 2.7
 * jsonschema `pip install jsonschema`
+* hjson if parsing hjson files (optional) `pip install hjson`
 
 ## Description of files
 
@@ -24,6 +27,10 @@ Projects that use this scoring system include:
 ## Authors
 
 Open Bitcoin Privacy Project (OBPP)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Contact
 

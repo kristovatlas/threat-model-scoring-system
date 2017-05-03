@@ -4,7 +4,6 @@ Threat model authors can use this system to specify their threat models in JSON 
 
 In order to understand our system’s schema, please refer to the [threat model example.json](threat model example.json) provided. This is a silly threat model based on relative threats of two kinds of enemies in a game, as well as the relative defensive strength of players who employ different countermeasures.
 
-
 ## The schema
 
 There are four important entities to consider in our threat model schema:
@@ -27,3 +26,7 @@ Criteria may have varying relationships with each other and their satisfaction o
 _Sibling criteria_ have an additive relationship. If a defender satisfies two sibling criteria, his score represents the sum of the two up to a maximum of 100%. This relationship generally describe criteria that can be satisfied simultaneously and/or which have a cumulative effect. In our example JSON, against a ninja punch attack, a player may can both cross his arms in front of him (`NINJAGHOSTV1-CR2`) and assume the fetal position (`NINJAGHOSTV1-CR3`), and both will help a little bit against the ninja’s punch.
 
 _Cousin criteria_ have a non-additive relationship. If a defender satisfies two cousin criteria, his score represents the maximum of the two. This relationship generally describes criteria with exclusive satisfiability, or which have no cumulative effect. In our example JSON, against a ninja punch, a player may completely evade the punch (`NINJAGHOSTV1-CR1`) or assume the fetal position (`NINJAGHOSTV1-CR3`), but can’t do both.
+
+### Countermeasures vs. criteria
+
+_Countermeasures_ are implementation agnostic and general patterns of defense against a particular attack. _Criteria_ are specific technologies or software implementations of the general countermeasure. For example: An attacker can degrade availability of a website through resource exhaustion ("denial of service") attacks. One countermeasure to this attack is to require that browsers demonstrate likely human input as part of HTTP requests. A criteria for this countermeasure would be whether a website uses Google's reCAPTCHA service in order to submit web form data to the web server.
