@@ -391,7 +391,7 @@
             nonce-id: 7ee62566e6261c196c34158739d46e26a6837da2b9af9f0c39f4d8f3a34fbe57
             attacks: [{
 
-                    #Network Observer Attack 1 of 17
+                    #Network Observer Attack 1 of 15
                     numeral: A
                     name: Link addresses belonging to a single user by observing blockchain data correlations leaked by the wallet in the process of obtaining its relevant blockchain data from the network
                     weight: 0
@@ -487,7 +487,7 @@
                                     description: Outgoing transactions are routed through a different entry point into the network than the source of blockchain data
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 2 of 17
+                    #Network Observer Attack 2 of 15
                     numeral: B
                     name: Link addresses belonging to a single user by observing non-blockchain data correlations to relevant blockchain data queries
                     weight: 0
@@ -529,7 +529,7 @@
                                     description: The wallet client does not send stateful information in messages that persists between connection contexts
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 3 of 17
+                    #Network Observer Attack 3 of 15
                     numeral: C
                     name: Link transactions belonging to a single user by observing blockchain data correlations leaked by the wallet in the process of obtaining its relevant blockchain data from the network
                     weight: 0
@@ -578,7 +578,7 @@
                                     description: The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 4 of 17
+                    #Network Observer Attack 4 of 15
                     numeral: D
                     name: Link transactions belonging to a single user by observing non-blockchain data correlations to relevant blockchain data queries
                     weight: 0
@@ -611,7 +611,7 @@
                                     description: The wallet client does not send stateful information in messages that persists between connection contexts
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 5 of 17
+                    #Network Observer Attack 5 of 15
                     numeral: E
                     name: Link addresses belonging to a single user by observing the origin IP address of the first relay of one or more broadcasted transactions
                     weight: 0
@@ -674,7 +674,7 @@
                                     description: Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 6 of 17
+                    #Network Observer Attack 6 of 15
                     numeral: F
                     name: Reduce the false positive rate of filters by comparing how the filters received from a single client change over time
                     weight: 0
@@ -693,7 +693,7 @@
                                     description: A single query for blockchain data may corerespond to multiple addresses in a user's wallet, but a separate connection context is used for each query
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 7 of 16
+                    #Network Observer Attack 7 of 15
                     numeral: G
                     name: Link different identities belonging to a single user by observing blockchain data correlations leaked by the wallet in the process of obtaining its relevant blockchain data from the network
                     weight: 0
@@ -715,7 +715,7 @@
                                     description: Any given network query for blockchain data does not correspond to addresses that belong to different identity containers within the user's wallet
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 8 of 16
+                    #Network Observer Attack 8 of 15
                     numeral: H
                     name: Link different identities by observing that the same IP address is sending outgoing transactions associated with multiple identities
                     weight: 0
@@ -731,7 +731,7 @@
                                     description: Avoids broadcasting outgoing transactions from different identity containers via the same connection context
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 9 of 16
+                    #Network Observer Attack 9 of 15
                     numeral: I
                     name: Temporally link transactions to a known IP address via side channel attacks based on wallet behavior
                     weight: 0
@@ -761,7 +761,7 @@
                                     description: Wallet avoids leaking information about recipients via an external identity lookup
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 10 of 16
+                    #Network Observer Attack 10 of 15
                     numeral: J
                     name: Derive the type of wallet used to create a transaction by passively observing idiosyncrasies in the interactive behaviour of the wallet
                     weight: 0
@@ -807,24 +807,8 @@
                                     comment: "Thin client-server model wallet clients such as web wallets fail to pass this criterion by necessarily connecting to known endpoints."
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 11 of 16
+                    #Network Observer Attack 11 of 15
                     numeral: K
-                    name: Correlate activity of a specific wallet across different connection sessions by observing idiosyncratic client wallet behavior which acts as a unique fingerprint
-                    weight: 0
-                    nonce-id: 277ec132f4cb4edc1cffc0905bde99fe5d6453f368661ff9aad87d1fca34662a
-                    countermeasures: [{
-                            numeral: "1"
-                            id: OBPPV3/CM30
-                            description: Avoid communicating state-based information to other entities which could be used to uniquely identify the client
-                            effectiveness: 0
-                            criteria: [{
-                                    numeral: a
-                                    id: OBPPV3/CR180
-                                    description: The wallet client does not send stateful information in messages that persists between connection contexts
-                                    effectiveness: 0 }]}]}{
-
-                    #Network Observer Attack 12 of 16
-                    numeral: L
                     name: Correlate an IP address to a likely transaction participant by monitoring for queries (to a block explorer, etc.) about specific recent transactions
                     weight: 0
                     nonce-id: d0148c236ec02d067a222879531b75dab955b292c738ea95a107791076754983
@@ -856,8 +840,8 @@
                                     description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 13 of 16
-                    numeral: M
+                    #Network Observer Attack 12 of 15
+                    numeral: L
                     name: Perform a transport-level MITM attack on a connection between the wallet and a source of server to obtain PII and/or insert malicious code into the communication between wallet and server
                     weight: 0
                     nonce-id: f8aa58958a67fdd52898976a58bd551d3acfcce13d90f288ea907b1a325c9c21
@@ -878,8 +862,8 @@
                                     description: The wallet client uses a pre-shared symmetric key to authenticate the server
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 14 of 16
-                    numeral: N
+                    #Network Observer Attack 13 of 15
+                    numeral: M
                     name: Identify an entity as a likely transaction participant by observing out-of-band notifications subsequent to a transaction generated by any participant and/or their wallet provider
                     weight: 0
                     nonce-id: 543ff516a3b027ec62e9a50480eb1ccc5376fedbff70b8f5fc5588c7129c9e6d
@@ -907,8 +891,8 @@
                                     description: Number of clicks to prevent the wallet provider from sending out-of-band notifications to the user about a transaction
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 15 of 16
-                    numeral: O
+                    #Network Observer Attack 14 of 15
+                    numeral: N
                     name: Determine the change output of a transaction by observing different versions of it broadcast as part of an RBF process
                     weight: 0
                     nonce-id: e737524c8112bb0b242823cf10674160ed3538f08a95dd42b64d8f491ac311d9
@@ -927,8 +911,8 @@
                                     description: When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 16 of 16
-                    numeral: P
+                    #Network Observer Attack 15 of 15
+                    numeral: O
                     name: Correlate transactions with out-of-band behavior by recording the time at which transactions enter the network
                     weight: 0
                     nonce-id: f62d0ecf74cbb379fcde438a97a52d08eb79b07acde409e47b1dbcf9c814d114
@@ -1577,6 +1561,7 @@
             nonce-id: "81cbfc2b072d724c376bce049f0ae1041f41d6179a7ae045e53a0f569bf85373" }{
 
             id: OBPPV3/CM30
+            # TODO: review all network observer attacks to see if CM30 should be listed under them
             description: Avoid communicating state-based information to other entities which could be used to uniquely identify the client
             nonce-id: "bb40b47a21675a231c9fb0bb33d9f316e26590a473d481c4e9be3a3d101f8fa9" }{
 
