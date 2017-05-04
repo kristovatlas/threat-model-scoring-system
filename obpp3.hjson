@@ -733,6 +733,7 @@
                     name: Temporally link transactions to a known IP address via side channel attacks based on wallet behavior
                     weight: 0
                     nonce-id: 43100ea35b524b5aaa340230718db1c17e2afe96191f3a2a312c1cff46fbb513
+                    comment: "Example Scenario: A blockchain data API server observes wallet client query balance data for a specific Bitcoin address. Shortly thereafter, the server observes that funds are sent to that address. From these observations, the operator of the server may infer that the querying wallet client was the sender or receiver implicated in the transaction."
                     countermeasures: [{
 
                             #Countermeasure 1 of 2
