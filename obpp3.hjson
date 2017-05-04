@@ -397,8 +397,11 @@
                     weight: 0
                     nonce-id: b3e3946042646148f10905084fa2e00d8344e1a9c1acace5e9d3db2d4b339805,
                     comments: [
+
                         "Example Scenario: A blockchain data API server receives a request from a client for the UTXO set for xpubXYZ which includes all addresses derived from the xpub, and therefore infers mutual ownership of those addresses."
-                        "Example Scenario: A network observer connects to an SPV node in the Bitcoin P2P network and records its Bloom filters and any transactions it broadcasts. The observer compares addresses in the broadcasted transactions to the Bloom filters to determine which transactions and addresses likely belong to that node's wallet."
+
+                        "Example Scenario: A network observer connects to an SPV node in the Bitcoin P2P network and records its Bloom filters and any transactions it broadcasts. The observer compares addresses in the broadcasted transactions to the Bloom filters to determine which transactions and addresses likely belong to that node's wallet." ]
+
                     countermeasures: [{
 
                             #Countermeasure 1 of 3
@@ -471,7 +474,7 @@
                                         numeral: f
                                         id: OBPPV3/CR180
                                         description: The wallet client does not send stateful information in messages that persists between connection contexts
-                                        effectiveness: 0 }]}]}]}{
+                                        effectiveness: 0 }]}]}{
 
                             #Countermeasure 3 of 3
                             numeral: "3"
