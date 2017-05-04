@@ -663,6 +663,9 @@
                     name: Reduce the false positive rate of filters by comparing how the filters received from a single client change over time
                     weight: 0
                     nonce-id: 7df9676792e7439f391c641a206ed4505d6bdf7b5c43f4c8b1dcecf4776ebc75
+                    comments: [
+                        "Example Scenario: A network attacker connects to a Bitcoin SPV P2P node and observes changes to its bloom filters over a long period of time, reducing the false-positive rate of those filters."
+                        "Reference: https://eprint.iacr.org/2014/763.pdf" ]
                     countermeasures: [{
                             numeral: "1"
                             id: OBPPV3/CM22
