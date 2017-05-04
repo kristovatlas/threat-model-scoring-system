@@ -692,9 +692,15 @@
 
                     #Network Observer Attack 7 of 16
                     numeral: G
-                    name: Link different identities based on a bloom/prefix filter or other query that matches blockchain data associated with multiple identities
+                    name: Link different identities belonging to a single user by observing blockchain data correlations leaked by the wallet in the process of obtaining its relevant blockchain data from the network
                     weight: 0
                     nonce-id: 140539e51bfb8cf15674b525c4f10221f6c6a2e505214d026b741d0ae3fcacf3
+                    comments: [
+
+                        "Example Scenario: A network observer connects to SPV nodes in the Bitcoin P2P network. The observer receives a Bloom filter from a client that uses a single Bloom filter to match addresses for multiple wallet identities, linking the identities together for the observer."
+
+                        "Note: The confidence of the clustering effect is proportional to the false-positive rate of the filter (typically 5%)." ]
+
                     countermeasures: [{
                             numeral: "1"
                             id: OBPPV3/CM24
