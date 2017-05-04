@@ -763,6 +763,12 @@
                     name: Derive the type of wallet used to create a transaction by passively observing idiosyncrasies in the interactive behaviour of the wallet
                     weight: 0
                     nonce-id: 4fdc28522ebe1933607a7714e280ce75284f0641266360bc0df9d19c9fd2e7ab
+                    comments: [
+
+                        "Example Scenario: A network observer connects to a Bitcoin P2P node and during communication observes the user-agent string communicated by that node, fingerprinting the client in use."
+
+                        "Example Scenario: A web server providing wallet backup retrieval and blockchain data to web wallet clients knows that a request is coming from software clients written by the same company, and can infer the specific version based on the idiosyncrasies of the interaction." ]
+
                     countermeasures: [{
 
                             #Countermeasure 1 of 2
@@ -795,6 +801,7 @@
                                     numeral: a
                                     id: OBPPV3/CR37
                                     description: The wallet avoids observably connecting to a known endpoint, such as a wallet provider's domain
+                                    comment: "Thin client-server model wallet clients such as web wallets fail to pass this criterion by necessarily connecting to known endpoints."
                                     effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 11 of 16
