@@ -456,6 +456,11 @@
                                             numeral: f
                                             id: OBPPV3/CR180
                                             description: The wallet client does not send stateful information in messages that persists between connection contexts
+                                            effectiveness: 0 }{
+
+                                            numeral: g
+                                            id: OBPPV3/CR170
+                                            description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query
                                             effectiveness: 0 }]}{
 
                                     criteria: [{
@@ -474,6 +479,11 @@
                                         numeral: f
                                         id: OBPPV3/CR180
                                         description: The wallet client does not send stateful information in messages that persists between connection contexts
+                                        effectiveness: 0 }{
+
+                                        numeral: g
+                                        id: OBPPV3/CR170
+                                        description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query
                                         effectiveness: 0 }]}]}{
 
                             #Countermeasure 3 of 3
@@ -1809,6 +1819,7 @@
             comment: "A 'connection context' is a persistent network connection to a network peer, such as a Tor identity in Tor Browser used to access a blockchain explorer API, or a TCP connection to another node in the Bitcoin P2P network with a specific origin IP address. The degree to which a new connection context has been created is the degree to which a network observer would find it difficult to correlate new network interactions with prior ones" }{
 
             id: OBPPV3/CR27
+            #OBPPV3/CR27 and OBPPV3/CR170 are twin criteria, and should always be listed together.
             description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query
             nonce-id: 16b6ab28cba33110aebdac4a1c1309a5c31a599f31e641d9a46d718f1ad31db1
             comment: "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters" }{
@@ -2092,6 +2103,7 @@
             nonce-id: "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3" }{
 
             id: OBPPV3/CR170
+            #OBPPV3/CR27 and OBPPV3/CR170 are twin criteria, and should always be listed together.
             description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query
             nonce-id: 584c85a88f62a5b7ca7de1f2d0a12c3555b348a7d6df05cfc849917788b4a695
             comment: "Includes filters with a non-zero fraction of false positives, such as prefix or bloom filters" }{
