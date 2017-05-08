@@ -940,6 +940,7 @@
 
                                     numeral: b
                                     id: OBPPV3/CR161
+                                    # TODO: Add tag: BIP 151
                                     description: The wallet client uses a pre-shared symmetric key to authenticate the server
                                     effectiveness: 0 }{
 
@@ -1414,6 +1415,8 @@
                     weight: 0
                     nonce-id: 0fbb6308974653bc2d96223b08bd23de3845ae82f46accef5cfd06b711104a41
                     countermeasures: [{
+
+                            #Countermeasure 1 of 2
                             numeral: "1"
                             id: OBPPV3/CM55
                             description: Provide a deterministic build system that allows users to verify that the binary version they have received was compiled from the public source code
@@ -1438,6 +1441,34 @@
                                     numeral: d
                                     id: OBPPV3/CR122
                                     description: The wallet client cryptographically verifies all packaged software updates with a pinned public key before automatically updating software
+                                    effectiveness: 0 }]}{
+
+                            #Countermeasure 2 of 2
+                            numeral: "2"
+                            id: OBPPV3/CM32
+                            description: Network communication begins with authenticating the server or peer before encrypting subsequent traffic
+                            effectiveness: 0
+                            comments: [
+
+                                "Authenticating code in transit from the wallet provider (e.g. for a web wallet) using encrpytion can prevent a MITM attacker from tampering with the client logic to induce privacy vulnerabilities."
+
+                                "This countermeasure in this context pertains to encryption of code and not data." ]
+
+                            criteria: [{
+
+                                    numeral: a
+                                    id: OBPPV3/CR160
+                                    description: The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic
+                                    effectiveness: 0 }{
+
+                                    numeral: b
+                                    id: OBPPV3/CR161
+                                    description: The wallet client uses a pre-shared symmetric key to authenticate the server
+                                    effectiveness: 0 }{
+
+                                    numeral: c
+                                    id: OBPPV3/CR162
+                                    description: The wallet client uses a server-presented X509 certificate issued by a Certificate Authority to encrypt traffic sent to the server
                                     effectiveness: 0 }]}]}{
 
                     #Wallet provider attack 6 of 6
