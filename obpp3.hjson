@@ -510,7 +510,7 @@
 
                     countermeasures: [{
 
-                            #Countermeasure 1 of 2
+                            #Countermeasure 1 of 3
                             numeral: "1"
                             id: OBPPV3/CM19
                             description: Connect to the source of relevant blockchain data in a manner that does not leak the IP address of the requestor
@@ -532,7 +532,7 @@
                                     description: The wallet client warns a user when displaying or activating a link that will query a third-party source of blockchain data
                                     effectiveness: 0 }]}{
 
-                            #Countermeasure 2 of 2
+                            #Countermeasure 2 of 3
                             numeral: "2"
                             id: OBPPV3/CM30
                             description: Avoid communicating state-based information to other entities which could be used to uniquely identify the client
@@ -542,6 +542,29 @@
                                     numeral: a
                                     id: OBPPV3/CR180
                                     description: The wallet client does not send stateful information in messages that persists between connection contexts
+                                    effectiveness: 0 }]}{
+
+                            #Countermeasure 3 of 3
+                            numeral: "3"
+                            id: OBPPV3/CM32
+                            description: Network communication begins with authenticating the server or peer before encrypting subsequent traffic
+                            effectiveness: 0
+                            comment: "Encrypting traffic prevents passive network adversaries from inspecting the contents of blockchain data queries, but does not thwart active network adversaries"
+                            criteria: [{
+
+                                    numeral: a
+                                    id: OBPPV3/CR160
+                                    description: The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic
+                                    effectiveness: 0 }{
+
+                                    numeral: b
+                                    id: OBPPV3/CR161
+                                    description: The wallet client uses a pre-shared symmetric key to authenticate the server
+                                    effectiveness: 0 }{
+
+                                    numeral: c
+                                    id: OBPPV3/CR162
+                                    description: The wallet client uses a server-presented X509 certificate issued by a Certificate Authority to encrypt traffic sent to the server
                                     effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 3 of 15
@@ -608,7 +631,7 @@
                         "Example Scenario: A blockchain data API server observes the same client request data for two different Bitcoin transactions while including the same unique HTTP cookie value between requests" ]
                     countermeasures: [{
 
-                            #Countermeasure 1 of 2
+                            #Countermeasure 1 of 3
                             numeral: "1"
                             id: OBPPV3/CM16
                             description: Obtain relevant blockchain data without making queries to other network participants
@@ -619,7 +642,7 @@
                                     description: Blockchain data is obtained from a local copy of the blockchain
                                     effectiveness: 1.0 }]}{
 
-                            #Countermeasure 2 of 2
+                            #Countermeasure 2 of 3
                             numeral: "2"
                             id: OBPPV3/CM30
                             description: Avoid communicating state-based information to other entities which could be used to uniquely identify the client
@@ -629,6 +652,29 @@
                                     numeral: a
                                     id: OBPPV3/CR180
                                     description: The wallet client does not send stateful information in messages that persists between connection contexts
+                                    effectiveness: 0 }]}{
+
+                            #Countermeasure 3 of 3
+                            numeral: "3"
+                            id: OBPPV3/CM32
+                            description: Network communication begins with authenticating the server or peer before encrypting subsequent traffic
+                            effectiveness: 0
+                            comment: "Encrypting traffic prevents passive network adversaries from inspecting the contents of blockchain data queries, but does not thwart active network adversaries"
+                            criteria: [{
+
+                                    numeral: a
+                                    id: OBPPV3/CR160
+                                    description: The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic
+                                    effectiveness: 0 }{
+
+                                    numeral: b
+                                    id: OBPPV3/CR161
+                                    description: The wallet client uses a pre-shared symmetric key to authenticate the server
+                                    effectiveness: 0 }{
+
+                                    numeral: c
+                                    id: OBPPV3/CR162
+                                    description: The wallet client uses a server-presented X509 certificate issued by a Certificate Authority to encrypt traffic sent to the server
                                     effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 5 of 15
@@ -638,7 +684,7 @@
                     nonce-id: 9e8d656ba62759f3afe0534b7bd7c2bfd060755ef24a306d6b4f7801bb265f33
                     countermeasures: [{
 
-                            #Countermeasure 1 of 3
+                            #Countermeasure 1 of 4
                             numeral: "1"
                             id: OBPPV3/CM20
                             description: Route outgoing transactions via a method that does not reveal the IP address of the sender
@@ -659,14 +705,14 @@
                                     description: A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user
                                     effectiveness: 0 }]}{
 
-                            #Countermeasure 2 of 3
+                            #Countermeasure 2 of 4
                             numeral: "2"
                             id: OBPPV3/CM21
                             description: Broadcast outgoing transactions in a manner that causes them to appear to have a network origin distinct from previously-broadcast transactions
                             effectiveness: 0
                             criteria: [] }{
 
-                            #Countermeasure 3 of 3
+                            #Countermeasure 3 of 4
                             numeral: "3"
                             id: OBPPV3/CM11
                             description: Use mixing when sending transactions, and make non-mixed transactions resemble mixed transactions
@@ -692,6 +738,29 @@
                                     numeral: d
                                     id: OBPPV3/CR20
                                     description: Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions
+                                    effectiveness: 0 }]}{
+
+                            #Countermeasure 4 of 4
+                            numeral: "4"
+                            id: OBPPV3/CM32
+                            description: Network communication begins with authenticating the server or peer before encrypting subsequent traffic
+                            effectiveness: 0
+                            comment: "Encrypting traffic prevents passive network adversaries from inspecting the contents of a transaction broadcasted from one peer to another, but does not thwart active network adversaries"
+                            criteria: [{
+
+                                    numeral: a
+                                    id: OBPPV3/CR160
+                                    description: The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic
+                                    effectiveness: 0 }{
+
+                                    numeral: b
+                                    id: OBPPV3/CR161
+                                    description: The wallet client uses a pre-shared symmetric key to authenticate the server
+                                    effectiveness: 0 }{
+
+                                    numeral: c
+                                    id: OBPPV3/CR162
+                                    description: The wallet client uses a server-presented X509 certificate issued by a Certificate Authority to encrypt traffic sent to the server
                                     effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 6 of 15
@@ -756,10 +825,12 @@
                     name: Temporally link transactions to a known IP address via side channel attacks based on wallet behavior
                     weight: 0
                     nonce-id: 43100ea35b524b5aaa340230718db1c17e2afe96191f3a2a312c1cff46fbb513
-                    comment: "Example Scenario: A blockchain data API server observes wallet client query balance data for a specific Bitcoin address. Shortly thereafter, the server observes that funds are sent to that address. From these observations, the operator of the server may infer that the querying wallet client was the sender or receiver implicated in the transaction."
+                    comments: [
+                        "Example Scenario: A blockchain data API server observes wallet client query balance data for a specific Bitcoin address. Shortly thereafter, the server observes that funds are sent to that address. From these observations, the operator of the server may infer that the querying wallet client was the sender or receiver implicated in the transaction."
+                        "Example Scenario: An email provider observes that a wallet provider has just sent an email to a user containing a new encrypted wallet backup; the email was sent automatically after the user generated a new receiving address. The email provider infers from this that Bitcoin addresses which receive funds for the first time shortly after this moment are more likely to belong to the email recipient." ]
                     countermeasures: [{
 
-                            #Countermeasure 1 of 2
+                            #Countermeasure 1 of 3
                             numeral: "1"
                             id: OBPPV3/CM26
                             description: Avoid leaking information about user behavior via observable network traffic
@@ -770,7 +841,7 @@
                                     description: The backup process avoids leaking information about wallet addresses
                                     effectiveness: 0 }]}{
 
-                            #Countermeasure 2 of 2
+                            #Countermeasure 2 of 3
                             numeral: "2"
                             id: OBPPV3/CM27
                             description: Avoid leaking information about recipients in transaction via an external network lookup
@@ -779,6 +850,29 @@
                                     numeral: a
                                     id: OBPPV3/CR36
                                     description: Wallet avoids leaking information about recipients via an external identity lookup
+                                    effectiveness: 0 }]}{
+
+                            #Countermeasure 3 of 3
+                            numeral: "3"
+                            id: OBPPV3/CM32
+                            description: Network communication begins with authenticating the server or peer before encrypting subsequent traffic
+                            effectiveness: 0
+                            comment: "Encrypting traffic prevents passive network adversaries from inspecting the contents of blockchain data queries, but does not thwart active network adversaries"
+                            criteria: [{
+
+                                    numeral: a
+                                    id: OBPPV3/CR160
+                                    description: The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic
+                                    effectiveness: 0 }{
+
+                                    numeral: b
+                                    id: OBPPV3/CR161
+                                    description: The wallet client uses a pre-shared symmetric key to authenticate the server
+                                    effectiveness: 0 }{
+
+                                    numeral: c
+                                    id: OBPPV3/CR162
+                                    description: The wallet client uses a server-presented X509 certificate issued by a Certificate Authority to encrypt traffic sent to the server
                                     effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 10 of 15
@@ -847,6 +941,11 @@
                                     numeral: b
                                     id: OBPPV3/CR161
                                     description: The wallet client uses a pre-shared symmetric key to authenticate the server
+                                    effectiveness: 0 }{
+
+                                    numeral: c
+                                    id: OBPPV3/CR162
+                                    description: The wallet client uses a server-presented X509 certificate issued by a Certificate Authority to encrypt traffic sent to the server
                                     effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 12 of 14
@@ -2068,12 +2167,20 @@
             nonce-id: "64805513b3eb320e02c1ea31cb32df78ee86bddc1bdd2ae019f0ea180061aa5c" }{
 
             id: OBPPV3/CR160
+            #Criteria OBPPV3/CR160, OBPPV3/CR161, and OBPPV3/CR163 are a triplet and should be included with one another
             description: The wallet client uses a pinned X509 certificate or public key for transport encryption of traffic
             nonce-id: "a62783a2a4e41ffecd4d01df3dd833af64e74c9f219f6823eb6ae3a6bdc3d3cb" }{
 
             id: OBPPV3/CR161
+            #Criteria OBPPV3/CR160, OBPPV3/CR161, and OBPPV3/CR163 are a triplet and should be included with one another
             description: The wallet client uses a pre-shared symmetric key to authenticate the server
             nonce-id: "89cf304da67d8cbea9842fec81f6b2dd25e726b6da5698b0bc5e038c20db3ee3" }{
+
+            id: OBPPV3/CR162
+            #Criteria OBPPV3/CR160, OBPPV3/CR161, and OBPPV3/CR163 are a triplet and should be included with one another
+            description: The wallet client uses a server-presented X509 certificate issued by a Certificate Authority to encrypt traffic sent to the server
+            comment: "This method of encryption is less robust than a pinned X509 certificate (OBPPV3/CR160) since CA infrastructure may be compromised to generate unauthorized certificates"
+            nonce-id: "7081c706e0290bde39acf16fb8dde9ea1ff5a10837a8803f0a9f99bfba546bb5" }{
 
             id: OBPPV3/CR170
             #OBPPV3/CR27 and OBPPV3/CR170 are twin criteria, and should always be listed together.
