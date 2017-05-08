@@ -956,6 +956,7 @@
                     weight: 0
                     nonce-id: e737524c8112bb0b242823cf10674160ed3538f08a95dd42b64d8f491ac311d9
                     countermeasures: [{
+
                             numeral: "1"
                             id: OBPPV3/CM35
                             description: Avoid broadcasting more than one version of a transaction
@@ -968,7 +969,14 @@
 
                                     id: OBPPV3/CR91
                                     description: When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions
-                                    effectiveness: 0 }]}]}{
+                                    effectiveness: 0 }]}{
+
+                            numeral: "2"
+                            id: OBPPV3/CM63
+                            description: The values of transaction outputs do not reveal information regarding output ownership
+                            effectiveness: 0
+                            # TODO: Carefully select relevant criteria from CM63 listed elsewhere
+                            criteria: []}]}{
 
                     #Network Observer Attack 13 of 13
                     numeral: M
