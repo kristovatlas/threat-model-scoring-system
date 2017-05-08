@@ -525,6 +525,11 @@
                                     numeral: b
                                     id: OBPPV3/CR29
                                     description: The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network
+                                    effectiveness: 0 }{
+
+                                    numeral: c
+                                    id: OBPPV3/CR400
+                                    description: The wallet client warns a user when displaying or activating a link that will query a third-party source of blockchain data
                                     effectiveness: 0 }]}{
 
                             #Countermeasure 2 of 2
@@ -586,6 +591,11 @@
                                     numeral: b
                                     id: OBPPV3/CR29
                                     description: The wallet client provides visual indication and displays the user's apparent IP address if blockchain data is not being obtained through an anonymizing network
+                                    effectiveness: 0 }{
+
+                                    numeral: c
+                                    id: OBPPV3/CR400
+                                    description: The wallet client warns a user when displaying or activating a link that will query a third-party source of blockchain data
                                     effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 4 of 15
@@ -817,41 +827,8 @@
                                     comment: "Thin client-server model wallet clients such as web wallets fail to pass this criterion by necessarily connecting to known endpoints."
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 11 of 15
+                    #Network Observer Attack 11 of 14
                     numeral: K
-                    name: Correlate an IP address to a likely transaction participant by monitoring for queries (to a block explorer, etc.) about specific recent transactions
-                    weight: 0
-                    nonce-id: d0148c236ec02d067a222879531b75dab955b292c738ea95a107791076754983
-                    countermeasures: [{
-                            numeral: "1"
-                            id: OBPPV3/CM31
-                            description: Avoid performing queries to third party services regarding specific transactions in a manner which reveals the IP address of the user
-                            effectiveness: 0
-                            criteria: [{
-
-                                    numeral: a
-                                    id: OBPPV3/CR24
-                                    description: Number of clicks required by user to configure the client to query blockchain data without leaking his machine's identity over the network
-                                    effectiveness: 0 }{
-
-                                    numeral: b
-                                    id: OBPPV3/CR25
-                                    description: Blockchain data is obtained from a local copy of the blockchain
-                                    effectiveness: 0 }{
-
-                                    numeral: c
-                                    id: OBPPV3/CR27
-                                    description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query
-                                    effectiveness: 0
-                                    comment: "Score for this criterion should be the mean fraction of the blockchain returned in queries, where downloading the entire blockchain is a perfect score" }{
-
-                                    numeral: d
-                                    id: OBPPV3/CR170
-                                    description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin transactions beyond the intent of the query
-                                    effectiveness: 0 }]}]}{
-
-                    #Network Observer Attack 12 of 15
-                    numeral: L
                     name: Perform a transport-level MITM attack on a connection between the wallet and a source of server to obtain PII and/or insert malicious code into the communication between wallet and server
                     weight: 0
                     nonce-id: f8aa58958a67fdd52898976a58bd551d3acfcce13d90f288ea907b1a325c9c21
@@ -872,8 +849,8 @@
                                     description: The wallet client uses a pre-shared symmetric key to authenticate the server
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 13 of 15
-                    numeral: M
+                    #Network Observer Attack 12 of 14
+                    numeral: L
                     name: Identify an entity as a likely transaction participant by observing out-of-band notifications subsequent to a transaction generated by any participant and/or their wallet provider
                     weight: 0
                     nonce-id: 543ff516a3b027ec62e9a50480eb1ccc5376fedbff70b8f5fc5588c7129c9e6d
@@ -901,8 +878,8 @@
                                     description: Number of clicks to prevent the wallet provider from sending out-of-band notifications to the user about a transaction
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 14 of 15
-                    numeral: N
+                    #Network Observer Attack 13 of 14
+                    numeral: M
                     name: Determine the change output of a transaction by observing different versions of it broadcast as part of an RBF process
                     weight: 0
                     nonce-id: e737524c8112bb0b242823cf10674160ed3538f08a95dd42b64d8f491ac311d9
@@ -921,8 +898,8 @@
                                     description: When creating new versions of RBF transactions, the client does not modify transaction output values from previous versions
                                     effectiveness: 0 }]}]}{
 
-                    #Network Observer Attack 15 of 15
-                    numeral: O
+                    #Network Observer Attack 14 of 14
+                    numeral: N
                     name: Correlate transactions with out-of-band behavior by recording the time at which transactions enter the network
                     weight: 0
                     nonce-id: f62d0ecf74cbb379fcde438a97a52d08eb79b07acde409e47b1dbcf9c814d114
@@ -1575,10 +1552,6 @@
             description: Avoid communicating state-based information to other entities which could be used to uniquely identify the client
             nonce-id: "bb40b47a21675a231c9fb0bb33d9f316e26590a473d481c4e9be3a3d101f8fa9" }{
 
-            id: OBPPV3/CM31
-            description: Avoid performing queries to third party services regarding specific transactions in a manner which reveals the IP address of the user
-            nonce-id: "c8eedfc7add5c500eae3227e265983e480a21d9985a5c9fc51d3b6d67f28624d" }{
-
             id: OBPPV3/CM32
             description: Network communication begins with authenticating the server or peer before encrypting subsequent traffic
             nonce-id: "56c04d497f9587a4465ce50ae567e215a207da7d769b6261799630b5eb86c5bb" }{
@@ -2127,7 +2100,12 @@
 
             id: OBPPV3/CR300
             description: Blockchain data is queried via probabilistic filters matching a fraction of Bitcoin addresses with a transaction history beyond the intent of the query, and which are constant in size and do not intersect with previous existing filters created by the client for a given wallet.
-            nonce-id: "0db1f824f986d639357ecacb3c668355dbf518cd2ce884d4017f191de373fdd5" }]
+            nonce-id: "0db1f824f986d639357ecacb3c668355dbf518cd2ce884d4017f191de373fdd5" }{
+
+            id: OBPPV3/CR400
+            description: The wallet client warns a user when displaying or activating a link that will query a third-party source of blockchain data
+            nonce-id: "a3cd732fa93c6487ac83bbf7b2f37271ef5259b0c1b2701e2185e8a8d492003d"
+            comment: "This criteria emphasizes third-party sources of blockchain data because such queries may not be anticipated to the user." }]
 
     criteria-categories: [
         Usability
