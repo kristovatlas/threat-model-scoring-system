@@ -506,7 +506,9 @@
 
                         "Non-blockchain data that may be consistent between blockchain data queries includes source IP address of packets, time zone, bandwidth/latency capacity of a client, stateful values such as HTTP cookies, etc."
 
-                        "Example Scenario: A blockchain data API server observes the same client request UTXOs for two different Bitcoin addresses while including the same unique HTTP cookie value between requests" ]
+                        "Example Scenario: A blockchain data API server observes the same client request UTXOs for two different Bitcoin addresses while including the same unique HTTP cookie value between requests"
+
+                        "Example Scenario: A network attacker operating a node in the Bitcoin P2P network connects to other peers and fingerprints their client based on User-Agent headers transmitted to it. Using this information -- and knowing that transactions first broadcasted by the same client software version are more likely to belong to a single wallet -- it improves its address clustering confidence." ]
 
                     countermeasures: [{
 
@@ -679,12 +681,18 @@
 
                     #Network Observer Attack 5 of 15
                     numeral: E
-                    name: Link addresses belonging to a single user by observing the origin IP address of the first relay of one or more broadcasted transactions
+                    name: Observe the origin IP address of the first relay of one or more broadcasted transactions
                     weight: 0
                     nonce-id: 9e8d656ba62759f3afe0534b7bd7c2bfd060755ef24a306d6b4f7801bb265f33
+                    comments: [
+
+                        "Example Scenario: A wallet provider which receives its clients' outgoing transactions before broadcasting them to the Bitcoin P2P network observes multiple outgoing transactions sent through its API from a single IP client address. Using this information -- and the knowledge that transactions sent from a single IP address are more likely to correspond to a single wallet --  the wallet provider increases its confidence that all transaction inputs belong to a single wallet"
+
+                        "Example Scenario: A network attacker operating a node in the Bitcoin P2P network connects to other peers and fingerprints their client based on observing the origin IP address of the first relay of transactions and knowledge that these IP addresses are operated by specific wallet providers" ]
+
                     countermeasures: [{
 
-                            #Countermeasure 1 of 4
+                            #Countermeasure 1 of 6
                             numeral: "1"
                             id: OBPPV3/CM20
                             description: Route outgoing transactions via a method that does not reveal the IP address of the sender
@@ -705,14 +713,14 @@
                                     description: A non-zero percentage of transactions broadcast over a network by the wallet client do not originate from the user
                                     effectiveness: 0 }]}{
 
-                            #Countermeasure 2 of 4
+                            #Countermeasure 2 of 6
                             numeral: "2"
                             id: OBPPV3/CM21
                             description: Broadcast outgoing transactions in a manner that causes them to appear to have a network origin distinct from previously-broadcast transactions
                             effectiveness: 0
                             criteria: [] }{
 
-                            #Countermeasure 3 of 4
+                            #Countermeasure 3 of 6
                             numeral: "3"
                             id: OBPPV3/CM11
                             description: Use mixing when sending transactions, and make non-mixed transactions resemble mixed transactions
@@ -740,7 +748,7 @@
                                     description: Mixing transactions are constructed in a manner that makes them indistinguishable from non-mixing transactions
                                     effectiveness: 0 }]}{
 
-                            #Countermeasure 4 of 4
+                            #Countermeasure 4 of 6
                             numeral: "4"
                             id: OBPPV3/CM32
                             description: Network communication begins with authenticating the server or peer before encrypting subsequent traffic
@@ -761,6 +769,39 @@
                                     numeral: c
                                     id: OBPPV3/CR162
                                     description: The wallet client uses a server-presented X509 certificate issued by a Certificate Authority to encrypt traffic sent to the server
+                                    effectiveness: 0 }]}{
+
+                            #Countermeasure 5 of 6
+                            numeral: "5"
+                            id: OBPPV3/CM65
+                            description: Use a mixing protocol that produces transactions which cannot be fingerprinted to a specific wallet client
+                            effectiveness: 0
+                            comment: "This countermeasure mitigates fingerprinting information leaked via use of a distinctive mixing method"
+                            criteria: []}{
+
+                            #Countermeasure 6 of 6
+                            numeral: "6"
+                            id: OBPPV3/CM36
+                            description: Broadcast outgoing transactions in a manner that is not easily correlated to the wallet provider
+                            effectiveness: 0
+                            # TODO: consider copying this attack to the Wallet Provider since this countermeasure is not effective when the network observer is the wallet provider
+                            comment: "This countermeasure will mitigate fingerprinting performed by other nodes in the Bitcoin P2P network, but not by the wallet provider"
+                            criteria: [{
+
+                                    id: OBPPV3/CR84
+                                    description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order
+                                    effectiveness: 0 }{
+
+                                    id:OBPPV3/CR81
+                                    description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API selected at random from a list of nodes/APIs once per transaction
+                                    effectiveness: 0 }{
+
+                                    id: OBPPV3/CR82
+                                    description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API that is used by more than one wallet provider for pushing transactions to the network
+                                    effectiveness: 0 }{
+
+                                    id: OBPPV3/CR83
+                                    description: Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique
                                     effectiveness: 0 }]}]}{
 
                     #Network Observer Attack 6 of 15
@@ -1007,40 +1048,12 @@
             nonce-id: a0ef0ab855cfca6267df9f5f57c0112f16bee5340089a72f3c5482d5eef5c7ee
             attacks: [{
 
-                    #Protocol peer attack 1 of 2
+                    #Protocol peer attack 1 of 1
                     numeral: A
                     name: Derive the type of wallet used to create a transaction by actively probing the wallet to discover idiosyncrasies in the interactive behaviour of the wallet
                     weight: 0
                     nonce-id: bb54f07d484598a30263400020d013718a5015fcf26f0d7ca1f2469e00ef1286
-                    countermeasures: [] }{
-
-                    #Protocol peer attack 2 of 2
-                    numeral: B
-                    name: Derive the type of wallet used to create a transaction by observing the first hop IP address
-                    weight: 0
-                    nonce-id: 9255a5774be66d0bd63992bde415a4ba781ab6a52181a5c0f18df1fac55b19c5
-                    countermeasures: [{
-                            numeral: "1"
-                            id: OBPPV3/CM36
-                            description: Broadcast outgoing transactions in a manner that is not easily correlated to the wallet provider
-                            effectiveness: 0
-                            criteria: [{
-
-                                    id: OBPPV3/CR84
-                                    description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network via multiple nodes roughly simultaneously, in random order
-                                    effectiveness: 0 }{
-
-                                    id:OBPPV3/CR81
-                                    description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API selected at random from a list of nodes/APIs once per transaction
-                                    effectiveness: 0 }{
-
-                                    id: OBPPV3/CR82
-                                    description: New transactions signed by the wallet client are introduced to the Bitcoin P2P network using one node/API that is used by more than one wallet provider for pushing transactions to the network
-                                    effectiveness: 0 }{
-
-                                    id: OBPPV3/CR83
-                                    description: Transactions are conveyed to the next hop via a randomized Tor connection or an equivalent technique
-                                    effectiveness: 0 }]}]}]}{
+                    countermeasures: []}]}{
 
             #Attacker 4 of 7
             numeral: IV
@@ -1789,7 +1802,11 @@
 
             id: OBPPV3/CM64
             description: The composition of transaction output scripts and ECDSA signatures does not reveal information regarding counterparty ownership of outputs
-            nonce-id: "4df487da38a897450d7f2207d24899d46ac7a4ed26fdec49a9159dd8b69f9e0d" }]
+            nonce-id: "4df487da38a897450d7f2207d24899d46ac7a4ed26fdec49a9159dd8b69f9e0d" }{
+
+            id: OBPPV3/CM65
+            description: Use a mixing protocol that produces transactions which cannot be fingerprinted to a specific wallet client
+            nonce-id: "2b952f37fc4ff09e66cf082499c2ac21a9f95c40ac68bf302901d1f72240b61c" }]
 
     criteria: [{
 
