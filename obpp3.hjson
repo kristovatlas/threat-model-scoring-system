@@ -980,13 +980,14 @@
 
                     #Network Observer Attack 13 of 13
                     numeral: M
-                    name: Correlate transactions with out-of-band behavior by recording the time at which transactions enter the network
+                    name: Correlate transactions with out-of-band behavior by observing the time at which transactions enter the network
                     weight: 0
                     nonce-id: f62d0ecf74cbb379fcde438a97a52d08eb79b07acde409e47b1dbcf9c814d114
                     countermeasures: [{
                             numeral: "1"
                             id: OBPPV3/CM15
                             description: Introduce random delays before introducing new transactions to the network
+                            # TODO: Add tags: Payment channel, Lightning Network
                             effectiveness: 0
                             criteria: [{
                                     numeral: a
