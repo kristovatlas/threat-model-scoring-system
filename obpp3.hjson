@@ -1201,7 +1201,7 @@
                             #Countermeasure 2 of 4
                             numeral: "2"
                             id: OBPPV3/CM45
-                            description: The user can easily erase the application and all its metadata if the decide to stop using the wallet or device
+                            description: The user can easily erase the application and all its metadata if the user decides to stop using the wallet or device
                             effectiveness: 0
                             criteria: [{
 
@@ -1725,7 +1725,7 @@
             nonce-id: "aa2d6bd66f83cb7a65af511cfc42990d3d41008bf7820782f376de197a8dac06" }{
 
             id: OBPPV3/CM45
-            description: The user can easily erase the application and all its metadata if the decide to stop using the wallet or device
+            description: The user can easily erase the application and all its metadata if the user decides to stop using the wallet or device
             nonce-id: "42517f9cb000b8d3951bede96702be8b7602222b7fcc014a2fa661be1616c757" }{
 
             id: OBPPV3/CM46
